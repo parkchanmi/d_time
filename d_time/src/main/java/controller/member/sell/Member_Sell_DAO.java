@@ -1,4 +1,4 @@
-package controller.sell;
+package controller.member.sell;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import model.Menu_DTO;
 import model.Sell_DTO;
 
 
-public class Sell_DAO extends SqlSessionDaoSupport {
+public class Member_Sell_DAO extends SqlSessionDaoSupport {
 
 	public List<Menu_DTO> getMenuList() {
 		List<Menu_DTO> mlist= getSqlSession().selectList("member_sell.menu_all");

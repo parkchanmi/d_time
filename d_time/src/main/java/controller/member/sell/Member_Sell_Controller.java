@@ -1,4 +1,4 @@
-package controller.sell;
+package controller.member.sell;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -13,16 +13,16 @@ import model.Menu_DTO;
 import model.Sell_DTO;
 
 @Controller
-public class Sell_Controller {
+public class Member_Sell_Controller {
 
 	@Autowired
-	private Sell_DAO sdao;
+	private Member_Sell_DAO sdao;
 
-	public Sell_DAO getSdao() {
+	public Member_Sell_DAO getSdao() {
 		return sdao;
 	}
 
-	public void setSdao(Sell_DAO sdao) {
+	public void setSdao(Member_Sell_DAO sdao) {
 		this.sdao = sdao;
 	}
 

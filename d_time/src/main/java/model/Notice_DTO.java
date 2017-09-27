@@ -2,6 +2,8 @@ package model;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Notice_DTO {
 	
 	private int n_no;
@@ -11,6 +13,14 @@ public class Notice_DTO {
 	private int n_count;
 	private int f_no;
 	
+	private MultipartFile n_file;
+	
+	public MultipartFile getN_file() {
+		return n_file;
+	}
+	public void setN_file(MultipartFile n_file) {
+		this.n_file = n_file;
+	}
 	public int getN_no() {
 		return n_no;
 	}

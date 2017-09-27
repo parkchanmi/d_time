@@ -84,7 +84,7 @@
 						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">게시판</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents05">
-						<li><a href="navbar.html">공지사항</a></li>
+						<li><a href="/d_time/admin/notice/notice_list.do">공지사항</a></li>
 						<li><a href="cards.html">건의사항</a></li>
 						<li><a href="navbar.html">정보공유</a></li>
 					</ul></li>

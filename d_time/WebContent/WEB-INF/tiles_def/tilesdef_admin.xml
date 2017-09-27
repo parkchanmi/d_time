@@ -22,9 +22,6 @@
 		<put-attribute name="body" value="/WEB-INF/view/main_admin.jsp" />
 	</definition>
 	
-	
-	
-	
 	<definition name="admin/product/product_list" extends="admin_layout">
 		<put-attribute name="title" value="물품목록" />
 		<put-attribute name="body" value="/WEB-INF/view/admin/product/product_list.jsp" />
@@ -38,31 +35,4 @@
 		<put-attribute name="body" value="/WEB-INF/view/admin/menu/menu_add.jsp" />
 	</definition>
 	
-	<definition name="mem_layout" template="/WEB-INF/template/mem_layout.jsp">
-		<put-attribute name="header"
-			value="/WEB-INF/template/mem_header.jsp" />
-		
-		<put-attribute name="footer"
-			value="/WEB-INF/template/footer.jsp" />
-	</definition>
-	<definition name="main_member" extends="mem_layout">
-		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/main_member.jsp" />
-	</definition>
-	<definition name="sell/main" extends="mem_layout">
-		<put-attribute name="title" value="판매하기" />
-		<put-attribute name="body" value="/WEB-INF/view/member/sell/sell_main.jsp" />
-	</definition>
-	<definition name="sell/sell_sale_do" extends="mem_layout">
-		<put-attribute name="title" value="판매처리" />
-		<put-attribute name="body" value="/WEB-INF/view/member/sell/sell_sale_do.jsp" />
-	</definition>
-	
-	<definition name="admin/notice/notice_list" extends="admin_layout">
-		<put-attribute name="title" value="공지사항글목록" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_list.jsp"/>
-	</definition>
-	
-	
-
 </tiles-definitions>

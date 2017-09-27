@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="controller"/>
+	<context:component-scan base-package="controller.admin.product"/>
+	<context:component-scan base-package="controller.admin.menu"/>
+	<context:component-scan base-package="controller.member.sell"/>
+	<context:component-scan base-package="controller.all.notice"/>
+
+
+	<bean id="admin_product_dao" class="controller.admin.product.Admin_Product_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	<bean id="admin_menu_dao" class="controller.admin.menu.Admin_Menu_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="member_sell_dao" class="controller.member.sell.Sell_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+</beans>

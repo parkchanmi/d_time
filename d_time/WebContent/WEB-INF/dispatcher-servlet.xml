@@ -8,20 +8,22 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-<context:annotation-config/>
-	<context:component-scan base-package="controller"/>
-	<context:component-scan base-package="controller.admin.product"/>
-	<context:component-scan base-package="controller.admin.menu"/>
-	<context:component-scan base-package="controller.sell"/>
-
-
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- <property name="defaultEncoding" value="utf-8"/> <property name="maxUploadSize" 
+			value="10000000"/> <property name="uploadTempDir" value="uploadtemp"/> -->
+	</bean>
+	
 	<bean id="tilesviewResolver"
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/tiles_def/tilesdef.xml</value>
+				<value>/WEB-INF/tiles_def/tilesdef_all.xml</value>
+				<value>/WEB-INF/tiles_def/tilesdef_admin.xml</value>
+				<value>/WEB-INF/tiles_def/tilesdef_member.xml</value>
 			</list>
 		</property>
 		
@@ -88,17 +90,7 @@
 		<property name="mapperLocations" value="classpath:sql/*.xml" />
 	</bean>
 	
-	<context:annotation-config/>
-	<bean id="admin_product_dao" class="controller.admin.product.Admin_Product_DAO">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-	</bean>
-	<bean id="admin_menu_dao" class="controller.admin.menu.Admin_Menu_DAO">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-	</bean>
 	
-	<bean id="member_sell_dao" class="controller.sell.Sell_DAO">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-	</bean>
 
 
 	

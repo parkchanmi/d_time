@@ -153,7 +153,7 @@ function submit_confirm(){
 	
 		<div id='box-cal' class="panel" style="width:70%;height:65%;margin-right:10px;padding:5px;">
 			<form action="/d_time/sell/sell_sale.do" onSubmit="return submit_confirm();">
-			<div id='top-cal' style="overflow:auto;height:450px;background-color:ivory;">
+			<div id='top-cal' style="overflow:auto;height:450px;">
 			<h5>계산</h5>
 			<table  width="100%" id="cal_table">
 			<tr><th width=10%>No</th><th width=40%>주문메뉴명</th><th width=20%>수량</th><th width=30%>판매금액</th></tr>

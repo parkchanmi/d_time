@@ -12,8 +12,21 @@ select * from menu
 insert into sell values(sell_no.nextVal,#{s_no},#{sel_date},#{sel_cost},#{sel_history},#{sel_type},#{sel_count})
 </insert>
 
-<select id="stock_confirm" parameterType="int" resultType="string">
+<select id="recipe_confirm" parameterType="int" resultType="string">
 select m_recipe from menu where m_no=#{m_no}
 </select>
+
+<select id="get_stock" parameterType="map" resultType="int">
+select st_count from stock where s_no=#{s_no} and st_name=#{st_name}
+</select>
+
+<select id="exist_stock" parameterType="map" resultType="string">
+select st_name from stock where s_no=#{s_no} and st_name=#{st_name}
+</select>
+
+<update id="use_stock" parameterType="map">
+update stock set st_count= st_count-#{need_sell} where s_no=#{s_no} and st_name=#{st_name}
+</update>
+
 
 </mapper>

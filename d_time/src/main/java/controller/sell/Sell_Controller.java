@@ -36,13 +36,22 @@ public class Sell_Controller {
 	}
 
 	@RequestMapping("/sell/sell_sale.do")
-	public String sell_submit(String m_type[], String m_name[], int m_count[], int m_cost[], int m_no[]) {
+	public String sell_submit(Model model, String m_type[], String m_name[], int m_count[], int m_cost[], int m_no[]) {
 		String menu_history="";
 		int menu_count=0;
 		int menu_cost=0;
 		ArrayList<Sell_DTO> sell_list = new ArrayList<Sell_DTO>();
+		int s_no = 1;
+		boolean stock_ok = sdao.stock_confirm(m_no,m_count,s_no);
 		
-		int stock_ok = sdao.stock_confirm(m_no,m_count);
+		if(!stock_ok) {
+			System.out.println("재고부족");
+			model.addAttribute("confirm",stock_ok);
+			return "sell/sell_sale_do";
+		}
+		
+		if(stock_ok) 
+			System.out.println("판매가능");
 		
 		for (int i = 0; i < m_name.length; i++) { // 음료 주문 만들기
 			if(i==0) { //초기화
@@ -113,15 +122,18 @@ public class Sell_Controller {
 				System.out.println(menu_history+"수량:"+menu_count+"금액:"+menu_cost);
 			}
 		}
-		/*int result = 0;
+		int result = 0;
 		//db에 저장
 		if(!sell_list.isEmpty())
 			result = sdao.sell_exe(sell_list);
 		
 		if(result!=sell_list.size()) {//에러
-		}*/
+			model.addAttribute("dberr",false);
+		}
 		
-		return "redirect:/sell/sell_main.do";
+		model.addAttribute("confirm",stock_ok);
+		
+		return "sell/sell_sale_do";
 	}
 
 }

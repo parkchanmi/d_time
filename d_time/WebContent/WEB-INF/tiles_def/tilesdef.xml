@@ -53,7 +53,10 @@
 		<put-attribute name="title" value="판매하기" />
 		<put-attribute name="body" value="/WEB-INF/views/sell/sell_main.jsp" />
 	</definition>
-	
+	<definition name="sell/sell_sale_do" extends="mem_layout">
+		<put-attribute name="title" value="판매처리" />
+		<put-attribute name="body" value="/WEB-INF/views/sell/sell_sale_do.jsp" />
+	</definition>
 	
 	
 

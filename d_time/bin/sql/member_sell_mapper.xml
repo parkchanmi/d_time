@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member_sell">
+
+<select id="menu_all" resultType="model.Menu_DTO">
+select * from menu
+</select>
+
+<insert id="sell_exe" parameterType="model.Sell_DTO">
+insert into sell values(sell_no.nextVal,#{s_no},#{sel_date},#{sel_cost},#{sel_history},#{sel_type},#{sel_count})
+</insert>
+
+<select id="stock_confirm" parameterType="int" resultType="string">
+select m_recipe from menu where m_no=#{m_no}
+</select>
+
+</mapper>

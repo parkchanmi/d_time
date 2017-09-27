@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin_menu">
+
+<select id="menu_all" resultType="model.Menu_DTO">
+select * from menu
+</select>
+
+<insert id="add_menu" parameterType="model.Menu_DTO">
+insert into menu values(menu_no.nextVal,#{m_type},#{m_name},#{m_recipe},#{m_cost})
+</insert>
+
+<update id="modify_menu" parameterType="map">
+update menu set m_name=#{m_name}, m_cost=#{m_cost} where m_no=#{m_no}
+</update>
+
+<delete id="delete_menu" parameterType="int">
+delete from menu where m_no=#{m_no}
+</delete>
+</mapper>

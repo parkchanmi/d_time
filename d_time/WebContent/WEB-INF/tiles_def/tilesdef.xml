@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	
+	
+	<definition name="admin_layout" template="/WEB-INF/template/admin_layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/template/admin_header.jsp" />
+		
+		
+		<put-attribute name="footer"
+			value="/WEB-INF/template/footer.jsp" />
+	</definition>
+
+	<definition name="main_admin" extends="admin_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/views/main_admin.jsp" />
+	</definition>
+	
+	
+	
+	
+	<definition name="admin/product/product_list" extends="admin_layout">
+		<put-attribute name="title" value="물품목록" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/product/product_list.jsp" />
+	</definition>
+	<definition name="admin/menu/menu_list" extends="admin_layout">
+		<put-attribute name="title" value="메뉴목록" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/menu/menu_list.jsp" />
+	</definition>
+	<definition name="admin/menu/menu_add" extends="admin_layout">
+		<put-attribute name="title" value="메뉴추가" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/menu/menu_add.jsp" />
+	</definition>
+	
+	<definition name="mem_layout" template="/WEB-INF/template/mem_layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/template/mem_header.jsp" />
+		
+		<put-attribute name="footer"
+			value="/WEB-INF/template/footer.jsp" />
+	</definition>
+	<definition name="main_member" extends="mem_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/views/main_member.jsp" />
+	</definition>
+	<definition name="sell/main" extends="mem_layout">
+		<put-attribute name="title" value="판매하기" />
+		<put-attribute name="body" value="/WEB-INF/views/sell/sell_main.jsp" />
+	</definition>
+	
+	
+	
+
+</tiles-definitions>

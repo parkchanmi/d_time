@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- view resolver -->
+	<bean id="viewResolver1" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+	<bean id="viewResolver2" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/viewjsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"><!-- View정보 -->
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<bean id="helloController" class="spring.controller.HelloController" />
+
+	<bean id="newArticleController" class="spring.controller.NewArticleController"
+		p:articleService-ref="articleService" />
+
+	<bean id="articleService" class="spring.service.ArticleService" />
+
+	<bean class="spring.controller.OrderController" />
+
+	<bean id="searchController" class="spring.controller.SearchController" />
+	<bean id="cookieController" class="spring.controller.CookieController" />
+	<bean class="spring.controller.HeaderController" />
+
+	<bean class="spring.controller.GameSearchController"
+		p:searchService-ref="searchService" />
+
+	<bean id="searchService" class="spring.service.SearchService" />
+
+	<bean class="spring.controller.CreateAccountController" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="spring.controller.GameInfoController" />
+	<bean class="spring.controller.CharacterInfoController" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+
+	<!-- 0908 에러메시지 -->
+	<bean id="commonLogger" class="spring.common.CommonLoggerImpl" />
+	<bean id="authenticator" class="spring.service.MockAuthenticator"
+		p:commonLogger-ref="commonLogger" />
+
+	<bean class="spring.controller.LoginController">
+		<property name="authenticator" ref="authenticator" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- <property name="defaultEncoding" value="utf-8"/> <property name="maxUploadSize" 
+			value="10000000"/> <property name="uploadTempDir" value="uploadtemp"/> -->
+	</bean>
+	<bean class="spring.fileupload.ReportSubmissionController">
+		<property name="dao" ref="file_dao" />
+	</bean>
+
+
+	<!-- mybatis 설정 -->
+	<context:property-placeholder location="classpath:db.properties" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close"><!-- 커넥션풀을 갖는 DataSource생성 -->
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:sql/*.xml" />
+	</bean>
+
+
+	<bean id="file_dao" class="spring.mybatis.FileDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- initBinder : 데이터 타입변환 -->
+	<bean class="spring.controller.QueryLogController" />
+
+	<!-- interceptor -->
+	<bean class="spring.controller.EventController" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/event/*" />
+			<bean id="eventExpirationCheckInterceptor" class="spring.interceptor.EventExpirationCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- requestbody/responsebody -->
+	<bean class="spring.controller.SimpleConverterController" />
+
+	<!-- JSON -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- @ResponseBody로 String 처리할때 한글처리 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+<!-- 컨트롤러 -->
+	<context:component-scan base-package="Ajax.Controller"/>
+	<context:annotation-config/>
+	
+	<bean id="citydao" class="Ajax.Controller.CityDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<!-- <bean id="cityservice" class="Ajax.Controller.CityServiceImpl"/> -->
+	
+</beans>

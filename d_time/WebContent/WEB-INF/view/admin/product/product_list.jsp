@@ -111,13 +111,13 @@ function submit_ok(){
 }
 
 </script>
-
+<h3>재고물품</h3>
 
 <button class="btn btn-default" onClick="javascript:location.href='/d_time/admin/product/product_list.do'">재고물품</button>
 
 <button class="btn btn-default" onClick="javascript:location.href='/d_time/admin/menu/menu_list.do'">주문메뉴</button>
 <br><br>
-<h3>재고물품</h3>
+
 <style>
 table{
 	width:100%;

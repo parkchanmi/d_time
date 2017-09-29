@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page trimDirectiveWhitespaces="true" %>
 <meta charset="utf-8">
 
 
@@ -42,10 +43,17 @@
 							<strong> <span style="color: #5c7c97"> <i
 									class="fa fa-volume-up"></i>
 							</span> 공지사항
-							</strong> <a class="plus" href="#"><i class="fa fa-plus"></i></a>
+							</strong> 
 						</div>
 						<div class="visit_area">
 							<ul>
+							<c:forEach var="notice" items="${notice_list}">
+							<li><a href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}"><i
+										class="fa fa-angle-right color_arrow margin_right"
+										aria-hidden="true"></i>${notice.n_title}</a> <span
+									class="date_visit"><fmt:formatDate value="${notice.n_date}" pattern="yyyy.MM.dd HH:mm"/></span></li>
+							
+							</c:forEach>
 								<li><a href="#"><i
 										class="fa fa-angle-right color_arrow margin_right"
 										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
@@ -66,14 +74,14 @@
 										class="fa fa-angle-right color_arrow margin_right"
 										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
 									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
+							<!-- 	<li><a href="#"><i
 										class="fa fa-angle-right color_arrow margin_right"
 										aria-hidden="true"></i>[New매장 오픈] 종로 1가점을 오픈하였습니다.</a> <span
 									class="date_visit">2017.09.20</span></li>
 								<li><a href="#"><i
 										class="fa fa-angle-right color_arrow margin_right"
 										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
+									class="date_visit">2017.09.20</span></li> -->
 							</ul>
 						</div>
 					</div>

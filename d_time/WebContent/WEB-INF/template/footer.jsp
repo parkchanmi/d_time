@@ -3,7 +3,7 @@
 <footer class="sticky-footer">
 			<div class="container">
 				<div class="text-center">
-					<small>Copyright © Your Website 2017</small>
+					<small>Copyright © cafe. CiCHA 2017</small>
 				</div>
 			</div>
 		</footer>
@@ -29,27 +29,10 @@
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button"
 							data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
+						<a class="btn btn-primary" href="/d_time/logout.do">Logout</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- Bootstrap core JavaScript-->
-		<script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script>
-		<script src="/d_time/resources/bootstrap/vendor/popper/popper.min.js"></script>
-		<script src="/d_time/resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<!-- Core plugin JavaScript-->
-		<script
-			src="/d_time/resources/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
-		<!-- Page level plugin JavaScript-->
-		<script src="/d_time/resources/bootstrap/vendor/chart.js/Chart.min.js"></script>
-		<script
-			src="/d_time/resources/bootstrap/vendor/datatables/jquery.dataTables.js"></script>
-		<script
-			src="/d_time/resources/bootstrap/vendor/datatables/dataTables.bootstrap4.js"></script>
-		<!-- Custom scripts for all pages-->
-		<script src="/d_time/resources/bootstrap/js/sb-admin.min.js"></script>
-		<!-- Custom scripts for this page-->
-		<script src="/d_time/resources/bootstrap/js/sb-admin-datatables.min.js"></script>
-		<script src="/d_time/resources/bootstrap/js/sb-admin-charts.min.js"></script>
-	</div>
+		
+

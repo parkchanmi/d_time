@@ -8,6 +8,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
+
+	
+	
+
+	<!-- 다운로드 -->
+
+	<bean id="download" class="controller.all.notice.DownloadView" />
+
+
+
 	<context:annotation-config/>
 	<context:component-scan base-package="controller"/>
 	<context:component-scan base-package="controller.admin.product"/>
@@ -15,6 +25,12 @@
 	<context:component-scan base-package="controller.member.sell"/>
 	<context:component-scan base-package="controller.all.notice"/>
 
+	<bean id="all_file_dao" class="controller.all.notice.File_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	<bean id="all_notice_dao" class="controller.all.notice.Notice_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
 
 	<bean id="admin_product_dao" class="controller.admin.product.Admin_Product_DAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
@@ -23,8 +39,19 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	<bean id="member_sell_dao" class="controller.member.sell.Sell_DAO">
+	<bean id="member_sell_dao" class="controller.member.sell.Member_Sell_DAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	
+	
+		<bean id="member_dao" class="controller.member.Member_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	<!-- <bean class="controller.member.Join_Controller">
+		<property name="dao" ref="member_dao"/>
+	</bean> -->
+	
+  	
 	
 </beans>

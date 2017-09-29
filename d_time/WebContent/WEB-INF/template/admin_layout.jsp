@@ -12,6 +12,7 @@
 <meta name="author" content="">
 <title><tiles:getAsString name="title" /></title>
 <!-- Bootstrap core CSS-->
+
 <link href="/d_time/resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <!-- Custom fonts for this template-->
@@ -26,9 +27,8 @@
 <link href="/d_time/resources/bootstrap/css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-	<!-- Navigation-->
-	<%-- <jsp:include page="/admin_header.jsp"></jsp:include> --%>
+
+
 
 	<tiles:insertAttribute name="header" />
 	
@@ -62,6 +62,7 @@
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
+		
 		<script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script>
 		<script src="/d_time/resources/bootstrap/vendor/popper/popper.min.js"></script>
 		<script src="/d_time/resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>

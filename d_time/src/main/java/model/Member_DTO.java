@@ -1,21 +1,17 @@
 package model;
 
 public class Member_DTO {
-	private int mem_no;
-	private int s_no;
+
 	private String mem_type;
 	private String mem_id;
 	private String mem_pwd;
 	private String mem_name;
 	private String mem_hp;
-
-	public int getMem_no() {
-		return mem_no;
-	}
-
-	public void setMem_no(int mem_no) {
-		this.mem_no = mem_no;
-	}
+	private int s_no;
+	private String s_name;
+	private String s_code;
+	
+	
 
 	public int getS_no() {
 		return s_no;
@@ -64,7 +60,24 @@ public class Member_DTO {
 	public void setMem_hp(String mem_hp) {
 		this.mem_hp = mem_hp;
 	}
+	
+	
+	public String getS_name() {
+		return s_name;
+	}
 
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+	
+	public String getS_code() {
+		return s_code;
+	}
+
+	public void setS_code(String s_code) {
+		this.s_code = s_code;
+	}
+	
 	public Member_DTO() {
 
 	}

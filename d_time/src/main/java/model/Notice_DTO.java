@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,7 +10,7 @@ public class Notice_DTO {
 	private int n_no;
 	private String n_title;
 	private String n_content;
-	private Date  n_date;
+	private Timestamp  n_date;
 	private int n_count;
 	private int f_no;
 	
@@ -39,10 +40,11 @@ public class Notice_DTO {
 	public void setN_content(String n_content) {
 		this.n_content = n_content;
 	}
-	public Date getN_date() {
+	
+	public Timestamp getN_date() {
 		return n_date;
 	}
-	public void setN_date(Date n_date) {
+	public void setN_date(Timestamp n_date) {
 		this.n_date = n_date;
 	}
 	public int getN_count() {

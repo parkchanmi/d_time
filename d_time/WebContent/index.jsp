@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Business Casual - Start Bootstrap Theme</title>
+<title>[Cafe. CiCHA] manage site</title>
 
 <!-- Bootstrap core CSS -->
 <link href="resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
@@ -32,14 +34,13 @@
 <body>
 
 	<div
-		class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Business
-		Casual</div>
+		class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Cafe. CiCHA</div>
 	<div
 		class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">3481
 		Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
 		<div class="container">
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
@@ -70,7 +71,7 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div class="container">
 
@@ -88,29 +89,30 @@
 					<div class="carousel-item active">
 						<img class="d-block img-fluid w-100"
 							src="resources/bootstrap/img/slide-1.jpg" alt="">
-						<div class="carousel-caption d-none d-md-block">
+						<!-- <div class="carousel-caption d-none d-md-block">
 							<h3 class="text-shadow">First Slide</h3>
 							<p class="text-shadow">This is the caption for the first
 								slide.</p>
-						</div>
+						</div> -->
+						
 					</div>
 					<div class="carousel-item">
 						<img class="d-block img-fluid w-100"
 							src="resources/bootstrap/img/slide-2.jpg" alt="">
-						<div class="carousel-caption d-none d-md-block">
+						<!-- <div class="carousel-caption d-none d-md-block">
 							<h3 class="text-shadow">Second Slide</h3>
 							<p class="text-shadow">This is the caption for the second
 								slide.</p>
-						</div>
+						</div> -->
 					</div>
 					<div class="carousel-item">
 						<img class="d-block img-fluid w-100"
 							src="resources/bootstrap/img/slide-3.jpg" alt="">
-						<div class="carousel-caption d-none d-md-block">
+						<!-- <div class="carousel-caption d-none d-md-block">
 							<h3 class="text-shadow">Third Slide</h3>
 							<p class="text-shadow">This is the caption for the third
 								slide.</p>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators"
@@ -126,57 +128,24 @@
 			<!-- Welcome Message -->
 			<div class="text-center mt-4">
 				<div class="text-heading text-muted text-lg">Welcome To</div>
-				<h1 class="my-2">Business Casual</h1>
+				<h1 class="my-2">Cafe. CiCHA</h1>
 				<div class="text-heading text-muted text-lg">
-					By <strong>Start Bootstrap</strong>
+					By <strong>bean</strong>
 				</div>
+			</div>
+			<div class="text-center mt-4">
+			<button class="btn btn-default" data-toggle="modal" href="#myModal"><h3 class="my-2"><b>Login</b></h3></button>
 			</div>
 		</div>
 
-		<div class="bg-faded p-4 my-4">
-			<hr class="divider">
-			<h2 class="text-center text-lg text-uppercase my-0">
-				Build a website <strong>worth visitng</strong>
-			</h2>
-			<hr class="divider">
-			<img class="img-fluid float-left mr-4 d-none d-lg-block"
-				src="resources/bootstrap/img/intro-pic.jpg" alt="">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Magnam soluta dolore voluptatem, deleniti dignissimos excepturi
-				veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis
-				sequi atque enim ut! Velit, consectetur.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste
-				provident debitis quos corporis saepe deserunt ad, officia, minima
-				natus molestias assumenda nisi velit?</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Reprehenderit totam libero expedita magni est delectus pariatur aut,
-				aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi
-				voluptate blanditiis?</p>
-		</div>
-
-		<div class="bg-faded p-4 my-4">
-			<hr class="divider">
-			<h2 class="text-center text-lg text-uppercase my-0">
-				Beautiful boxes to <strong>showcase your content</strong>
-			</h2>
-			<hr class="divider">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Magnam soluta dolore voluptatem, deleniti dignissimos excepturi
-				veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis
-				sequi atque enim ut! Velit, consectetur.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste
-				provident debitis quos corporis saepe deserunt ad, officia, minima
-				natus molestias assumenda nisi velit?</p>
-		</div>
+	
 
 	</div>
 	<!-- /.container -->
 
 	<footer class="bg-faded text-center py-5">
 		<div class="container">
-			<p class="m-0">Copyright &copy; Your Website 2017</p>
+			<p class="m-0">Copyright &copy; cafe. CiCHA 2017</p>
 		</div>
 	</footer>
 
@@ -191,29 +160,30 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form accept-charset="UTF-8" role="form" method="post" action="">
+
+					<form accept-charset="UTF-8" role="form" method="post" action="/d_time/login_check.do">
 						<legend>로그인</legend>
 						<div class="form-group">
-							<label for="username-email">이메일 or 아이디</label> <input
-								name="user_id" value='' id="username-email"
-								placeholder="E-mail or Username" type="text"
+							<label for="mem_id"> 아이디</label> 
+							<input name="mem_id" value='' id="mem_id"
+								placeholder="Id" type="text"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label for="password">비밀번호</label> <input name="password"
-								id="password" value='' placeholder="Password" type="password"
+							<label for="mem_pwd">비밀번호</label> 
+							<input name="mem_pwd" id="mem_pwd" value='' placeholder="Password" type="password"
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<a href="main_admin.jsp" class="btn btn-default btn-login-submit btn-block m-t-md">Login</a>
+							<input type="submit" value="로그인">
+							
 						</div>
 						<span class='text-center'><a
 							href="/bbs/index.php?mid=index&act=dispMemberFindAccount"
 							class="text-sm">비밀번호 찾기</a></span>
 						<hr />
 						<div class="form-group">
-							<a class="btn btn-default btn-block m-t-md" data-toggle="modal"
-								href="#myModal_join"> 회원가입</a>
+							<a class="btn btn-default btn-block m-t-md" href="joinForm.jsp"> 회원가입</a>
 						</div>
 					</form>
 				</div>
@@ -268,6 +238,7 @@
 	<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script>
 	<script src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+</form>
 </body>
 
 </html>

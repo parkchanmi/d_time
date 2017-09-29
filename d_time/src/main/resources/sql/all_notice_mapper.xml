@@ -4,11 +4,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice_db">
 
-<select id="notice_all" resultType="model.Notice_DTO">
-select * from notice
+<select id="notice_main" resultType="model.Notice_DTO">
+select * from (select * from notice order by n_date desc) where rownum &lt; 3
 </select>
 
 
+<select id="notice_all" resultType="model.Notice_DTO">
+select * from notice order by n_date desc
+</select>
 
+<select id="notice_one" parameterType="int" resultType="model.Notice_DTO">
+select * from notice where n_no = #{n_no}
+</select>
 
+<update id="notice_countUp" parameterType="int">
+update notice set n_count=n_count+1 where n_no=#{n_no}
+</update>
+
+<insert id="write_notice" parameterType="model.Notice_DTO">
+insert into notice values(notice_no.nextVal,#{n_title},#{n_content},#{n_date},0,null)
+</insert>
+<insert id="write_notice_file" parameterType="model.Notice_DTO">
+insert into notice values(notice_no.nextVal,#{n_title},#{n_content},#{n_date},0,#{f_no})
+</insert>
+
+<update id="modify_notice" parameterType="model.Notice_DTO">
+update notice set n_title=#{n_title}, n_content=#{n_content} where n_no=#{n_no}
+</update>
+
+<delete id="delete_notice" parameterType="int">
+delete from notice where n_no=#{n_no}
+</delete>
+
+<insert id="upload_file" parameterType="model.File_DTO">
+insert into files values(files_no.nextVal,#{f_path},#{f_name},#{f_size})
+</insert>
+<select id="upload_fno" parameterType="string" resultType="int">
+select f_no from files where f_path=#{f_path}
+</select>
+<select id="get_filePath" parameterType="int" resultType="string">
+select f_path from files where f_no=#{f_no}
+</select>
+<select id="get_fileName" parameterType="int" resultType="string">
+select f_name from files where f_no=#{f_no}
+</select>
 </mapper>

@@ -134,11 +134,13 @@ function delete_menu(m_no){
 }
 </script>
 <body>
+<h3>메뉴목록</h3>
+
 <button class="btn btn-default" onClick="javascript:location.href='/d_time/admin/product/product_list.do'">재고물품</button>
 
 <button class="btn btn-default" onClick="javascript:location.href='/d_time/admin/menu/menu_list.do'">주문메뉴</button>
 <br><br>
-	<h3>메뉴목록</h3>
+
 	<form name="menu_form" method="post" action="/d_time/admin/menu/modify.do">
 	<div id='container'>
 	

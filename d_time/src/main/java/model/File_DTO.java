@@ -4,8 +4,21 @@ public class File_DTO {
 	private int f_no;
 	private String f_path;
 	private String f_name;
-	private int f_size;
+	private long f_size;
 
+	public File_DTO() {}
+	public File_DTO(String f_path,String f_name, long f_size) {
+		this.f_path=f_path;
+		this.f_name=f_name;
+		this.f_size=f_size;
+	}
+	
+	public long getF_size() {
+		return f_size;
+	}
+	public void setF_size(long f_size) {
+		this.f_size = f_size;
+	}
 	public int getF_no() {
 		return f_no;
 	}
@@ -30,15 +43,7 @@ public class File_DTO {
 		this.f_name = f_name;
 	}
 
-	public int getF_size() {
-		return f_size;
-	}
+	
 
-	public void setF_size(int f_size) {
-		this.f_size = f_size;
-	}
-
-	public File_DTO() {
-	}
-
+	
 }

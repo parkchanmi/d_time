@@ -1,33 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+<link href="/d_time/resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Cafe. CiCHA</title>
-<!-- Bootstrap core CSS-->
-<link href="resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Custom fonts for this template-->
-<link
-	href="resources/bootstrap/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Page level plugin CSS-->
-<link
-	href="resources/bootstrap/vendor/datatables/dataTables.bootstrap4.css"
-	rel="stylesheet">
-<!-- Custom styles for this template-->
-<link href="resources/bootstrap/css/sb-admin.css" rel="stylesheet">
-</head>
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="/d_time/main.jsp">Cafe. CiCHA</a>
+		<a class="navbar-brand" href="/d_time/main_member.do">Cafe. CiCHA</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -79,7 +58,7 @@
 						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">게시판</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents05">
-						<li><a href="navbar.html">공지사항</a></li>
+						<li><a href="/d_time/all/notice/notice_list.do">공지사항</a></li>
 						<li><a href="cards.html">건의사항</a></li>
 						<li><a href="navbar.html">정보공유</a></li>
 					</ul></li>
@@ -183,5 +162,3 @@
 			</ul>
 		</div>
 	</nav>
-</body>
-</html>

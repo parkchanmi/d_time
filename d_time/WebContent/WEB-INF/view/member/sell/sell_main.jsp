@@ -1,11 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<title>판매하기</title>
-</head>
+<%@ page trimDirectiveWhitespaces="true" %>
+
 <style>
 #container {
 	display: flex;
@@ -140,7 +137,6 @@ function submit_confirm(){
 </script>
 <body>
 
-<br><br>
 	<h3>판매모드</h3>
 	<br/><br/>
 	<style>
@@ -201,4 +197,3 @@ function submit_confirm(){
 	
 	</div>
 </body>
-</html>

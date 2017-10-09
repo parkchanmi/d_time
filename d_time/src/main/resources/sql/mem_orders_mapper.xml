@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orders">
+	<select id="orders_addForm" parameterType="int" resultType="model.Product_DTO">
+		select
+		p_type, p_name, p_std from product
+	</select>
+
+	<select id="orders_list" resultType="model.Orders_DTO">
+		select o_no, o_date,o_state,s_name, r from (select o_no, o_date, o_state, s_name, rownum r from
+		(select a.o_no, a.o_date, a.o_state, c.s_name from orders a, store c where	a.s_no = c.s_no and a.s_no=#{s_no} ORDER by a.o_no asc)
+		order by o_no desc) where r &gt;=1 and r &lt;=10
+	</select>
+
+	<select id="orders_count" parameterType="int" resultType="int">
+		select
+		count(*) from orders where s_no=#{s_no}
+	</select>
+
+	<insert id="orders_add" parameterType="model.Orders_DTO">
+		insert into orders
+		values(orders_no.nextval,#{s_no},#{o_date},#{o_drink},#{o_food},#{o_product},#{o_thing},'대기')
+	</insert>
+	
+	<select id="orders_content" resultType="model.Orders_DTO" parameterType="int">
+		select * from orders where o_no=#{o_no}
+	</select>
+	
+	<select id="calc_std" resultType="int" parameterType="String">
+		select p_std from product where p_name=#{p_name}
+	</select>
+	
+	</mapper>
+
+
+
+

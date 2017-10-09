@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store">
+
+
+
+	<select id="selectStocklist" parameterType="int" resultType="model.Stock_DTO">
+		select st_name from stock where s_no=#{s_no}
+	</select>
+
+
+	<update id="updatestockCount" parameterType="int">
+		update stock set st_count=#{st_count} where s_no=#{s_no} and st_name = #{st_name}
+	</update>
+
+	<select id="selectCount" parameterType="string" resultType="int">
+		select p_std from product where p_name=#{p_name}
+	</select>
+
+	<select id="stnameSame" parameterType="Map" resultType="string">
+		select st_name from stock where s_no=#{s_no} and st_name=#{st_name}
+	</select>
+	
+	<update id="updatestock" parameterType="Map">
+		update stock set st_count=st_count+#{st_count} where s_no=#{s_no} and st_name=#{st_name}
+	</update>
+	
+	<insert id="insertstock" parameterType="model.Stock_DTO">
+		insert into stock values(stock_no.nextval,#{s_no},#{st_type},#{st_name},#{st_count})
+	</insert>
+
+
+</mapper>

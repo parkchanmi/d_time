@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="saleMem">
+
+	<select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
+		select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store where store.s_no=#{s_no} and sell.s_no=store.s_no	and sel_date between #{from} and #{to} group by sell.s_no, store.s_name, store.s_type order by sel_cost
+	</select>
+	
+	<select id="selectMemYear" resultMap="mem_sal" parameterType="string">
+		select to_char(sel_date, 'YYYY-MM') as sel_date, sum(sel_cost) as sel_cost, s.s_name	from sell, store s where s.s_no=sell.s_no and s.s_no = #{s_no} group by to_char(sel_date, 'YYYY-MM'), s.s_name
+	</select>
+	<resultMap id="mem_sal" type="java.util.HashMap">
+		<result property="date" column="sel_date" />
+		<result property="sum_cost" column="sel_cost"/>
+	</resultMap>
+	
+	<select id="selectPie" resultMap="mem_pie" parameterType="string">
+		select sum(sel_count) as sel_type_count, sel_type from sell where s_no=#{s_no} and to_char(sel_date,'MM')=to_char(sysdate,'MM') group by sel_type, s_no
+	</select>
+	<resultMap id="mem_pie" type="java.util.HashMap">
+		<result property="count" column="sel_type_count" />
+		<result property="type" column="sel_type" />
+	</resultMap>
+	
+	<select id="selectPie2" resultMap="mem_pie2" parameterType="map">
+		select sum(sel_count) as sel_type_count, sel_type from sell where s_no=#{s_no} and sel_date between #{from} and #{to} group by sel_type, s_no
+	</select>
+	<resultMap id="mem_pie2" type="java.util.HashMap">
+		<result property="count" column="sel_type_count" />
+		<result property="type" column="sel_type" />
+	</resultMap>
+	
+	<select id="selectMonth" resultMap="month_cost" parameterType="string">
+		select to_char(sel_date, 'YYYY-MM') as sel_date, sum(sel_cost) as sel_cost from sell, store s where s.s_no=sell.s_no and s.s_no = #{s_no} group by to_char(sel_date, 'YYYY-MM'), s.s_name order by sel_date asc
+	</select>
+	<resultMap id="month_cost" type="java.util.HashMap">
+		<result property="month" column="sel_date"/>
+		<result property="cost" column="sel_cost"/>
+	</resultMap>
+	
+	<select id="selectType" resultMap="type_count" parameterType="string">
+		select sell.sel_type, sum(sel_count) as type_sel_count, sum(sel_cost) as type_sel_cost from sell, store where sell.s_no=store.s_no and sell.s_no=#{s_no} and to_char(sell.sel_date,'MM') = to_char(sysdate,'MM') group by sell.sel_type
+	</select>
+	<resultMap id="type_count" type="java.util.HashMap">
+		<result property="type_name" column="sel_type" />
+		<result property="type_count" column="type_sel_count" />
+		<result property="type_cost" column="type_sel_cost" />
+	</resultMap>
+</mapper>

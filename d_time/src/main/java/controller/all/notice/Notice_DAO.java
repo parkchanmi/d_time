@@ -10,12 +10,7 @@ import model.Notice_DTO;
 public class Notice_DAO extends SqlSessionDaoSupport{
 	
 	
-	public List<Notice_DTO> getNoticeMain() {
-		List<Notice_DTO> nlist = getSqlSession().selectList("notice_db.notice_main");
-		return nlist;
-		
-	}
-	
+
 	public List<Notice_DTO> getNoticeList() {
 		List<Notice_DTO> nlist = getSqlSession().selectList("notice_db.notice_all");
 		return nlist;

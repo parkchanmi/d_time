@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Review_DTO {
@@ -7,7 +8,8 @@ public class Review_DTO {
 	private int b_no;
 	private int mem_no;
 	private String r_content;
-	private Date date;
+	private Timestamp r_date;
+	private String s_name;
 	
 	public int getR_no() {
 		return r_no;
@@ -33,15 +35,23 @@ public class Review_DTO {
 	public void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
-	public Date getDate() {
-		return date;
+	public Timestamp getR_date() {
+		return r_date;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setR_date(Timestamp r_date) {
+		this.r_date = r_date;
+	}
+	public String getS_name() {
+		return s_name;
+	}
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
 	}
 	public Review_DTO() {
 		
 	}
+	
+	
 	
 	
 

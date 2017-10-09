@@ -9,7 +9,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-	
+	<bean id="main_dao" class="controller.Main_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
 	
 
 	<!-- 다운로드 -->
@@ -17,7 +19,7 @@
 	<bean id="download" class="controller.all.notice.DownloadView" />
 
 
-
+	<!-- 찬미 -->	
 	<context:annotation-config/>
 	<context:component-scan base-package="controller"/>
 	<context:component-scan base-package="controller.admin.product"/>
@@ -43,15 +45,83 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	
-		<bean id="member_dao" class="controller.member.Member_DAO">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	<bean id="board_type_dao" class="controller.all.board.Board_Type_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
-	<!-- <bean class="controller.member.Join_Controller">
-		<property name="dao" ref="member_dao"/>
+	<!-- 지영 -->	
+	<bean id="member_dao" class="controller.all.member.Member_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- <bean class="controller.all.member.Join_Controller">
+		<property name="dao" ref="member_dao" />
+	</bean>
+
+	<bean class="controller.all.member.Login_Controller">
+		<property name="dao" ref="member_dao" />
+	</bean>
+	
+	<bean class="controller.all.member.MyInfo_Controller">
+		<property name="dao" ref="member_dao" />
 	</bean> -->
 	
+	<!-- 세영 -->
+	<bean id="store_dao" class="controller.admin.store.Store_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	
+	
+
+	<bean id="orders_dao" class="controller.admin.orders.Order_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="product_dao" class="controller.admin.product.Product_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="stock_dao" class="controller.admin.stock.Stock_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 은정 -->
+<bean id="board_dao" class="controller.all.board.Board_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+<!-- 은지 -->
+	<!-- 매출 내보내기 -->
+ 	<bean id="downloads" class="controller.all.sale.DownloadView" /> 
+ 	<bean id="downloadsMem" class="controller.all.sale.DownloadMemView"/>
+	
+	
+	<!-- 관리자 -->
+	<bean id="Saledao" class="controller.all.sale.SaleDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- 점주 -->
+	<bean id="SaleMemDao" class="controller.all.sale.SaleMemDAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+
+<!-- 재호 -->
+<bean id="Member_Stock_DAO" class="controller.member.stock.Member_Stock_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	
+
+
+	<bean id="Member_Orders_DAO" class="controller.member.orders.Member_Orders_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	
+
   	
 	
 </beans>

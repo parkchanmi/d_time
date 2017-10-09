@@ -16,10 +16,16 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/template/footer.jsp" />
 	</definition>
-
+<!-- 찬미 -->
 	<definition name="main_admin" extends="admin_layout">
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body" value="/WEB-INF/view/main_admin.jsp" />
+	</definition>
+	
+	
+	<definition name="admin/board_manage" extends="admin_layout">
+		<put-attribute name="title" value="게시판관리" />
+		<put-attribute name="body" value="/WEB-INF/view/all/board/board_manage.jsp" />
 	</definition>
 	
 	<definition name="admin/product/product_list" extends="admin_layout">
@@ -33,6 +39,37 @@
 	<definition name="admin/menu/menu_add" extends="admin_layout">
 		<put-attribute name="title" value="메뉴추가" />
 		<put-attribute name="body" value="/WEB-INF/view/admin/menu/menu_add.jsp" />
+	</definition>
+	
+	<!-- 세영 -->
+	<definition name="admin/store/store_list" extends="admin_layout">
+		<put-attribute name="title" value="지점목록" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/store/store_list.jsp" />
+	</definition>
+	
+	<definition name="admin/store/store_info" extends="admin_layout">
+		<put-attribute name="title" value="지점정보" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/store/store_info.jsp" />
+	</definition>
+	
+	<definition name="admin/store/store_modify" extends="admin_layout">
+		<put-attribute name="title" value="지점수정" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/store/store_modify.jsp" />
+	</definition>
+	
+	<definition name="admin/store/store_reg" extends="admin_layout">
+		<put-attribute name="title" value="지점등록" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/store/store_reg.jsp" />
+	</definition>
+	
+	<definition name="admin/orders/order_list" extends="admin_layout">
+		<put-attribute name="title" value="발주리스트" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/orders/order_list.jsp" />
+	</definition>
+	
+	<definition name="admin/orders/order_detail" extends="admin_layout">
+		<put-attribute name="title" value="발주내역" />
+		<put-attribute name="body" value="/WEB-INF/view/admin/orders/order_detail.jsp" />
 	</definition>
 	
 </tiles-definitions>

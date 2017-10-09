@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sale">
+
+	<select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
+		select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store where sell.s_no=store.s_no	and sel_date between #{from} and #{to} group by sell.s_no, store.s_name, store.s_type order by sel_cost
+	</select>
+	<!-- select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost 
+		from sell, store where sell.s_no=store.s_no and sel_date between '2017-09-01' 
+		and last_day('2017-09-01') group by sell.s_no, store.s_name, store.s_type 
+		order by sel_cost; -->
+
+	<select id="selectYear1" resultMap="sal" parameterType="string">
+		select to_char(sel_date, 'YYYY-MM') as sel_date, sum(sel_cost) as sel_cost	from sell, store s where s.s_no=sell.s_no and s.s_type = '직영' group by to_char(sel_date, 'YYYY-MM')
+	</select>
+	<resultMap id="sal" type="java.util.HashMap">
+		<result property="date" column="sel_date" />
+		<result property="sum_cost" column="sel_cost" />
+	</resultMap>
+	
+	<select id="selectYear2" resultMap="sal2" parameterType="string">
+		select to_char(sel_date, 'YYYY-MM') as sel_date, sum(sel_cost) as sel_cost	from sell, store s where s.s_no=sell.s_no and s.s_type = '가맹' group by to_char(sel_date, 'YYYY-MM')
+	</select>
+	<resultMap id="sal2" type="java.util.HashMap">
+		<result property="date" column="sel_date" />
+		<result property="sum_cost" column="sel_cost" />
+	</resultMap>
+	
+	<select id="all_cost" resultType="int" parameterType="java.sql.Timestamp">
+		select sum(sel_cost) as all_sel_cost from sell where to_char(sel_date,'MM')=to_char(sysdate,'MM')
+	</select>	
+	
+	<select id="j_cost" resultType="int" parameterType="string">
+		select distinct sum(sel_cost) as j_sel_cost from sell, store where store.s_no=sell.s_no and store.s_type='직영' and to_char(sel_date,'MM')=to_char(sysdate,'MM')
+	</select>
+	
+	<select id="k_cost" resultType="int" parameterType="string">
+		select distinct sum(sel_cost) as j_sel_cost from sell, store where store.s_no=sell.s_no and store.s_type='가맹' and to_char(sel_date,'MM')=to_char(sysdate,'MM')
+	</select>
+	
+	<select id="name_cost" resultMap="name_cost_map" parameterType="string">
+		select store.s_name, sum(sel_cost) as name_sel_cost from sell, store where store.s_no=sell.s_no and to_char(sel_date,'MM')=to_char(sysdate,'MM') group by store.s_name
+	</select>
+	<resultMap id="name_cost_map" type="java.util.HashMap">
+		<result property="name" column="s_name" />
+		<result property="cost" column="name_sel_cost"/>
+	</resultMap>
+</mapper>

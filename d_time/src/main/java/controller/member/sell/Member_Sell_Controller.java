@@ -4,11 +4,14 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import model.Member_DTO;
 import model.Menu_DTO;
 import model.Sell_DTO;
 
@@ -36,12 +39,17 @@ public class Member_Sell_Controller {
 	}
 
 	@RequestMapping("/sell/sell_sale.do")
-	public String sell_submit(Model model, String m_type[], String m_name[], int m_count[], int m_cost[], int m_no[]) {
+	public String sell_submit(HttpSession session, Model model, String m_type[], String m_name[], int m_count[], int m_cost[], int m_no[]) {
 		String menu_history="";
 		int menu_count=0;
 		int menu_cost=0;
 		ArrayList<Sell_DTO> sell_list = new ArrayList<Sell_DTO>();
-		int s_no = 1;
+		Member_DTO session_member=(Member_DTO) session.getAttribute("login"); 
+		if(session_member==null) { //
+			return "redirect:index.jsp";
+		}
+		
+		int s_no = session_member.getS_no();
 		boolean stock_ok = sdao.stock_confirm(m_no,m_count,s_no);
 		
 		if(!stock_ok) {

@@ -16,15 +16,15 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 				<li class="nav-item user-head" data-toggle="tooltip"
-					data-placement="right" title="Dashboard"><a
-					class="nav-link float-left"> <i
+					data-placement="right" title="Dashboard"><a href="/d_time/myinfo.do"
+					class="nav-link float-left" > <i
 						class="fa fa-user-circle-o fa-4x"></i>
 				</a>
 					<div class="user-name">
 						<h5>
-							<a href="#">Admin</a>
+							<a href="#">${login.mem_type }</a>
 						</h5>
-						<span><a href="#">Jaeho@gmail.com</a></span>
+						<span><a href="#">${login.mem_name }님</a></span>
 					</div></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Dashboard"><a
@@ -33,15 +33,15 @@
 						class="fa fa-cogs"></i> <span class="nav-link-text">지점관리</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents01">
-						<li><a href="">지점목록</a></li>
-						<li><a href="">지점등록</a></li>
+						<li><a href="/d_time/store_list.do">지점목록</a></li>
+						<li><a href="/d_time/store_regist.do">지점등록</a></li>
 					</ul></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Charts"><a class="nav-link"> <i
+					title="Charts"><a href="/d_time/sale.do" class="nav-link"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">매출현황</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Tables"><a class="nav-link"> <i
+					title="Tables"><a class="nav-link" href="/d_time/store_order.do"> <i
 						class="fa fa-fw fa-table"></i> <span class="nav-link-text">발주현황</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
@@ -52,7 +52,7 @@
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents04">
 						<li><a href="/d_time/admin/product/product_list.do">재고물품</a></li>
-						<li><a href="">물품등록</a></li>
+						<!-- <li><a href="">물품등록</a></li> -->
 						<li><a href="/d_time/admin/menu/menu_list.do">주문메뉴</a></li>
 						<li><a href="/d_time/admin/menu/menu_add.do">메뉴등록</a></li>
 					</ul></li>
@@ -64,8 +64,9 @@
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents05">
 						<li><a href="/d_time/all/notice/notice_list.do">공지사항</a></li>
-						<li><a href="cards.html">건의사항</a></li>
-						<li><a href="navbar.html">정보공유</a></li>
+						<li><a href="/d_time/board_list.do?type=1">건의사항</a></li>
+						<li><a href="/d_time/board_list.do?type=2">정보공유</a></li>
+						<li><a href="/d_time/board_manage.do?">게시판관리</a></li>
 					</ul></li>
 			</ul>
 			<ul class="navbar-nav sidenav-toggler">
@@ -120,36 +121,34 @@
 					</span> <span class="indicator text-warning d-none d-lg-block"> </span>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="alertsDropdown">
-						<h6 class="dropdown-header">New Alerts:</h6>
+						<h6 class="dropdown-header">My page</h6>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item nav-item nav-link" data-toggle="modal"
-							data-target="#exampleModal"> <span class="text-success">
-								<i class="fa fa-fw fa-sign-out"></i>Logout
-
-						</span> <span class="small float-right text-muted">11:21 AM</span>
-							<div class="dropdown-message small">This is an automated
-								server response message. All systems are online.</div>
-						</a>
+						
+				
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"> <span class="text-danger">
-								<strong> <i class="fa fa-long-arrow-down fa-fw"></i>Status
-									Update
+						<a class="dropdown-item" href="/d_time/logout.do"> 
+								<strong> Logout
 							</strong>
-						</span> <span class="small float-right text-muted">11:21 AM</span>
-							<div class="dropdown-message small">This is an automated
-								server response message. All systems are online.</div>
+					<span class="small float-right text-muted"><%
+ java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("HH:mm a");
+ String today = formatter.format(new java.util.Date());
+ out.println(today);
+%></span>
+							
 						</a>
+						
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#"> <span class="text-success">
-								<strong> <i class="fa fa-long-arrow-up fa-fw"></i>Status
+								<strong> Status
 									Update
 							</strong>
 						</span> <span class="small float-right text-muted">11:21 AM</span>
 							<div class="dropdown-message small">This is an automated
 								server response message. All systems are online.</div>
 						</a>
+						
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="#">View all alerts</a>
+						<a class="dropdown-item small" href="/d_time/myinfo.do">My page</a>
 					</div></li>
 				
 			</ul>

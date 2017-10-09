@@ -19,6 +19,37 @@
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body" value="/WEB-INF/view/main_member.jsp" />
 	</definition>
+	
+	
+	
+	
+	
+	
+	
+	
+	<definition name="myinfo/myinfo" extends="mem_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo.jsp" />
+	</definition>
+	
+		<definition name="myinfo/myinfo_pwdCheck" extends="mem_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_pwdCheck.jsp" />
+	</definition>
+	
+	<definition name="myinfo/myinfo_modifyForm" extends="mem_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_modifyForm.jsp" />
+	</definition>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<definition name="sell/main" extends="mem_layout">
 		<put-attribute name="title" value="판매하기" />
 		<put-attribute name="body" value="/WEB-INF/view/member/sell/sell_main.jsp" />
@@ -29,6 +60,37 @@
 	</definition>
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	<definition name="stock/stock_status" extends="mem_layout">
+		<put-attribute name="title" value="Cafe.CiCHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/member/stock/stock_status.jsp" />
+	</definition>
+
+	<definition name="orders/orders_list" extends="mem_layout">
+		<put-attribute name="title" value="Cafe.CiCHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/member/orders/orders_list.jsp" />
+	</definition>
+
+	<definition name="orders/orders_addForm" extends="mem_layout">
+		<put-attribute name="title" value="Cafe.CiCHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/member/orders/orders_addForm.jsp" />
+	</definition>
+
+	<definition name="orders/orders_content" extends="mem_layout">
+		<put-attribute name="title" value="Cafe.CiCHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/member/orders/orders_content.jsp" />
+	</definition>
 	
 
 </tiles-definitions>

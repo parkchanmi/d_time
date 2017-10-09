@@ -130,7 +130,7 @@
 				<div class="text-heading text-muted text-lg">Welcome To</div>
 				<h1 class="my-2">Cafe. CiCHA</h1>
 				<div class="text-heading text-muted text-lg">
-					By <strong>bean</strong>
+					By <strong>BEAN</strong>
 				</div>
 			</div>
 			<div class="text-center mt-4">

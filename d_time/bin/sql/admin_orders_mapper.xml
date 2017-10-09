@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store">
+	
+	
+	<select id="selectOrdersList" resultType="model.Orders_DTO">
+		select * from orders where o_state='대기'
+	</select>
+	
+	<select id="selectOrderStoreOne" parameterType="int" resultType="model.Orders_DTO">
+		select * from orders where o_no=#{o_no}
+	</select>
+	
+	<!-- o_no에 해당하는 s_no 와 발주신청 칼럼 받아오긴 -->
+	<select id="selectOrderStockOne" parameterType="int" resultType="model.Orders_DTO">
+		select s_no, o_drink, o_food, o_product, o_thing from orders where o_no=#{o_no}
+	</select>
+	
+	<select id="selectStoreName" parameterType="int" resultType="String">
+		select s_name from store where s_no=#{s_no}
+	</select>
+	<!-- <select id="selectOrderOne" parameterType="int" resultType="model.Orders_DTO">
+		select * from orders where s_no=#{s_no}
+	</select>
+	 -->
+	 
+	<update id="updateorder" parameterType="int">
+		update orders set o_state = '승인' where o_no=#{o_no}
+	</update> 
+	
+	<update id="updateStockOrdCf" parameterType="int">
+		update orders set o_state = '승인' where o_no=#{o_no}
+	</update> 
+	
+</mapper>

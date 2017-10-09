@@ -53,7 +53,7 @@ public class Img_Upload_Controller implements ApplicationContextAware{
 		
 		Iterator itr =  request.getFileNames();
 		String path = context.getServletContext().getRealPath("/upload_img");
-		String realpath="http://192.168.40.58:8082/d_time/upload_img/";
+		String realpath="http://localhost:8082/d_time/upload_img/";
 		
 	
         if(itr.hasNext()) {

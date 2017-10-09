@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+<select id="selectType">
+select * from board_type
+</select>
+
+
+<insert id="insertBoard" parameterType="model.Board_DTO">
+insert into board (b_no,mem_no,b_type,b_title,b_content,b_count)
+values(board_no.NEXTVAL,#{mem_no},#{b_type},#{b_title},#{b_content},#{b_count})
+</insert>
+
+<select id="selectBoard" resultType="model.Board_DTO" parameterType="map">
+select b_no, s_name, b_type, b_title, b_content, b_date, b_count, r from 
+(select b_no, s_name, b_type, b_title, b_content, b_date, b_count, rownum r from 
+(select a.b_no, c.s_name, a.b_type, a.b_title, a.b_content, a.b_date, a.b_count 
+from board a , member b , store c where b_type=#{b_type} and a.mem_no = b.mem_no and b.s_no = c.s_no order by b_date asc
+)order by b_date desc)
+where r &gt;=#{startRow} and r &lt;=#{endRow}
+
+</select> 
+
+<select id="selectBoard_detail" parameterType ="int" resultType="model.Board_DTO">
+select a.b_no, a.b_type, a.b_title,a.b_count ,b.mem_no, c.s_name, a.b_content 
+from board a, member b, store c where a.b_no=#{b_no} and b.s_no=c.s_no and a.mem_no = b.mem_no
+</select>
+
+<insert id="insertReview" parameterType="model.Review_DTO">
+insert into review (r_no,b_no,mem_no,r_content)
+values(review_no.NEXTVAL,#{b_no},#{mem_no},#{r_content})
+</insert> 
+
+<select id="selectReview" resultType="model.Review_DTO" parameterType="int">
+select a.r_no, c.s_name, a.r_content, a.r_date 
+from review a , member b , store c where a.b_no=#{b_no} and a.mem_no = b.mem_no and b.s_no = c.s_no order by r_no asc
+</select>
+
+<update id="updateBoard_count"  parameterType="int">  
+update board set b_count=b_count+1 where b_no=#{b_no}  
+</update>
+
+<select id="selectCount" resultType="int" parameterType="String">
+select count(*) from board where b_type=#{b_type}
+</select>
+ 
+<delete id="deleteBoard"  parameterType="int">
+delete from board where b_no=#{b_no}   
+</delete>
+
+<update id="modifyBoard"  parameterType="model.Board_DTO">
+update board set b_type=#{b_type}, b_title=#{b_title}, b_content=#{b_content}   where b_no=#{b_no}
+</update>
+
+</mapper>  

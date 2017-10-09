@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store">
+	
+	<insert id="insertstore" parameterType="model.Store_DTO">
+		insert into store values (store_no.nextval,#{s_name},#{s_loc},#{s_type},#{s_code},#{s_lat},#{s_lon},#{s_hp})
+	</insert>
+
+	
+	<select id="selectStoreList" resultType="model.Store_DTO">
+		select * from store order by s_no asc
+	</select>
+	
+
+	
+	<select id="selectStoreOne" parameterType="int" resultType="model.Store_DTO">
+		select * from store where s_no=#{s_no}
+	</select>
+	
+	 <update id="updatestore" parameterType="model.Store_DTO" >
+		update store set s_name = #{s_name},s_loc = #{s_loc},s_type = #{s_type},s_code = #{s_code},s_lat = #{s_lat},s_lon = #{s_lon},s_hp = #{s_hp} where s_no=#{s_no}
+	</update> 
+	
+	<delete id="deletestore" parameterType="model.Store_DTO">
+		delete from store where s_no=#{s_no}
+	</delete>
+	
+
+</mapper>

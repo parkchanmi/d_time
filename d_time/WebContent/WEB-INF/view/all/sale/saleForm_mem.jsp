@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header">
-						<i class="fa fa-th-large"></i>지점관리
+						<i class="fa fa-th-large"></i>매출현황
 					</h3>
 				</div>
 

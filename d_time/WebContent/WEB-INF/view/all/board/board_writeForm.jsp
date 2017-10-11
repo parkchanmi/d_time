@@ -68,8 +68,11 @@ ul {
 					<li>말머리&nbsp;<i
 						class="fa fa-angle-right color_arrow margin_right"
 						aria-hidden="true"></i><select name="b_type">
-							<option value="건의사항">건의사항</option>    
-							<option value="물품교환">물품교환</option>
+						<c:forEach var="type" items="${typelist}">
+							<option value="${type.board_type}">${type.board_type}</option>   
+						</c:forEach>
+						<!-- 	<option value="건의사항">건의사항</option>    
+							<option value="물품교환">물품교환</option> -->
 					</select></li>
 					<li>제목&nbsp;<i
 						class="fa fa-angle-right color_arrow margin_right"

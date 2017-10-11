@@ -4,9 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 
-<select id="selectType">
-select * from board_type
-</select>
 
 
 <insert id="insertBoard" parameterType="model.Board_DTO">
@@ -54,5 +51,7 @@ delete from board where b_no=#{b_no}
 <update id="modifyBoard"  parameterType="model.Board_DTO">
 update board set b_type=#{b_type}, b_title=#{b_title}, b_content=#{b_content}   where b_no=#{b_no}
 </update>
+
+
 
 </mapper>  

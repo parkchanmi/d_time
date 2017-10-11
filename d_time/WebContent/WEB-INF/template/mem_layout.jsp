@@ -24,6 +24,7 @@
 	rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="/d_time/resources/bootstrap/css/sb-admin.css" rel="stylesheet">
+<script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script>
 </head>
 
 
@@ -62,7 +63,7 @@
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
-		<script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script>
+		
 		<script src="/d_time/resources/bootstrap/vendor/popper/popper.min.js"></script>
 		<script src="/d_time/resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 		<!-- Core plugin JavaScript-->

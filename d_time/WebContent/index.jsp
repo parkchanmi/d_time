@@ -4,7 +4,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+<c:if test="${check==1}"> 
+<script>
+alert('비밀번호 변경완료');
+</script>
+</c:if>
 
+<c:if test="${join==1}"> 
+<script>
+alert('회원가입 완료');
+</script>
+</c:if>
+<script>
+$(document).ready(function(){
+	$('#myModal').on('shown.bs.modal', function () {
+		  $('#myInput').focus()
+		})
+       // $("#myModal").modal('show');
+ });
+
+</script>
+
+<c:if test="${empty_login==1}">
+<script>
+alert('비어있음!');
+//location.href="#myModal";
+
+</script>
+</c:if>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -149,7 +176,7 @@
 		</div>
 	</footer>
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -175,11 +202,11 @@
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<input type="submit" value="로그인">
+							<input type="submit"  class="btn btn-primary btn-block m-t-md" value="로그인"> 
 							
 						</div>
 						<span class='text-center'><a
-							href="/bbs/index.php?mid=index&act=dispMemberFindAccount"
+							href="pwfindForm.jsp"
 							class="text-sm">비밀번호 찾기</a></span>
 						<hr />
 						<div class="form-group">

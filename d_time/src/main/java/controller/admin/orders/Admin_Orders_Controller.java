@@ -89,6 +89,7 @@ public class Admin_Orders_Controller {
 			
 			Store_DTO store = stdao.storeone(sno);
 			mav.addObject("storedto", store);
+			mav.addObject("s_no",s_no);
 
 		}
 

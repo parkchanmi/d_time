@@ -9,13 +9,12 @@
 <% request.setCharacterEncoding("utf-8");%>
 
 
-<c:if test="${check==1}">
+<c:if test="${check==0}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td height="39" >${storeinfo.s_name} 해당 지점이 존재하지 않습니다.</td>
   </tr>
 </table>
-
 
 <form name="checkForm" method="post" action="confirm_code.do">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
@@ -29,7 +28,8 @@
 </table>
 </form>
 </c:if>
-<c:if test="${check==0}">
+
+<c:if test="${check==1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="center">
@@ -39,6 +39,28 @@
   </tr>
 </table>
 </c:if>
+
+<c:if test="${check==2}">
+<table width="270" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td height="39" >${storeinfo.s_name} 이미 등록된 지점입니다.</td>
+  </tr>
+</table>
+
+<form name="checkForm" method="post" action="confirm_code.do">
+<table width="270" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td align="center">
+       다른 코드를 입력하세요.<p>
+       <input type="text" size="10" maxlength="12" name="s_code">
+       <input type="submit" value="코드확인">
+    </td>
+  </tr>
+</table>
+</form>
+</c:if>
+
+
 </body>
 </html>
 <script>

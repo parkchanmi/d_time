@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin_btype">
+
+
+
+<select id="selectType" resultType="model.Board_Type_DTO">
+select * from board_type order by row_index
+</select>
+<select id="select_b_count" parameterType="string" resultType="int">
+select count(*) from board group by b_type having b_type=#{b_type}
+</select>
+
+<select id="existType" parameterType="string" resultType="string">
+select board_type from board_type where board_type = #{type}
+</select>
+
+<select id="maxIndex" resultType="int">
+select max(row_index) from board_type
+</select>
+
+<select id="exist_board" parameterType="string" resultType="string">
+select DISTINCT b_type from board where b_type=#{type}
+
+</select>
+
+<insert id="add_type" parameterType="model.Board_Type_DTO">
+insert into board_type values(#{board_type},#{row_index})
+</insert>
+
+<update id="updateIndex" parameterType="map">
+update board_type set row_index=#{index} where board_type=#{type}
+</update>
+
+<delete id="tempDelete" parameterType="string">
+delete from board_type where board_type=#{type}
+</delete>
+
+<update id="sortIndex" parameterType="int">
+update board_type set row_index = row_index-1 where row_index &gt; #{index}
+</update>
+
+<delete id="corDelete" parameterType="string">
+delete from board where b_type=#{type}
+</delete>
+
+</mapper>  

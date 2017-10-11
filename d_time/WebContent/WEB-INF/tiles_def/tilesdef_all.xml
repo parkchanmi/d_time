@@ -9,6 +9,16 @@
 	 <definition name="pop_up" template="/WEB-INF/template/pop_up.jsp">	
 	</definition>
 	
+	<definition name="index" extends="pop_up">
+	<put-attribute name="title" value="ci.cha" />
+	<put-attribute name="body" value="/index.jsp" />
+	</definition>
+	
+	<definition name="pwchange" extends="pop_up">
+		<put-attribute name="title" value="코드확인" />
+		<put-attribute name="body" value="/pwchange.jsp" />
+	</definition>
+	
 	<definition name="confirmid" extends="pop_up">
 		<put-attribute name="title" value="중복확인" />
 		<put-attribute name="body" value="/WEB-INF/confirmid.jsp" />

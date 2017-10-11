@@ -4,6 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Bootstrap core CSS -->
+ <link href="resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+ 
+<!-- Custom fonts for this template -->
+<!-- <link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+	rel="stylesheet" type="text/css">
+ -->
+<!-- Custom styles for this template -->
+<!-- <link href="resources/bootstrap/css/business-casual.css"
+	rel="stylesheet"> -->
 <title>회원가입</title>
 	<script>
    
@@ -70,27 +86,34 @@
    
 </head>
 <body>
-	<center>
-		<h1>회원가입 페이지</h1>
 
+<center>
+
+</center>
+<center>
 		<form method="post" action="index.do" name="userinput" onsubmit="return checkIt()">
+			 <div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-user"></i></span> <strong> 회원가입</strong>
+			</div>
+			
 			<table>
 			
 			<tr>
-			<td>구분</td>
+			<td height="100">구분</td>
 				<td>		
-				<input type="radio" name="mem_type" value="직영">직영
-				<input type="radio" name="mem_type" value="가맹">가맹
-
+				<input type="radio" name="mem_type" value="직영"   >직영
+				<input type="radio" name="mem_type" value="가맹" >가맹
+				<input type="radio" name="mem_type" value="관리자" >관리자
 				</td>
 			</tr>
 				
 				<tr>
-					<td>아이디</td>
+					<td height="60">아이디</td>
 				<td>
-					<input type="text" name="mem_id" size="50"/></td>
+					<input class='col-lg-12 form-control input-sm' type="text" name="mem_id" size="50" style="height:30px;"/></td>
 					<td>
-                     <input type="button" name="confirmid" value="중복확인"   class="btn_confirm01" OnClick="openConfirmid(this.form)">   
+                     <input type="button" name="confirmid" value="중복확인"   class="btn btn-default btn-block m-t-md" OnClick="openConfirmid(this.form)">   
                            <input type="hidden" name="idcheck" value="0">
                            </td>
 				</tr>
@@ -98,54 +121,73 @@
                 
                 
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="mem_pwd" size="50"></td>
+					<td height="60">비밀번호</td>
+					<td><input class='col-lg-12 form-control input-sm' type="password" name="mem_pwd" size="50" style="height:30px;"></td>
 				</tr>
 
 				<tr>
-					<th scope="row"><label for="pwd_chk">비밀번호 확인 </label></th>
-					<td><input type="password" name="pwd_chk" id="pwd_chk" size="50" maxlength="12" onkeyup="chkPwd()">
+					<th scope="row" height="60"><label for="pwd_chk">비밀번호 확인 </label></th>
+					<td ><input class='col-lg-12 form-control input-sm' type="password" name="pwd_chk" id="pwd_chk" size="50" maxlength="12" onkeyup="chkPwd()" style="height:30px;">
 			      	<span id="checkPwd"></span></td>
 				</tr>
 				
 
 				<tr>
-					<td>이름</td>
-					<td><input type="text" name="mem_name" size="50"></td>
+					<td height="60">이름</td>
+					<td><input class='col-lg-12 form-control input-sm' type="text" name="mem_name" size="50" style="height:30px;"></td>
 				</tr>
 
 
 				<tr>
-					<td>연락처</td>
-					<td><input type="text" name="mem_hp" size="50"></td>
+					<td height="60">연락처</td>
+					<td><input class='col-lg-12 form-control input-sm' type="text" name="mem_hp" size="50" style="height:30px;"></td>
 				</tr>
 
 				
 				
 				
+				
 				<tr>
-					<td>지점코드</td>
+					<td height="60">지점코드</td>
 				<td>
-					<input type="text" name="s_code" size="50"/></td>
-					
-					<td>
-                     <input type="button" name="confirms_code" value="코드확인"   class="btn_confirm01" OnClick="openConfirm_code(this.form)">   
-                           <input type="hidden" name="s_codecheck" value="0">
-                           </td>
-				</tr>
+					<input class='col-lg-12 form-control input-sm' type="text" name="s_code" size="50" style="height:30px;"/></td>					
+				<td>					
+                     <input type="button" name="confirms_code" value="코드확인"   class="btn btn-default btn-block m-t-md"
+                      OnClick="openConfirm_code(this.form)">   
+                     <input type="hidden" name="s_codecheck" value="0">
+                </td>
+			</tr>
 				
-				
-
-
+</table>
+<table>
 				<tr>
 					<td colspan="2" align="center">
-					<input type="submit" value="가입하기"> 
-					<input type="button" value="취소" onclick="window.location='/d_time/index.jsp'"></td>
+					
+					<div class="form-group">
+						<input type="submit"  class="btn btn-primary btn-block m-t-md" value="가입하기">	
+					</div>
+					
+					<td colspan="2" align="center">
+
+					<div class="form-group">
+						<input type="button"  class="btn btn-default btn-block m-t-md" 
+ 							value="취소" onclick="window.location='/d_time/index.jsp'">	
+					</div>
+					</td>
 				</tr>
 
 			</table>
- <input type="text" name="s_no" value="1"/> 
+<input type="hidden" name="s_no" value="1"/>
+
+</div>
+<!-- Bootstrap core JavaScript -->
+	<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
+<!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->
+	<script src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	
 		</form>
+	
 	</center>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Board_DTO;
+import model.Board_Type_DTO;
 import model.Member_DTO;
 import model.Review_DTO;
 
@@ -22,6 +23,9 @@ import model.Review_DTO;
 public class Board_Controller {
 	@Autowired
 	Board_DAO b_dao;
+	
+	@Autowired
+	Board_Type_DAO bt_dao;
 	
 	public Board_DAO getB_dao() {
 		return b_dao;
@@ -32,13 +36,15 @@ public class Board_Controller {
 	}
 	
 	@RequestMapping("board_list.do")
-	public String board_list(int type, Model model,HttpServletRequest request, HttpSession session){
+	public String board_list(String type, Model model,HttpServletRequest request, HttpSession session){
+		
 		String b_type;
-		if(type ==1) {
+		b_type=type;
+		/*if(type ==1) {
 			b_type ="건의사항";
 		}else {
 			b_type="물물교환";
-		} 
+		} */
 		//System.out.println("�Խ���Ÿ��:"+type);
 		
 		
@@ -73,7 +79,7 @@ public class Board_Controller {
 		model.addAttribute("number", new Integer(number));
 		model.addAttribute("pageSize",new Integer(pageSize));
 		model.addAttribute("list", list);
-		model.addAttribute("type", type);
+		model.addAttribute("type", 1);
 		/*System.out.println(list);*/
 		
 		return "board/board_list";
@@ -84,6 +90,10 @@ public class Board_Controller {
 	public String boardform(int type, Model model,int pageNum) {
 		model.addAttribute("pageNum", new Integer(pageNum));
 		model.addAttribute("type", type); 
+		
+		List<Board_Type_DTO> typeList = bt_dao.selectType();
+		model.addAttribute("typelist", typeList);
+		
 		return "board/board_writeForm"; 
 		
 		 

@@ -61,24 +61,39 @@ public class Join_Controller {
 
 	//지점명코드확인
 	@RequestMapping(value = "/confirm_code.do")
-	public String overlapTest2(String s_code, Model model){
-		System.out.println("s_code"+s_code);
+	public String overlapTest2(String s_code, Model model , Member_DTO member_DTO){
+		
+		
 		HashMap map = dao.selectcode(s_code);
 		
 		int check =0;
 		if(map == null) {
-			check = 1;
-		}
-		//db에서 중복확인
-		else if(map != null) {
 			check = 0;
+			model.addAttribute("check", check); 
+			return "confirm_code";
 		}
+		else  {
+			
 		
-		model.addAttribute("check", check); //중복
-		model.addAttribute("storeinfo", map);
-		return "confirm_code";
+			
+			int s_no = Integer.parseInt(String.valueOf(map.get("s_no")));
+		
+			Member_DTO member=dao.selectsno(s_no);
+				
+			if(member == null) {
+			
+				check = 1;
+			}else {
+				check = 2;
+			}
+		
+			model.addAttribute("check", check); //以묐났
+			model.addAttribute("storeinfo", map);
+			return "confirm_code";
 		
 	}
+	}
+
 
 }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="message">
+
+<!-- 받은메시지 -->
+<select id="selectMsgRcv" resultType="model.Message_DTO" parameterType="int">
+select * from message where msg_receiver=#{mem}
+</select>
+
+<select id="selectRcvname" resultType="String" parameterType="int">
+select s_name from store,member where store.s_no=member.s_no and mem_no=#{r_mno} 
+</select>
+
+<!-- 보낸쪽지함 -->
+<select id="selectMsgSen" resultType="model.Message_DTO" parameterType="int">
+select * from message where msg_sender=#{mem}
+</select>
+
+<select id="selectSendname" resultType="String" parameterType="int">
+select s_name from store,member where store.s_no=member.s_no and mem_no=#{s_mno} 
+</select>
+
+ <!-- 상세보기 -->
+ <select id="selectDetail" resultType="model.Message_DTO" parameterType="int">
+ select * from message where msg_no=#{msg_no}
+ </select>
+
+ <!-- 쪽지쓰기 -->
+ <insert id="msgWrite" parameterType="model.Message_DTO" >
+ insert into message(msg_no, msg_title, msg_content, msg_date,msg_sender, msg_receiver) values (message_no.NEXTVAL, #{msg_title},#{msg_content},#{msg_date},#{msg_sender},#{msg_receiver})
+ </insert> 
+
+
+<!-- 쪽지받는 지점select -->
+ <select id="selectMsg" resultMap="msg">
+    select mem_no,store.s_no as s_no,s_name from member,store where member.s_no=store.s_no
+ </select>
+ <resultMap id="msg" type="java.util.HashMap">
+      <result property="mem_no" column="mem_no" />
+      <result property="s_no" column="s_no" />
+      <result property="s_name" column="s_name" />
+ </resultMap>
+   
+  
+ <!-- 쪽지 삭제 --> 
+ <delete id="deleteMsg" parameterType="int"> 
+ 	delete from message where msg_no=#{msg_no} 
+ </delete>
+ 
+</mapper>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 import model.Board_DTO;
+import model.Board_Type_DTO;
 import model.Member_DTO;
 import model.Notice_DTO;
 import model.Review_DTO;
@@ -23,6 +24,11 @@ public class Main_DAO extends SqlSessionDaoSupport {
 		List<Board_DTO> blist = getSqlSession().selectList("main.board_main");
 		return blist;
 		
+	}
+	
+	public List<Board_Type_DTO> selectType(){
+		List<Board_Type_DTO> type = getSqlSession().selectList("main.selectType");
+		return type;
 	}
 	
 	public int getStore_1() { //직영

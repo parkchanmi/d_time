@@ -26,23 +26,81 @@
 	
 	
 	
-	
-	<definition name="myinfo/myinfo" extends="mem_layout">
-		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo.jsp" />
+<!-- 나의정보수정 관리자/회원 -->
+	<definition name="admin/myinfo/myinfo" extends="admin_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo.jsp"/>
 	</definition>
 	
-		<definition name="myinfo/myinfo_pwdCheck" extends="mem_layout">
-		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_pwdCheck.jsp" />
+	<definition name="admin/myinfo/myinfo_pwdCheck" extends="admin_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_pwdCheck.jsp"/>
 	</definition>
 	
-	<definition name="myinfo/myinfo_modifyForm" extends="mem_layout">
-		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_modifyForm.jsp" />
+	<definition name="admin/myinfo/myinfo_modifyForm" extends="admin_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_modifyForm.jsp"/>
+	</definition>
+
+
+	<definition name="mem/myinfo/myinfo" extends="mem_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo.jsp"/>
+	</definition>
+	
+	<definition name="mem/myinfo/myinfo_pwdCheck" extends="mem_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_pwdCheck.jsp"/>
+	</definition>
+	
+	<definition name="mem/myinfo/myinfo_modifyForm" extends="mem_layout">
+		<put-attribute name="title" value="나의정보수정"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/myinfo/myinfo_modifyForm.jsp"/>
+	</definition>
+
+
+<!-- 쪽지 관리자/회원 -->
+
+	<definition name="admin/message/msg_detail" extends="admin_layout">
+		<put-attribute name="title" value="쪽지상세보기"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_detail.jsp"/>
+	</definition>
+	
+	<definition name="admin/message/msg_receive_list" extends="admin_layout">
+		<put-attribute name="title" value="받은쪽지함"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_receive_list.jsp"/>
+	</definition>
+	
+	<definition name="admin/message/msg_send_list" extends="admin_layout">
+		<put-attribute name="title" value="보낸쪽지함"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_send_list.jsp"/>
+	</definition>
+	
+	<definition name="admin/message/msg_writeForm" extends="admin_layout">
+		<put-attribute name="title" value="쪽지쓰기"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_writeForm.jsp"/>
 	</definition>
 	
 	
+	<definition name="mem/message/msg_detail" extends="mem_layout">
+		<put-attribute name="title" value="쪽지상세보기"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_detail.jsp"/>
+	</definition>
+	
+	<definition name="mem/message/msg_receive_list" extends="mem_layout">
+		<put-attribute name="title" value="받은쪽지함"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_receive_list.jsp"/>
+	</definition>
+	
+	<definition name="mem/message/msg_send_list" extends="mem_layout">
+		<put-attribute name="title" value="보낸쪽지함"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_send_list.jsp"/>
+	</definition>
+	
+	<definition name="mem/message/msg_writeForm" extends="mem_layout">
+		<put-attribute name="title" value="쪽지쓰기"/>
+		<put-attribute name="body" value="/WEB-INF/view/all/message/msg_writeForm.jsp"/>
+	</definition>	
 	
 	
 	

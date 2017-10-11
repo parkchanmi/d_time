@@ -8,6 +8,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
+	
+	<!-- 에러메시지 -->
+	<bean id="commonLogger" class="validator.CommonLoggerImpl" />
+	<bean id="authenticator" class="validator.MockAuthenticator"
+		p:commonLogger-ref="commonLogger" />
+
 
 	<bean id="main_dao" class="controller.Main_DAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
@@ -54,6 +60,14 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 
+<!-- message -->
+	<bean id="message_dao" class="controller.member.message.Msg_DAO">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+<!-- 	<bean class="controller.member.message.Msg_Controller">
+		<property name="msg_dao" ref = "message_dao"></property>
+	</bean> -->
 	<!-- <bean class="controller.all.member.Join_Controller">
 		<property name="dao" ref="member_dao" />
 	</bean>

@@ -31,9 +31,13 @@ public class Member_DAO extends SqlSessionDaoSupport {
 	//지점코드 유무확인
 	public HashMap selectcode(String s_code) {
 		HashMap x=getSqlSession().selectOne("mem.selectcode", s_code);
-		System.out.println(x);
 		return x;
 	}
+	
+	public Member_DTO selectsno(int s_no) {
+		Member_DTO x=getSqlSession().selectOne("mem.selectsno", s_no);
+		return x;
+	} 
 	
 	//수정전 비번확인
 	public String selectMem(String mem_id, String mem_pwd) {
@@ -88,4 +92,15 @@ public class Member_DAO extends SqlSessionDaoSupport {
 		
 	
 	}*/
+	//비밀번호찾기
+		public Member_DTO pwfind(Member_DTO member_DTO) {
+			Member_DTO x=getSqlSession().selectOne("mem.pwfind", member_DTO);
+			return x;
+		}
+
+		public int pwchange(Member_DTO member_DTO) {
+			int x=getSqlSession().update("mem.pwchange",member_DTO);
+			return x;
+		
+		}
 }

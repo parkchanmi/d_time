@@ -1,17 +1,39 @@
 package model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Message_DTO {
 	
 	private int msg_no;
 	private String msg_title;
 	private String msg_content;
-	private Date msg_date;
+	private Timestamp msg_date;
 	private int msg_state;
 	private int msg_sender;
 	private int msg_receiver;
+	private String rcv_sname;
+	private String sen_sname;
+	private String member;
 	
+	public String getMember() {
+		return member;
+	}
+	public void setMember(String member) {
+		this.member = member;
+	}
+	public String getRcv_sname() {
+		return rcv_sname;
+	}
+	public void setRcv_sname(String rcv_sname) {
+		this.rcv_sname = rcv_sname;
+	}
+	public String getSen_sname() {
+		return sen_sname;
+	}
+	public void setSen_sname(String sen_sname) {
+		this.sen_sname = sen_sname;
+	}
 	public int getMsg_no() {
 		return msg_no;
 	}
@@ -30,10 +52,10 @@ public class Message_DTO {
 	public void setMsg_content(String msg_content) {
 		this.msg_content = msg_content;
 	}
-	public Date getMsg_date() {
+	public Timestamp getMsg_date() {
 		return msg_date;
 	}
-	public void setMsg_date(Date msg_date) {
+	public void setMsg_date(Timestamp msg_date) {
 		this.msg_date = msg_date;
 	}
 	public int getMsg_state() {

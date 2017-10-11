@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link href="/d_time/resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -22,7 +23,7 @@
 				</a>
 					<div class="user-name">
 						<h5>
-							<a href="#">${login.mem_type }</a>
+							<a href="#">${login.mem_type}</a>
 						</h5>
 						<span><a href="#">${login.mem_name }님</a></span>
 					</div></li>
@@ -64,9 +65,10 @@
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents05">
 						<li><a href="/d_time/all/notice/notice_list.do">공지사항</a></li>
-						<li><a href="/d_time/board_list.do?type=1">건의사항</a></li>
-						<li><a href="/d_time/board_list.do?type=2">정보공유</a></li>
-						<li><a href="/d_time/board_manage.do?">게시판관리</a></li>
+						<c:forEach var="board_type" items="${typelist}">
+						<li><a href="/d_time/board_list.do?type=${board_type.board_type}">${board_type.board_type}</a></li>
+						</c:forEach>
+						<li><a href="/d_time/admin/board_manage.do?">게시판관리</a></li>
 					</ul></li>
 			</ul>
 			<ul class="navbar-nav sidenav-toggler">
@@ -103,14 +105,12 @@
 								could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
 						</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"> <strong>John Doe</strong> <span
-							class="small float-right text-muted">11:21 AM</span>
-							<div class="dropdown-message small">I've sent the final
-								files over to you for review. When you're able to sign off of
-								them let me know and we can discuss distribution.</div>
-						</a>
+						<a class="dropdown-item small" href="msg_writeForm.do">쪽지 쓰기</a>
+						
+			
+						
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="#">View all messages</a>
+						<a class="dropdown-item small" href="msg_send_list.do">보낸 쪽지함</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown"

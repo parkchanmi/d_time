@@ -36,7 +36,7 @@
 							</tr>
 						</thead>
 
-						<tr id="132582" style="text-align: center;">
+						<tr style="text-align: center;">
 							<td rowspan="3">음료</td>
 							<c:forEach var="ordrink" items="${ordrink}">
 								<tr>
@@ -52,7 +52,7 @@
 							
 						</tr>
 
-						<tr id="132582" style="text-align: center;">
+						<tr style="text-align: center;">
 							<td rowspan="3">식품</td>
 							<%-- <td><input type="hidden" name="${orderdto.o_food}" />${orderdto.o_food}</td> --%>
 							<c:forEach var="orfood" items="${orfood}">
@@ -68,7 +68,7 @@
 							</c:forEach>
 						</tr>
 
-						<tr id="132582" style="text-align: center;">
+						<tr style="text-align: center;">
 							<td rowspan="3">상품</td>
 							<%-- <td><input type="hidden" name="${orderdto.o_product}" />${orderdto.o_product}</td> --%>
 							<c:forEach var="orproduct" items="${orproduct}">
@@ -84,7 +84,7 @@
 							</c:forEach>
 						</tr>
 
-						<tr id="132582" style="text-align: center;">
+						<tr style="text-align: center;">
 							<td rowspan="2">소모품</td>
 							<%-- <td><input type="hidden" name="${orderdto.o_thing}" />${orderdto.o_thing}</td> --%>
 							<c:forEach var="orthing" items="${orthing}">

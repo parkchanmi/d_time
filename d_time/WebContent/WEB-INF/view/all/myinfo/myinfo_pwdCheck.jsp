@@ -15,16 +15,21 @@
     <center>
  
         <form method="post" action="myinfo_pwdCheck.do">
+              <div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-user"></i></span> <strong> 나의 정보 수정하기</strong>
+			</div>
                 <table>
                 <tr>
                     <td width="150px" height="100px" align="center">비밀번호 :</td>
                     <td width="150px" align="center">
-                        <input type="text" name="mem_pwd">
+                        <input class='col-lg-12 form-control input-sm' type="text" name="mem_pwd">
                     </td>
                 </tr>
-
+</table>
+<table>
                 <tr>
-                <td colspan="0.5" height="100px"  align="center">
+                <td colspan="0.5" height="100px" width="100px"  align="center">
                 <div class="form-group">
 					<input type="submit"  class="btn btn-primary btn-block m-t-md" value="확인"> 
 					</div>
@@ -34,6 +39,7 @@
                     </td>
                 </tr>
             </table>
+            </div>
             			<!-- Bootstrap core JavaScript -->
 	<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
 <!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->

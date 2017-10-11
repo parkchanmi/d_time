@@ -195,7 +195,7 @@
 								</div>
 
 								<div class="form-group">
-									<div class="col-lg-6 col-lg-offset-2">
+									<div class="col-lg-8 col-lg-offset-2">
 										<button type="reset" class="btn btn-default">다시작성</button>
 										<button type="submit" class="btn btn-primary">등록</button>
 									</div>

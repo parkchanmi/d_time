@@ -80,5 +80,39 @@ public class Member_Sell_DAO extends SqlSessionDaoSupport {
 		*/
 		
 	}
+	public boolean stock_confirm(int m_no,int m_count, int s_no) {
+		
+			String m_recipe = getSqlSession().selectOne("member_sell.recipe_confirm",m_no);
+			String[] split_receipe = m_recipe.split(",");
+			
+			HashMap<String,Integer> map = new HashMap<String,Integer>();
+			for(int j=0;j<split_receipe.length;j=j+2) {
+				//map.put(split_receipe[j], Integer.parseInt(split_receipe[j+1])*m_count[i]);
+				
+				int need_sell = Integer.parseInt(split_receipe[j+1])*m_count; //판매에 필요한 재고 갯수
+				
+				HashMap sno_stname = new HashMap();
+				sno_stname.put("s_no", s_no);
+				sno_stname.put("st_name", split_receipe[j]);
+				sno_stname.put("need_sell", need_sell);
+				
+				String exist = getSqlSession().selectOne("member_sell.exist_stock",sno_stname);
+				if(exist==null) //재고에 해당 물품이 없는경우
+					return false; //판매불가
+				
+				int stock_count = getSqlSession().selectOne("member_sell.get_stock",sno_stname); //매장에 존재하는 재고의 갯수
+				if(stock_count<need_sell) { //재고의 갯수가 실제 필요한 양보다 적다면 재고부족!
+					return false; // 판매불가
+				}
+				
+			}
+		
+		
+		//문제가 없으면 판매가능
+		return true;
+		
+		
+	}
+
 
 }

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page trimDirectiveWhitespaces="true" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 
 <style>
 #container {
@@ -11,35 +11,38 @@
 #box-cal {
 	flex: 1;
 	text-align: center;
-	position:relative;
-	height:65%;
+	position: relative;
+	height: 65%;
 }
 
 #box-menu {
 	flex: 2;
-	text-align: center;
 	display: flex;
-
+	text-align: left;
 }
+
 #box-left {
 	flex: 1;
-	text-align: center;
 	display: block;
+	padding : 10px;
 }
 
 #box-center {
 	flex: 1;
-	text-align: center;
 	display: block;
+	padding : 10px;
 }
 
 #box-right {
 	flex: 1;
-	text-align: center;
 	display: block;
+	padding : 10px;
 }
-
-
+#box-left span,#box-center span,#box-right span {
+	margin-right:0px;
+	float:right;
+	font-size:18px;
+}
 </style>
 <script>
 var Tbl;
@@ -138,62 +141,125 @@ function submit_confirm(){
 <body>
 
 	<h3>판매모드</h3>
-	<br/><br/>
+	<br />
+	<br />
 	<style>
-	table, th{
-	text-align:center;
-	}
-	
-	</style>
+table, th {
+	text-align: center;
+}
+</style>
 	<div id='container'>
-	
-		<div id='box-cal' class="panel" style="width:70%;height:65%;margin-right:10px;padding:5px;">
-			<form action="/d_time/sell/sell_sale.do" onSubmit="return submit_confirm();">
-			<div id='top-cal' style="overflow:auto;height:450px;">
-			<h5>계산</h5>
-			<table  width="100%" id="cal_table">
-			<tr><th width=10%>No</th><th width=40%>주문메뉴명</th><th width=20%>수량</th><th width=30%>판매금액</th></tr>
-			
-			</table>
-			</div>
-			<div id='bottom-cal' style="width:500px;position:absolute; bottom:0px;">
-<hr>
-			<table id="total_table" width="100%" text-align="center" >
-			<tr><td colspan=2 width=60%>총 금액</td><td width=25%><span id="total_price">0</span>원</td>
-			<td width=15%><input class="btn btn-info" type="submit" value="계산"/></td></tr>
-			
-			</table>
-			</div>
+
+		<div id='box-cal' class="panel"
+			style="width: 70%; height: 65%; margin-right: 10px; padding: 5px;">
+			<form action="/d_time/sell/sell_sale.do"
+				onSubmit="return submit_confirm();">
+				<div id='top-cal' style="overflow: auto; height: 450px;">
+					<h5>계산</h5>
+					<table width="100%" id="cal_table">
+						<tr>
+							<th width=10%>No</th>
+							<th width=40%>주문메뉴명</th>
+							<th width=20%>수량</th>
+							<th width=30%>판매금액</th>
+						</tr>
+
+					</table>
+				</div>
+				<div id='bottom-cal'
+					style="width: 500px; position: absolute; bottom: 0px;">
+					<hr>
+					<table id="total_table" width="100%" text-align="center">
+						<tr>
+							<td colspan=2 width=60%>총 금액</td>
+							<td width=25%><span id="total_price">0</span>원</td>
+							<td width=15%><input class="btn btn-info" type="submit"
+								value="결제" /></td>
+						</tr>
+
+					</table>
+				</div>
 			</form>
 		</div>
-		
-		<div id='box-menu' >
-			<div id='box-left' class="panel" style="overflow:auto; width:70%;height:65%;">
-			음료<br/><br/>
-			<c:forEach var="menu" items="${mlist}">
-			<c:if test="${menu.m_type=='음료' }">
-			<button class="btn btn-default" onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button><br/><br/>
-			</c:if>
-			</c:forEach>
+
+		<div id='box-menu'>
+			<div id='box-left' class="panel"
+				style="overflow: auto; width: 70%; height: 65%;">
+				음료<br /> <br />
+				<c:forEach var="menu" items="${mlist}" varStatus="status">
+					<c:if test="${menu.m_type=='음료' }">
+					
+						<c:if test="${blist[status.index]}">
+							<button class="btn btn-default" 
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<button class="btn btn-default" disabled=""
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+					
+						
+						<span>${menu.m_cost}원</span>
+						<c:if test="${blist[status.index]}">
+							<p>판매가능</p>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<p style="color:red;">판매불가</p>
+						</c:if>
+						<br />
+					</c:if>
+				</c:forEach>
 			</div>
-			<div id='box-center' class="panel" style="overflow:auto; width:70%;height:65%;">
-			식품<br/><br/>
-			<c:forEach var="menu" items="${mlist}">
-			<c:if test="${menu.m_type=='식품' }">
-			<button class="btn btn-default" onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button><br/><br/>
-			</c:if>
-			</c:forEach>
+			<div id='box-center' class="panel"
+				style="overflow: auto; width: 70%; height: 65%;">
+				식품<br /> <br />
+				<c:forEach var="menu" items="${mlist}" varStatus="status">
+					<c:if test="${menu.m_type=='식품' }">
+						<c:if test="${blist[status.index]}">
+							<button class="btn btn-default" 
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<button class="btn btn-default" disabled=""
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+						<span>${menu.m_cost}원</span>
+						<c:if test="${blist[status.index]}">
+							<p>판매가능</p>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<p style="color:red;">판매불가</p>
+						</c:if>
+						<br />
+					</c:if>
+				</c:forEach>
 			</div>
-			<div id='box-right' class="panel" style="overflow:auto; width:70%;height:65%;">
-			상품<br/><br/>
-			<c:forEach var="menu" items="${mlist}">
-			<c:if test="${menu.m_type=='상품' }">
-			<button class="btn btn-default" onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button><br/><br/>
-			</c:if>
-			</c:forEach>
+			<div id='box-right' class="panel"
+				style="overflow: auto; width: 70%; height: 65%;">
+				상품<br /> <br />
+				<c:forEach var="menu" items="${mlist}" varStatus="status">
+					<c:if test="${menu.m_type=='상품' }">
+						<c:if test="${blist[status.index]}">
+							<button class="btn btn-default" 
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<button class="btn btn-default" disabled=""
+							onClick="add_sell('${menu.m_type}','${menu.m_name}',${menu.m_cost},${menu.m_no})">${menu.m_name}</button>
+						</c:if>
+						<span>${menu.m_cost}원</span>
+						<c:if test="${blist[status.index]}">
+							<p>판매가능</p>
+						</c:if>
+						<c:if test="${!blist[status.index]}">
+							<p style="color:red;">판매불가</p>
+						</c:if>
+						<br />
+					</c:if>
+				</c:forEach>
 			</div>
 		</div>
-		
-	
+
+
 	</div>
 </body>

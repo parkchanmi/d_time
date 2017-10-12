@@ -101,7 +101,7 @@ public class Admin_Orders_Controller {
 	public ModelAndView orderdetail(ModelAndView mav, int o_no) {
 
 		
-		System.out.println(o_no);
+	//	System.out.println(o_no);
 		
 
 		Orders_DTO order = ordao.orderdtoone(o_no);
@@ -111,19 +111,27 @@ public class Admin_Orders_Controller {
 		String storename = stdao.storeName(sno);
 		mav.addObject("storename", storename);
 		
-		System.out.println("sno="+sno);
+	//	System.out.println("sno="+sno);
 		
 		List<HashMap> ordrink = stockdao.odrink(o_no,sno);
 		mav.addObject("ordrink",ordrink);
+		if(ordrink!=null)
+			mav.addObject("dsize",ordrink.size());
 		
 		List<HashMap> orfood = stockdao.orfood(o_no,sno);
 		mav.addObject("orfood",orfood);
+		if(orfood!=null)
+			mav.addObject("fsize",orfood.size());
 		
 		List<HashMap> orproduct = stockdao.orproduct(o_no,sno);
 		mav.addObject("orproduct",orproduct);
+		if(orproduct!=null)
+			mav.addObject("psize",orproduct.size());
 		
 		List<HashMap> orthing = stockdao.orthing(o_no,sno);
 		mav.addObject("orthing",orthing);
+		if(orthing!=null)
+			mav.addObject("tsize",orthing.size());
 		
 		
 		mav.setViewName("admin/orders/order_detail");

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Board_DTO;
-import model.Board_Type_DTO;
 import model.Member_DTO;
 import model.Review_DTO;
 
@@ -24,9 +24,6 @@ public class Board_Controller {
 	@Autowired
 	Board_DAO b_dao;
 	
-	@Autowired
-	Board_Type_DAO bt_dao;
-	
 	public Board_DAO getB_dao() {
 		return b_dao;
 	}
@@ -35,40 +32,37 @@ public class Board_Controller {
 		this.b_dao = b_dao;
 	}
 	
-	@RequestMapping("board_list.do")
-	public String board_list(String type, Model model,HttpServletRequest request, HttpSession session){
-		
-		String b_type;
-		b_type=type;
-		/*if(type ==1) {
-			b_type ="건의사항";
-		}else {
-			b_type="물물교환";
-		} */
-		//System.out.println("�Խ���Ÿ��:"+type);
+	@RequestMapping(value="board_list.do", method = RequestMethod.GET)
+	public String board_list(String type, Model model,HttpServletRequest request, HttpSession session,
+			@RequestParam(defaultValue="title")String searchOption, @RequestParam(defaultValue="")String keyword){
+		String b_type=type;
+		System.out.println("게시판타입1:"+b_type);
+		System.out.println("게시판타입:"+type);
 		
 		
 		
 		String pageNum = request.getParameter("pageNum"); 
-		System.out.println("pageNum1:"+pageNum);
+		//System.out.println("pageNum1:"+pageNum);
 		if (pageNum == null) {
 			pageNum = "1";
 		}
-		System.out.println("pageNum2:"+pageNum);
+		//System.out.println("pageNum2:"+pageNum);
 		int count = b_dao.Board_Count(b_type);  
 		int pageSize = 10;
 		
 		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage - 1) * pageSize + 1;
 		int endRow = currentPage * pageSize;
-		
-		HashMap map = new HashMap();
+	
+		HashMap<Object,Object> map = new HashMap<Object,Object>();
 		map.put("b_type", b_type);
-		map.put("startRow", startRow);
+		map.put("startRow", startRow); 
 		map.put("endRow", endRow);
 		
-		List<Board_DTO> list = b_dao.selectList(map); 
 		
+		List<Board_DTO> list = b_dao.selectList(map); 
+	
+
 		int number = 0;
 		number = count - (currentPage - 1) * pageSize;
 		session.setAttribute("pageNum", new Integer(pageNum)); 
@@ -79,32 +73,29 @@ public class Board_Controller {
 		model.addAttribute("number", new Integer(number));
 		model.addAttribute("pageSize",new Integer(pageSize));
 		model.addAttribute("list", list);
-		model.addAttribute("type", 1);
-		/*System.out.println(list);*/
+		model.addAttribute("type", type);
+		/*System.out.println(list);*/ 
 		
 		return "board/board_list";
 		
 		}
-/*�۾���*/
+	
+/*글쓰기*/
 	@RequestMapping(value="board_writeForm.do", method = RequestMethod.GET)
-	public String boardform(int type, Model model,int pageNum) {
+	public String boardform(String type, Model model,int pageNum) {
 		model.addAttribute("pageNum", new Integer(pageNum));
 		model.addAttribute("type", type); 
-		
-		List<Board_Type_DTO> typeList = bt_dao.selectType();
-		model.addAttribute("typelist", typeList);
-		
 		return "board/board_writeForm"; 
 		
 		 
 	}
 	
-	/*�۾��⴩���� �ٽø���Ʈ��*/
+	/*글쓰기누르면 다시리스트로*/
 	@RequestMapping(value="board_writeForm.do", method = RequestMethod.POST)
-	public String boardsubmit(Board_DTO Board_DTO,int type, Model model,int pageNum) {
+	public String boardsubmit(Board_DTO Board_DTO,String type, Model model,int pageNum) {
 		
 		
-		//System.out.println("�Խ���Ÿ��:"+type);
+		//System.out.println("게시판타입:"+type);
 		b_dao.insertBoard(Board_DTO) ;
 		 // System.out.println("b_type"+Board_DTO.getB_type());
 		model.addAttribute("pageNum", new Integer(pageNum));
@@ -112,25 +103,18 @@ public class Board_Controller {
 		return "redirect:board_list.do";
 	}
 	
-	/*@RequestMapping(value="board_detail.do", method = RequestMethod.GET)
-	public String board(Board_DTO Board_DTO, HttpSession session) {
-		Board_DTO board = b_dao.selectBoard_detail(Board_DTO);
 	
-		          
-		session.setAttribute("board", board);
-		 
-		return "board/board_detail";
-	} */  
 	
-	/*�󼼺���*/
+/*상세보기*/
 	@RequestMapping(value ="board_detail.do", method = RequestMethod.GET)
-	public ModelAndView handleRequest1(ModelAndView mav,int b_no, HttpSession session, Review_DTO review_dto,int type,int pageNum){
+	public ModelAndView handleRequest1(ModelAndView mav,int b_no, HttpSession session, Review_DTO review_dto,String type,int pageNum){
 		
-		/*//Member_DTO session�� ����
+		/*//Member_DTO session에 저장
 		Member_DTO member = b_dao.selectMember();
 		session.setAttribute("member", member);*/
 		
 		Board_DTO board =  b_dao.selectBoard_detail(b_no);  
+		
 		List<Review_DTO> reviewlist = b_dao.selectListR(b_no); 
 		b_dao.updateBoard_Count(b_no); 
 		mav.addObject("pageNum", new Integer(pageNum));
@@ -138,16 +122,16 @@ public class Board_Controller {
 		mav.addObject("board", board);  
 		mav.addObject("type", type);   
 		mav.setViewName("board/board_detail");
-
+		
 		//System.out.println("board"+board); 
 		return mav;
 		
 		}
 
-	/*��۵��*/	
+	/*댓글등록*/	
 
 	@RequestMapping(value="board_detail.do", method = RequestMethod.POST)
-	public String reviewsubmit(Review_DTO Review_DTO,int type,Model model,int pageNum) {
+	public String reviewsubmit(Review_DTO Review_DTO,String type,Model model,int pageNum) {
 		
 		b_dao.insertReview(Review_DTO) ;
 		model.addAttribute("pageNum", new Integer(pageNum));
@@ -155,17 +139,34 @@ public class Board_Controller {
 		return "redirect:board_detail.do?b_no="+Review_DTO.getB_no();
 	}
 	 
-	/*�ۻ���*/
-	
+/*글삭제*/	
 	@RequestMapping(value="board_delete.do", method = RequestMethod.GET)
-	public String delete(int b_no,int type,Model model) {
+	public String delete(int b_no,String type,Model model) {
 		b_dao.deleteBoard(b_no) ;
+
+		
 		model.addAttribute("type", type);
 		return "redirect:board_list.do";
 	}
-	/*�ۼ���*/
+	
+	/*리뷰삭제*/
+	
+	@RequestMapping(value="board_deletereview.do", method = RequestMethod.GET)
+	public String delete2(int r_no,Model model,int b_no,String type,int pageNum) {
+		
+		 
+		b_dao.deleteReview(r_no);
+		model.addAttribute("pageNum", new Integer(pageNum));
+		model.addAttribute("type", type);
+		model.addAttribute("b_no", b_no);
+		
+	
+		return "redirect:board_detail.do";
+	}
+	
+	/*글수정*/
 	@RequestMapping(value="board_modifyForm.do", method = RequestMethod.GET)
-	public String modify(int type,Model model,int b_no) {
+	public String modify(String type,Model model,int b_no) {
 		//b_dao.modifyBoard(b_no); 
 
 		Board_DTO board =  b_dao.selectBoard_detail(b_no); 
@@ -174,19 +175,76 @@ public class Board_Controller {
 		return "board/board_modifyForm";
 	}
 	
-	/*�ۼ��������� �ٽø���Ʈ��*/
+	/*글수정누르면 다시상세보기로*/
 	@RequestMapping(value="board_modifyForm.do", method = RequestMethod.POST)
-	public String boardupdatesubmit(int b_no,Board_DTO Board_DTO,int type, Model model) {
+	public String boardupdatesubmit(int b_no,Board_DTO Board_DTO,String type, Model model,int pageNum) {
 		
-		
-		//System.out.println("�Խ���Ÿ��:"+type); 
-		b_dao.modifyBoard(Board_DTO); 
-		Board_DTO board =  b_dao.selectBoard_detail(b_no);   
+		Board_DTO board =  b_dao.selectBoard_detail(b_no);
+		//System.out.println("게시판타입:"+type); 
+		b_dao.modifyBoard(Board_DTO);
 		model.addAttribute("board", board);
-		model.addAttribute("type", type);
-		return "redirect:board_list.do";
+		model.addAttribute("pageNum", new Integer(pageNum));
+		model.addAttribute("type",type); 
+		return "redirect:board_detail.do?b_no="+Board_DTO.getB_no();
 	}
 	
+	/*검색*/
+	@RequestMapping(value="board_search.do", method = RequestMethod.POST)
+	public String search(Model model,String keyword,String searchOption,HttpServletRequest request) {
+		//System.out.println("type3"+type);
+		/*String b_type;
+		if(type ==1) {
+			b_type ="건의사항";
+		}else {
+			b_type="물품교환";
+		} */
+		//System.out.println("b2"+b_type);
+		String b_type="건의사항";
+		
+		
+	
+		
+		String pageNum = request.getParameter("pageNum"); 
+		//System.out.println("pageNum1:"+pageNum);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+	System.out.println("pageNum2:"+pageNum);
+		int count = b_dao.Board_Count(b_type);  
+		int pageSize = 10;
+		
+		int currentPage = Integer.parseInt(pageNum);
+		int startRow = (currentPage - 1) * pageSize + 1;
+		System.out.println("size"+pageSize);
+		System.out.println("currentpage"+currentPage);
+		int endRow = currentPage * pageSize;
+		
+		List<Board_DTO> blist = b_dao.searchBoard(keyword,b_type,startRow,endRow); 
+		if(blist!=null) {
+			System.out.println("검색결과:"+blist.size());
+			count = blist.size();
+		}
+		
+		int number = 0;
+		number = count - (currentPage - 1) * pageSize;
+		
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("currentPage", 1);
+		model.addAttribute("count", count);
+		model.addAttribute("startRow", new Integer(startRow));
+		model.addAttribute("endRow", new Integer(endRow));
+		model.addAttribute("number", new Integer(number));
+		model.addAttribute("pageSize",new Integer(pageSize));
+		model.addAttribute("list", blist);
+		model.addAttribute("type", b_type);
+		
+		
+		
+		
+		
+		
+		return "board/board_list";
+	}
 
 
 }

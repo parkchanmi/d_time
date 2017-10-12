@@ -12,7 +12,6 @@ public class SaleMemDAO extends SqlSessionDaoSupport {
 
 	public List<Sell_DTO> selectFT(String s_no, String from, String to) {
 		
-		System.out.println("媛��졇�삩 s_no : " + s_no);
 		HashMap map2 = new HashMap();
 		map2.put("s_no", s_no);
 		map2.put("to", to);
@@ -20,6 +19,17 @@ public class SaleMemDAO extends SqlSessionDaoSupport {
 		List<Sell_DTO> sell2 = getSqlSession().selectList("saleMem.selectList", map2);
 		
 		return sell2;
+	}
+	
+	public List<Sell_DTO> selectDetail(String s_no, String from, String to) {
+
+		HashMap mapD = new HashMap();
+		mapD.put("s_no", s_no);
+		mapD.put("to", to);
+		mapD.put("from", from);
+		List<Sell_DTO> sell3 = getSqlSession().selectList("saleMem.selectDetail", mapD);		
+
+		return sell3;
 	}
 
 	public List<HashMap> selectYear(String s_no) {
@@ -53,9 +63,24 @@ public class SaleMemDAO extends SqlSessionDaoSupport {
 		return month;
 	}
 
-	public List<HashMap> selectType(String s_no) {
-		List<HashMap> type = getSqlSession().selectList("saleMem.selectType", s_no);
+	public List<HashMap> selectType(String s_no,String from, String to) {
+		HashMap down_map = new HashMap();
+		down_map.put("s_no", s_no);
+		down_map.put("from", from);
+		down_map.put("to", to);
+		List<HashMap> type = getSqlSession().selectList("saleMem.selectType", down_map);
 		
 		return type;
 	}
+
+	public List<HashMap> selectAll(String s_no, String from, String to) {
+		HashMap all_map = new HashMap();
+		all_map.put("s_no", s_no);
+		all_map.put("from", from);
+		all_map.put("to", to);
+		List<HashMap> all = getSqlSession().selectList("saleMem.selectAll", all_map);
+		
+		return all;
+	}
+
 }

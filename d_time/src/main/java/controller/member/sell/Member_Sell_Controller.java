@@ -30,11 +30,28 @@ public class Member_Sell_Controller {
 	}
 
 	@RequestMapping("/sell/sell_main.do")
-	public String sell_main(Model model) {
+	public String sell_main(Model model,HttpSession session) {
 		List<Menu_DTO> mlist = sdao.getMenuList();
-		if (mlist != null)
+		List<Boolean> blist = new ArrayList<Boolean>();
+		Member_DTO session_member=(Member_DTO) session.getAttribute("login"); 
+		if(session_member==null) { //
+			return "redirect:index.jsp";
+		}
+		
+		int s_no = session_member.getS_no();
+		
+		if(mlist!=null) {
+			for(int i=0;i<mlist.size();i++) {
+				boolean stock_ok = sdao.stock_confirm(mlist.get(i).getM_no(),1,s_no);
+				blist.add(stock_ok);
+			}
+			
+		}
+		
+		if (mlist != null) {
 			model.addAttribute("mlist", mlist);
-
+			model.addAttribute("blist", blist);
+		}
 		return "sell/main";
 	}
 
@@ -78,7 +95,7 @@ public class Member_Sell_Controller {
 				
 				Timestamp time = new Timestamp(System.currentTimeMillis());
 
-				Sell_DTO drink_sell = new  Sell_DTO(1, time, menu_cost, menu_history, "음료",menu_count);
+				Sell_DTO drink_sell = new  Sell_DTO(s_no, time, menu_cost, menu_history, "음료",menu_count);
 				sell_list.add(drink_sell);
 				
 				System.out.println(menu_history+"수량:"+menu_count+"금액:"+menu_cost+"현재시간:"+time);
@@ -100,7 +117,7 @@ public class Member_Sell_Controller {
 				
 				Timestamp time = new Timestamp(System.currentTimeMillis());
 
-				Sell_DTO food_sell = new  Sell_DTO(1, time, menu_cost, menu_history, "식품",menu_count);
+				Sell_DTO food_sell = new  Sell_DTO(s_no, time, menu_cost, menu_history, "식품",menu_count);
 				sell_list.add(food_sell);
 				
 				System.out.println(menu_history+"수량:"+menu_count+"금액:"+menu_cost);
@@ -124,7 +141,7 @@ public class Member_Sell_Controller {
 				
 				Timestamp time = new Timestamp(System.currentTimeMillis());
 				
-				Sell_DTO product_sell = new  Sell_DTO(1, time, menu_cost, menu_history, "상품",menu_count);
+				Sell_DTO product_sell = new  Sell_DTO(s_no, time, menu_cost, menu_history, "상품",menu_count);
 				sell_list.add(product_sell);
 				
 				System.out.println(menu_history+"수량:"+menu_count+"금액:"+menu_cost);

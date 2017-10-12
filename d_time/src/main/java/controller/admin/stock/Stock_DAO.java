@@ -59,13 +59,13 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 			int countadd = Integer.parseInt(split_odrink[i + 1]);// 발주신청으로 입력받은 수량.
 
-			int st_std = getSqlSession().selectOne("store.selectCount", split_odrink[i]);
+			/*int st_std = getSqlSession().selectOne("store.selectCount", split_odrink[i]);
 			System.out.println("단위:" + st_std);
 			int need_count = st_std * countadd; // (1000*3)
-
+*/
 			odrink.put("s_no", s_no);
 			odrink.put("st_name", split_odrink[i]);
-			odrink.put("st_count", need_count); // 3000
+			odrink.put("st_count", countadd); // 3000
 			odrink.put("st_type", "음료");
 
 			String stnameSame = getSqlSession().selectOne("store.stnameSame", odrink);

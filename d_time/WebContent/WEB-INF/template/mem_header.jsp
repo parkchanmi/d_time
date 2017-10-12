@@ -22,6 +22,11 @@
 						class="fa fa-user-circle-o fa-4x"></i>
 				</a>
 					<div class="user-name">
+					<c:if test="${login==null}">
+					<script>
+						location.href="/d_time/logout.jsp";
+					</script>
+					</c:if>
 						<h5>
 							<a href="#">[${login.mem_type}]${login.s_name}</a>
 						</h5>

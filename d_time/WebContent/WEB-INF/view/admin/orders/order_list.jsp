@@ -40,7 +40,6 @@
 	});
 </script>
 <meta charset="utf-8">
-<div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -106,7 +105,6 @@
 		<!-- /.panel -->
 
 	</div>
-</div>
 
 
 <!-- /.content-wrapper-->

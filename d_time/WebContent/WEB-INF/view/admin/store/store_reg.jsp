@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <meta charset="utf-8">
-<div class="container-fluid">
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -29,7 +29,7 @@
 										style="float: left">지점명</label>
 									<div class="col-lg-6 marginbt">
 										<input type="text" class="form-control" id="inputEmail"
-											placeholder="지점명" name="s_name">
+											placeholder="지점명" name="s_name" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -40,9 +40,9 @@
 												<input type="text" class="form-control" id="inputPassword"
 													placeholder="지점주소" name="s_loc"> -->
 										<input type="text" class="form-control" id="sample5_address"
-											placeholder="주소" style="float: left;" name="s_loc"> <input
+											placeholder="주소" style="float: left;" name="s_loc" required> <input
 											type="button" onclick="sample5_execDaumPostcode()"
-											value="주소 검색" class="btn btn-default">
+											value="주소 검색" class="btn btn-default" >
 										<div id="map"
 											style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
 
@@ -166,7 +166,7 @@
 										style="float: left">코드명</label>
 									<div class="col-lg-6 marginbt">
 										<input type="text" class="form-control" id="inputPassword"
-											placeholder="코드명" name="s_code">
+											placeholder="코드명" name="s_code" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -175,7 +175,7 @@
 									<div class="col-lg-10" style="display: inline-flex">
 										<div class="radio">
 											<label> <input type="radio" name="s_type" id="직영"
-												value="option1" checked="">직영
+												value="option1" checked>직영
 											</label>
 										</div>
 										<div class="radio">
@@ -189,8 +189,8 @@
 									<label for="inputPassword" class="col-lg-2 control-label "
 										style="float: left">H.P</label>
 									<div class="col-lg-6 marginbt">
-										<input type="text" class="form-control" id="inputPassword"
-											placeholder="전화번호" name="s_hp">
+										<input type="tel" class="form-control" id="inputPassword"
+											 name="s_hp" required>
 									</div>
 								</div>
 
@@ -212,8 +212,8 @@
 
 	</div>
 
-</div>
-</div>
+
+
 
 <!-- 우편번호 검색 -->
 <div class="modal fade" id="zip_codeModal">

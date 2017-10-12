@@ -75,7 +75,7 @@ public class Admin_Menu_Controller {
 				recipe+=m_recipes[i]+","+m_num[i]+",";
 		 //System.out.println(mdto.getM_type()+m_recipes[i]+", "+m_num[i]); 
 		}
-		System.out.println(mdto.getM_name()+" 레시피:"+recipe); 
+		//System.out.println(mdto.getM_name()+" 레시피:"+recipe); 
 		mdto.setM_recipe(recipe);
 		
 		int x = mdao.addMenu(mdto);

@@ -889,6 +889,37 @@ pre code {
 	color: #1f89db;
 }
 
+.member_info {
+	width: 90%;
+	height: 250px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 25px 20px;
+}
+
+.member_info dl {
+	float: left;
+	width: 50%
+}
+
+.member_info dl dt {
+	float: left;
+	height: 56px;
+	font-size: 15px;
+}
+
+.member_info dl dt img {
+	margin-bottom: 5px;
+}
+
+.member_info dl dt span {
+	color: #1f89db;
+}
+
+
+
+
+
 .row {
 	display: -ms-flexbox;
 	display: flex;

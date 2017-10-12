@@ -6,7 +6,7 @@
 </script>
 
 <meta charset="utf-8">
-<div class="container-fluid">
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -37,66 +37,98 @@
 						</thead>
 
 						<tr style="text-align: center;">
-							<td rowspan="3">음료</td>
-							<c:forEach var="ordrink" items="${ordrink}">
-								<tr>
-									<td style="text-align:center"><input type="hidden" name="${orderdto.o_drink}"/>
-										${ordrink.st_name}
-										<%-- ${ordrink.st_num}	 --%>
+							<td rowspan="${dsize}">음료</td>
+							<c:forEach var="ordrink" items="${ordrink}" varStatus="status">
+								<c:if test="${status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_drink}" /> ${ordrink.st_name} <%-- ${ordrink.st_num}	 --%>
 									</td>
-									<td style="text-align:center">
-										${ordrink.st_num}
-									</td>
-								</tr>
+									<td style="text-align: center">${ordrink.st_num}</td>
+								</c:if>
 							</c:forEach>
+
+						</tr>
+
+						<tr>
+							<c:forEach var="ordrink" items="${ordrink}" varStatus="status">
+								<c:if test="${!status.first}">
+									<%-- ${status.index} --%>
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_drink}" /> ${ordrink.st_name} <%-- ${ordrink.st_num}	 --%>
+									</td>
+									<td style="text-align: center">${ordrink.st_num}</td>
+								</c:if>
+							</c:forEach>
+						</tr>
+
+
+
+						<tr style="text-align: center;">
+							<td rowspan="${fsize}">식품</td>
+
+							<c:forEach var="orfood" items="${orfood}" varStatus="status">
+								<c:if test="${status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_food}" /> ${orfood.st_name} <%-- ${ordrink.st_num}	 --%>
+									</td>
+									<td style="text-align: center">${orfood.st_num}</td>
+								</c:if>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach var="orfood" items="${orfood}" varStatus="status">
+								<c:if test="${!status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_food}" /> ${orfood.st_name} <%-- ${ordrink.st_num}	 --%>
+									</td>
+									<td style="text-align: center">${orfood.st_num}</td>
+								</c:if>
+							</c:forEach>
+						</tr>
+
+						<tr style="text-align: center;">
+							<td rowspan="${psize}">상품</td>
 							
-						</tr>
-
-						<tr style="text-align: center;">
-							<td rowspan="3">식품</td>
-							<%-- <td><input type="hidden" name="${orderdto.o_food}" />${orderdto.o_food}</td> --%>
-							<c:forEach var="orfood" items="${orfood}">
-								<tr>
-									<td style="text-align:center"><input type="hidden" name="${orderdto.o_food}"/>
-										${orfood.st_name}
-										<%-- ${ordrink.st_num}	 --%>
+							<c:forEach var="orproduct" items="${orproduct}" varStatus="status">
+								<c:if test="${status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_product}" /> ${orproduct.st_name} <%-- ${ordrink.st_num}	 --%>
 									</td>
-									<td style="text-align:center">
-										${orfood.st_num}
-									</td>
-								</tr>
+									<td style="text-align: center">${orproduct.st_num}</td>
+								</c:if>
 							</c:forEach>
 						</tr>
-
+						<tr>
+							<c:forEach var="orproduct" items="${orproduct}" varStatus="status">
+								<c:if test="${!status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_product}" /> ${orproduct.st_name} <%-- ${ordrink.st_num}	 --%>
+									</td>
+									<td style="text-align: center">${orproduct.st_num}</td>
+								</c:if>
+							</c:forEach>
+						
+						</tr>
 						<tr style="text-align: center;">
-							<td rowspan="3">상품</td>
-							<%-- <td><input type="hidden" name="${orderdto.o_product}" />${orderdto.o_product}</td> --%>
-							<c:forEach var="orproduct" items="${orproduct}">
-								<tr>
-									<td style="text-align:center"><input type="hidden" name="${orderdto.o_product}"/>
-										${orproduct.st_name}
-										<%-- ${ordrink.st_num}	 --%>
+							<td rowspan="${tsize}">소모품</td>
+							
+							<c:forEach var="orthing" items="${orthing}" varStatus="status">
+								<c:if test="${status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_thing}" /> ${orthing.st_name} <%-- ${ordrink.st_num}	 --%>
 									</td>
-									<td style="text-align:center">
-										${orproduct.st_num}
-									</td>
-								</tr>
+									<td style="text-align: center">${orthing.st_num}</td>
+								</c:if>
 							</c:forEach>
 						</tr>
-
-						<tr style="text-align: center;">
-							<td rowspan="2">소모품</td>
-							<%-- <td><input type="hidden" name="${orderdto.o_thing}" />${orderdto.o_thing}</td> --%>
-							<c:forEach var="orthing" items="${orthing}">
-								<tr>
-									<td style="text-align:center"><input type="hidden" name="${orderdto.o_thing}"/>
-										${orthing.st_name}
-										<%-- ${ordrink.st_num}	 --%>
+						<tr>
+						<c:forEach var="orthing" items="${orthing}" varStatus="status">
+								<c:if test="${!status.first}">
+									<td style="text-align: center"><input type="hidden"
+										name="${orderdto.o_thing}" /> ${orthing.st_name} <%-- ${ordrink.st_num}	 --%>
 									</td>
-									<td style="text-align:center">
-										${orthing.st_num}
-									</td>
-								</tr>
+									<td style="text-align: center">${orthing.st_num}</td>
+								</c:if>
 							</c:forEach>
 						</tr>
 					</table>
@@ -139,4 +171,5 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div></div></div>
+			

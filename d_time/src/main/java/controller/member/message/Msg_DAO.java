@@ -55,6 +55,10 @@ public class Msg_DAO extends SqlSessionDaoSupport{
 
 	/*��������*/
 	public int msg_write(Message_DTO message_DTO) {
+		int s_no = message_DTO.getMsg_receiver();
+		int mem_no = getSqlSession().selectOne("message.getM_no",s_no);
+		message_DTO.setMsg_receiver(mem_no);
+		
 		int x = getSqlSession().insert("message.msgWrite", message_DTO);
 		return x;	
 	}

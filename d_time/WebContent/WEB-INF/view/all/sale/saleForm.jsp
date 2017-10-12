@@ -1,12 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <meta charset="utf-8">
 
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-
-	<div class="container-fluid" style="padding: 0px;">
 		<div class="row">
 			<div class="col-lg-12">
 				<h3 class="page-header" style="font-size: 28px;">
@@ -18,17 +16,15 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<form class="form-horizontal" action="sale.do" method="POST">
-							<input type="date" name="from" value="${from}" /> <input
-								type="date" name="to" value="${to}" /> <input type="submit"
-								class="graph-submit" value="확인" /> <input type="button"
-								value="파일 내보내기" class="graph-file-export"
-								onclick="location.href='download.do'">
+						<form action="sale.do" method="POST">
+							<input type="date" name="from" value="${from}" />
+							<input type="date" name="to" value="${to}" />
+							<input type="submit">
+							<input type="button" value="파일 내보내기" onclick="location.href='download.do?from=${from}&to=${to }'">
 							<c:if test="${from!=null}">
 								<br>
-								<span
-									style="font-size: 15px; letter-spacing: -0.2px; color: #505050; font-weight: bold; display: inline-block; margin-top: 10px;">${from}~${to}</span>
-							</c:if>
+										${from}~${to}
+								</c:if>
 						</form>
 					</div>
 					<!-- /.panel-heading -->
@@ -48,7 +44,7 @@
 									<tr id="132582">
 										<td>${list.s_name}</td>
 										<td>${list.s_type}</td>
-										<td>${list.sel_cost}</td>
+										<td><fmt:formatNumber value="${list.sel_cost}" pattern="#,###"/>원</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -58,6 +54,175 @@
 				<!-- /.panel-body -->
 			</div>
 			<!-- /.panel -->
+<!-- 직영파이그래프 -->
+		<div class="w3-panel" style="float: left; width: 50%">
+		<i class="fa fa-check-circle-o fa-2x" style="color: #424242"
+						aria-hidden="true"></i>
+					<h3 class="store_title" style="font-size: 20px; font-weight: 600">직영점 품목별 판매통계</h3>
+            <div class="w3-third" style="float: none; width: 100%">
+                <div id="piechartJY" style="width: 660px; height: 370px;">
+                  <script type="text/javascript">
+                     var pie_jy = new Array();
+                     <c:forEach items="${pie_jy}" var="pie_jy">
+                     var count_num = eval("${pie_jy.countJy}");
+
+                     pie_jy.push({
+                        type_jy : "${pie_jy.typeJy}",
+                        count_jy : count_num
+                     });
+                     </c:forEach>
+                     $(document)
+                           .ready(
+                                 function() {
+                                	 var chart_data_jy;
+                                	
+                                    if(pie_jy.length==1){
+                                       chart_data_jy = [ [
+                                          [
+                                        	  pie_jy[0].type_jy,
+                                        	  pie_jy[0].count_jy ] ] ];
+                                    }
+                                    else if(pie_jy.length==2){
+                                       chart_data_jy = [ [
+                                          [
+                                        	  pie_jy[0].type_jy,
+                                        	  pie_jy[0].count_jy ],
+                                          [
+                                        	  pie_jy[1].type_jy,
+                                        	  pie_jy[1].count_jy ] ] ];
+                                    }
+                                    else if(pie_jy.length==3){
+                                       chart_data_jy = [ [
+                                          [
+                                        	  pie_jy[0].type_jy,
+                                        	  pie_jy[0].count_jy ],
+                                          [
+                                        	  pie_jy[1].type_jy,
+                                        	  pie_jy[1].count_jy ],
+                                          [
+                                        	  pie_jy[2].type_jy,
+                                        	  pie_jy[2].count_jy ] ] ];
+                                    }
+                                    else if(pie_jy.length==0){
+                                       chart_data_jy = [ [
+                                          ['음료', 0 ],
+                                          ['식품', 0 ],
+                                          ['상품',0 ] 
+                                          ] ];
+                                    } 
+                                    
+                                    var chart_opt_jy = {
+                                       seriesDefaults : {
+                                          renderer : $.jqplot.PieRenderer,
+                                          rendererOptions : {
+                                             startAngle : 180,
+                                             sliceMargin : 4,
+                                             showDataLabels : true,
+                                             padding : 10,
+                                             shadow:false
+                                          }
+                                       },
+                                     
+                                       
+                                       legend:{
+                                    	   show:true,
+                                    	    escapeHtml:true,
+                                    	    location: 'e'
+                                    	   }
+                                    	   
+                                    }; 
+                                       $.jqplot('piechartJY',
+                                    		   chart_data_jy,
+                                          chart_opt_jy);
+                                 });
+                  </script>
+               </div>
+            </div>
+         </div>		
+ <!-- 가맹파이그래프 -->
+		<div class="w3-panel" style="float: left; width: 50%">
+		<i class="fa fa-check-circle-o fa-2x" style="color: #424242"
+						aria-hidden="true"></i>
+					<h3 class="store_title" style="font-size: 20px; font-weight: 600">가맹점 품목별 판매통계</h3>
+            <div class="w3-third" style="float: none; width: 100%">
+                <div id="piechartGM" style="width: 660px; height: 370px;">
+                  <script type="text/javascript">
+                     var pie_gm = new Array();
+                     <c:forEach items="${pie_gm}" var="pie_gm">
+                     var count_num1 = eval("${pie_gm.countGm}");
+                     pie_gm.push({
+                        type : "${pie_gm.typeGm}",
+                        count : count_num1
+                     });
+                     </c:forEach>
+                     $(document)
+                           .ready(
+                                 function() {
+                                	 var chart_data;
+                                	
+                                    if(pie_gm.length==1){
+                                       chart_data = [ [
+                                          [
+                                        	  pie_gm[0].type,
+                                        	  pie_gm[0].count ] ] ];
+                                    }
+                                    else if(pie_gm.length==2){
+                                       chart_data = [ [
+                                          [
+                                        	  pie_gm[0].type,
+                                        	  pie_gm[0].count ],
+                                          [
+                                        	  pie_gm[1].type,
+                                        	  pie_gm[1].count ] ] ];
+                                    }
+                                    else if(pie_gm.length==3){
+                                       chart_data = [ [
+                                          [
+                                        	  pie_gm[0].type,
+                                        	  pie_gm[0].count ],
+                                          [
+                                        	  pie_gm[1].type,
+                                        	  pie_gm[1].count ],
+                                          [
+                                        	  pie_gm[2].type,
+                                        	  pie_gm[2].count ] ] ];
+                                    }
+                                    else if(pie_gm.length==0){
+                                       chart_data = [ [
+                                          ['음료', 0 ],
+                                          ['식품', 0 ],
+                                          ['상품',0 ] 
+                                          ] ];
+                                    } 
+                                    
+                                    var chart_opt = {
+                                       seriesDefaults : {
+                                          renderer : $.jqplot.PieRenderer,
+                                          rendererOptions : {
+                                             startAngle : 180,
+                                             sliceMargin : 4,
+                                             showDataLabels : true,
+                                             padding : 10,
+                                             shadow:false
+                                          }
+                                       },
+                                    
+                                       
+                                       legend:{
+                                    	   show:true,
+                                    	    escapeHtml:true,
+                                    	    location: 'e'
+                                    	   }
+                                    	   
+                                    }; 
+                                       $.jqplot('piechartGM',
+                                             chart_data,
+                                          chart_opt);
+                                 });
+                  </script>
+               </div>
+            </div>
+         </div>		
 
 			<!-- 직영점 그래프 -->
 			<script>
@@ -232,9 +397,7 @@
 			</div>
 
 		</div>
-	</div>
-</body>
-
+	
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top"> <i
 	class="fa fa-angle-up"></i>

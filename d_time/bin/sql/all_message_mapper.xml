@@ -50,4 +50,8 @@ select s_name from store,member where store.s_no=member.s_no and mem_no=#{s_mno}
  	delete from message where msg_no=#{msg_no} 
  </delete>
  
+ <select id="getM_no" parameterType="int" resultType="int">
+ 	select mem_no from member where s_no=#{s_no}
+ </select>
+ 
 </mapper>

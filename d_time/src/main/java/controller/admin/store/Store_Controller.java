@@ -76,6 +76,7 @@ public class Store_Controller {
 		List<Store_DTO> stlist = stdao.storelist();
 
 		mav.addObject("storelist", stlist);
+		
 		mav.setViewName("admin/store/store_reg");
 
 		return mav;
@@ -89,7 +90,7 @@ public class Store_Controller {
 		List<Store_DTO> stlist = stdao.storelist(); // 메서드 실행
 
 		mav.addObject("storelist", stlist);
-		mav.setViewName("admin/store/store_list");
+		mav.setViewName("redirect:/store_list.do");
 
 		return mav;
 	}

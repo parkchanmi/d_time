@@ -22,10 +22,15 @@
 						class="fa fa-user-circle-o fa-4x"></i>
 				</a>
 					<div class="user-name">
+					<c:if test="${login==null}">
+					<script>
+						location.href="/d_time/logout.jsp";
+					</script>
+					</c:if>
 						<h5>
-							<a href="#">${login.mem_type}</a>
+							<a>${login.mem_type}</a>
 						</h5>
-						<span><a href="#">${login.mem_name }님</a></span>
+						<span><a>${login.mem_name }님</a></span>
 					</div></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Dashboard"><a

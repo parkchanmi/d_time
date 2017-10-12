@@ -3,7 +3,7 @@
 
 <!-- /.col-lg-12 -->
 <meta charset="utf-8">
-<div class="container-fluid">
+
 	<div class="col-lg-6">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -138,7 +138,7 @@
 		</div>
 	</div>
 	<!-- /.panel-body -->
-</div>
+
 <!-- /.panel -->
 <!-- 삭제 alert 창 -->
 <div class="modal fade" id="alertDel" " tabindex="-1" role="dialog"

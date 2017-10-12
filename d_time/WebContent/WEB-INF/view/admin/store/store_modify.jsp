@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <meta charset="utf-8">
-<div class="container-fluid">
+
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -190,7 +190,7 @@
 									<label for="inputPassword" class="col-lg-2 control-label "
 										style="float: left">H.P</label>
 									<div class="col-lg-6 marginbt">
-										<input type="text" class="form-control" id="inputPassword"
+										<input type="tel" class="form-control" id="inputPassword"
 											placeholder="전화번호" name="s_hp" value="${storedto.s_hp}">
 									</div>
 								</div>
@@ -214,7 +214,7 @@
 
 	</div>
 
-</div>
+
 
 
 <!-- 우편번호 검색 -->

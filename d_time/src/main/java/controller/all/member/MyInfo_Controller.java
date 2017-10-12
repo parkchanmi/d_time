@@ -107,10 +107,10 @@ import model.Member_DTO;
 			System.out.println("new_mem의 type은 "+new_mem.getMem_type());
 			
 			if(new_mem.getMem_type().equals( "관리자")) {
-				return "main_admin";
+				return "redirect:main_admin.do";
 			}
 			else {
-				return "main_member";
+				return "redirect:main_member.do";
 			}
 	}	
 }

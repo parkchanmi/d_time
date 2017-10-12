@@ -45,26 +45,36 @@
 
 
 		</c:if>
+		
+		
 	</div>
 
 
 
 	<br>
-	
+
 	<table width="600" border="1" cellspacing="0" cellpadding="0"
 		align="center">
+		
 		<c:forEach var="reviewlist" items="${reviewlist}">
 			<tr>
 				<td align="center" width="70">${reviewlist.s_name}</td>
 				<td>${reviewlist.r_content}</td>
 				<td><fmt:formatDate value="${reviewlist.r_date}" type="date"
 						dateStyle="short" /></td>
+				<td><c:if test="${login.mem_no==reviewlist.mem_no}">
+				
+			<input type="button" value="삭제"
+				OnClick="window.location='/d_time/board_deletereview.do?r_no=${reviewlist.r_no}&b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'"></c:if></td>
+
+					
 			</tr>
 		</c:forEach>
 
 	</table>
 
 	<form method="POST">
+	<input type=hidden name="mem_no" value="${login.mem_no}">
 		<table width="600" border="1" cellspacing="0" cellpadding="0"
 			align="center">
 			<tr>
@@ -72,6 +82,8 @@
 				<td><input type="text" name="r_content" size="60"></td>
 				<td colspan=2 align="center"><input type="submit" value="댓글등록">
 				</td>
+			
+		
 			</tr>
 
 		</table>

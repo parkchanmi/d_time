@@ -5,38 +5,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-
 <div class="col-lg-12">
 
-	<script>
-		$(function() {
-			$('.nav li').click(function() {
-				if (!$(this).hasClass('active')) {
-			
-					$('.nav li').removeClass('active');
-					//$(this).addClass('active');
-
-					///var id = $(this).attr('id');
-					//console.log(id);
-					//$('.table-responsive').addClass('disN');
-					//$('.' + id).removeClass('disN');
-				}
-			});
-		});
-	</script>
-	<div class="text-right marginB10 active">
-
-
+	<div class="marginB10 active">
+	<h3>${board_type}</h3>
+	
 		<!-- 글쓰기 버튼 -->
-		<table width="1000">
+		<%-- <table width="1000">
 			<tr>
-				<td align="right"><a href="board_writeForm.do?type=${type}&pageNum=${pageNum}">글쓰기</a></td>
+				<td><a href="board_writeForm.do?type=${type}&pageNum=${pageNum}">글쓰기</a></td>
 				<!-- <input type="hidden" name="board_type" value="자유"> -->
 			</tr>
 		</table>
+ --%>
 
-
-		<ul class="nav nav-tabs in">
+		<%-- <ul class="nav nav-tabs in">
 			<!-- Nav tabs -->
 			<input type=hidden name="mem_no" value="${login.mem_no}">
 			<c:if test="${type==1}">
@@ -54,7 +37,7 @@
 			</a></li>
 			</c:if>
 		</ul>
-
+ --%>
 	</div>
 	<!-- 게시판 글없을떄 -->
 
@@ -63,9 +46,21 @@
 	<div class="table-responsive marginT20 order_ing">
 
 
-	전체글 : ${count}
+		<table width="1500">
+
+			<tr>
+				<td>전체글 : ${count}</td>
+				<td width=500 colspan="5" align="right"><a
+					href="board_writeForm.do?type=${type}&pageNum=${pageNum}">글쓰기</a></td>
+
+
+			</tr>
+		</table>
+
+
+		<!-- 글쓰기 버튼 -->
 		<c:if test="${count == 0}">
-			<table width="700" border="1" cellpadding="0" cellspacing="0">
+			<table class="table table-striped table-hover table-bordered_tB">
 				<tr>
 					<td align="center">게시판에 저장된 글이 없습니다.</td>
 				</tr>
@@ -73,28 +68,29 @@
 		</c:if>
 
 		<c:if test="${count > 0}">
-		<table class="table table-striped table-hover table-bordered_tB">
-			<thead>
-				<tr>
-					<th>No.</th>
-					<th>말머리</th>
-					<th>제목</th>
-					<th>지점명</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<c:forEach var="boardlist" items="${list}">
-				
+			<table class="table table-striped table-hover table-bordered_tB">
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th>말머리</th>
+						<th>제목</th>
+						<th>지점명</th>
+						<th>날짜</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+				<c:forEach var="boardlist" items="${list}">
+
 
 					<tr id="132582">
-						<td><c:out value="${number}" /> <c:set
-									var="number" value="${number - 1}" /></td>
+						<td><c:out value="${number}" /> <c:set var="number"
+								value="${number - 1}" /></td>
 						<td>${boardlist.b_type}</td>
-						<td><a href="board_detail.do?b_no=${boardlist.b_no}&type=${type}&pageNum=${pageNum}">${boardlist.b_title}</a></td>
+						<td><a
+							href="board_detail.do?b_no=${boardlist.b_no}&type=${type}&pageNum=${pageNum}">${boardlist.b_title}</a></td>
 						<td>${boardlist.s_name}</td>
-						<td><fmt:formatDate
-									value="${boardlist.b_date}" type="date" pattern="yyyy-MM-dd" /></td>
+						<td><fmt:formatDate value="${boardlist.b_date}" type="date"
+								pattern="yyyy-MM-dd" /></td>
 						<td>${boardlist.b_count}</td>
 						<%--  
                      <c:forEach var="storelist" items="${storelist}">
@@ -104,12 +100,12 @@
                      </c:forEach> --%>
 
 					</tr>
-				
-			</c:forEach>
-		</table>
+
+				</c:forEach>
+			</table>
 		</c:if>
-		
-	<c:if test="${count > 0}">
+
+		<c:if test="${count > 0}">
 			<c:set var="pageCount"
 				value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
 			<c:set var="pageBlock" value="${10}" />
@@ -128,15 +124,29 @@
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
 				<a href="board_list.do?type=${type}&pageNum=${i}">[${i}]</a>
 			</c:forEach>
-	
+
 			<c:if test="${endPage < pageCount}">
 				<a href="board_list.do?type=${type}&pageNum=${startPage + 10}">[다음]</a>
 			</c:if>
-		</c:if>   
+		</c:if>
+		<div align="center">
+			<form action="board_search.do" method="post" >
+				<select name="searchOption" style="width:70; height:40;">
+					<option value="지점명">지점명</option>
+					<option value="제목">제목</option>
+				</select>
+				 <input type="text" id="keyword" name="keyword" required style="width:170; height:40;"/> 
+				 <input	type=hidden name="b_type" value="${login.mem_no}">
+				 <input	type="submit" value="검색" style="width:70; height:40;"	>
+
+			</form>
+		</div>
+
 	</div>
 
 
 </div>
+
 
 
 

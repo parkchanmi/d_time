@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="saleMem">
 
 	<select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
-		select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store where store.s_no=#{s_no} and sell.s_no=store.s_no	and sel_date between #{from} and #{to} group by sell.s_no, store.s_name, store.s_type order by sel_cost
+		select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store where store.s_no=#{s_no} and sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') group by sell.s_no, store.s_name, store.s_type order by sel_cost
+	</select>
+	
+	<select id="selectDetail" resultType="model.Sell_DTO" parameterType="map">
+		select sel_date, sel_type, sel_history, sel_cost from sell where sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') order by sell.sel_date asc
 	</select>
 	
 	<select id="selectMemYear" resultMap="mem_sal" parameterType="string">
@@ -40,12 +44,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="cost" column="sel_cost"/>
 	</resultMap>
 	
-	<select id="selectType" resultMap="type_count" parameterType="string">
-		select sell.sel_type, sum(sel_count) as type_sel_count, sum(sel_cost) as type_sel_cost from sell, store where sell.s_no=store.s_no and sell.s_no=#{s_no} and to_char(sell.sel_date,'MM') = to_char(sysdate,'MM') group by sell.sel_type
+	<select id="selectType" resultMap="type_count" parameterType="map">
+		select sell.sel_type, sum(sel_count) as type_sel_count, sum(sel_cost) as type_sel_cost from sell, store where sell.s_no=store.s_no and sell.s_no=#{s_no} and sel_date between #{from} and #{to} group by sell.sel_type
 	</select>
 	<resultMap id="type_count" type="java.util.HashMap">
 		<result property="type_name" column="sel_type" />
 		<result property="type_count" column="type_sel_count" />
 		<result property="type_cost" column="type_sel_cost" />
+	</resultMap>
+	
+	<select id="selectAll" resultMap="all_list" parameterType="map">
+		select sel_date, sel_cost, sel_history, sel_type from sell where s_no=#{s_no} and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') order by sel_date asc
+	</select>
+	<resultMap id="all_list" type = "java.util.HashMap">
+		<result property = "sel_date" column="sel_date" />
+		<result property = "sel_cost" column="sel_cost" />
+		<result property = "sel_history" column="sel_history" />
+		<result property = "sel_type" column="sel_type" />
 	</resultMap>
 </mapper>

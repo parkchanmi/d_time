@@ -49,13 +49,14 @@
 <script src="https://code.jquery.com/jquery-1.9.0.min.js"
 	integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344="
 	crossorigin="anonymous"></script>
+
 <script type="text/javascript" src="/d_time/jqplot/js/jquery.jqplot.js"></script>
 <script type="text/javascript"
 	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
 <script type="text/javascript"
 	src="/d_time/jqplot/js/plugins/jqplot.enhancedPieLegendRenderer.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/DaengDaeng/jqplot/css/jquery.jqplot.css" />
+	href="/d_time/jqplot/css/jquery.jqplot.css" />
 <script type="text/javascript"
 	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
 <script type="text/javascript"
@@ -66,7 +67,8 @@
 	src="/d_time/jqplot/js/plugins/jqplot.pointLabels.js"></script>
 <script type="text/javascript"
 	src="/d_time/jqplot/js/plugins/jqplot.categoryAxisRenderer.js"></script>
-
+	
+	
 	<!-- Bootstrap core JavaScript-->
 	<!-- <script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script> -->
 	<script src="/d_time/resources/bootstrap/vendor/popper/popper.min.js"></script>

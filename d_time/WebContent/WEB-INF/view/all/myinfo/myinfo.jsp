@@ -20,7 +20,7 @@
 			<div class="panel-heading">
 				<i class="fa fa-user"></i></span> <strong> My page</strong>
 			</div>
-			<div class="manage_info">
+			<div class="member_info">
 				<dl>
 					<dt>
 						<i aria-hidden="true" style="margin-right: 15px"></i>구분 :

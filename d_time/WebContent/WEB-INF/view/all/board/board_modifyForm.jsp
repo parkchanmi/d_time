@@ -60,21 +60,18 @@
 		</div>
 		<div class="visit_area">
 		<input type=hidden name="mem_no" value="${login.mem_no}">
-			<form method="POST" onsubmit="summer();">
+			<form method="POST" onsubmit="summer();" action="board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}">
 			
 				<ul>
 					<input type=hidden name="mem_no" value="${login.mem_no}">
 					<li>말머리&nbsp;<i
 						class="fa fa-angle-right color_arrow margin_right"
 						aria-hidden="true"></i><select name="b_type">
-						<c:if test="${type==1}">
-							<option value="건의사항" selected ="selected ">건의사항</option>    
-							<option value="물품교환">물품교환</option>
-						</c:if>
-						<c:if test="${type==2}">
-							<option value="건의사항" >건의사항</option>    
-							<option value="물품교환" selected ="selected ">물품교환</option>
-						</c:if>
+						<c:forEach var="type" items="${typelist}">
+							<option value="${type.board_type}">${type.board_type}</option>   
+						</c:forEach>
+						<!-- 	<option value="건의사항">건의사항</option>    
+							<option value="물품교환">물품교환</option> -->
 					</select></li>
 				
 				

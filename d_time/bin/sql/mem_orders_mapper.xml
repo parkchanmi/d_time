@@ -9,10 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="orders_list" resultType="model.Orders_DTO">
-		select o_no, o_date,o_state,s_name, r from (select o_no, o_date, o_state, s_name, rownum r from
-		(select a.o_no, a.o_date, a.o_state, c.s_name from orders a, store c where	a.s_no = c.s_no and a.s_no=#{s_no} ORDER by a.o_no asc)
-		order by o_no desc) where r &gt;=1 and r &lt;=10
-	</select>
+      select o_no, o_date,o_state,s_name, r from (select o_no, o_date, o_state, s_name, rownum r from
+      (select a.o_no, a.o_date, a.o_state, c.s_name from orders a, store c where   a.s_no = c.s_no and a.s_no=#{s_no} ORDER by a.o_no desc)
+      order by o_no desc) where r &gt;=#{startRow} and r &lt;=#{endRow}
+   </select>
 
 	<select id="orders_count" parameterType="int" resultType="int">
 		select

@@ -20,16 +20,17 @@ select * from store, member where store.s_no=member.s_no and mem_id=#{mem_id} AN
 </select>
 
 <!-- 지점코드 유무확인 -->
-<select id="selectcode" resultMap="storeinfo" parameterType="String">
-select s_no,s_name,s_code
+<select id="selectcode" resultType="model.Store_DTO" parameterType="String">
+select *
 from store 
 where s_code=#{s_code}
 </select>
-<resultMap id="storeinfo" type="java.util.HashMap">
+<!-- <resultMap id="storeinfo" type="java.util.HashMap">
         <result property="s_no" column="s_no"/>
         <result property="s_name" column="s_name"/>
         <result property="s_code" column="s_code"/>
-</resultMap>
+         <result property="s_type" column="s_type"/>
+</resultMap> -->
   
 <select id="selectsno" parameterType="int" resultType="model.Member_DTO">
 select * from member where s_no=#{s_no}

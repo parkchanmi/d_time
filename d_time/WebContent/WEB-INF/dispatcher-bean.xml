@@ -18,7 +18,8 @@
 	<bean id="main_dao" class="controller.Main_DAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
-	
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 
 	<!-- 다운로드 -->
 
@@ -30,6 +31,7 @@
 	<context:component-scan base-package="controller"/>
 	<context:component-scan base-package="controller.admin.product"/>
 	<context:component-scan base-package="controller.admin.menu"/>
+	
 	<context:component-scan base-package="controller.member.sell"/>
 	<context:component-scan base-package="controller.all.notice"/>
 
@@ -81,6 +83,13 @@
 	</bean> -->
 	
 	<!-- 세영 -->
+	<!-- <bean class="controller.admin.orders.Admin_Orders_Controller">
+		<property name="ordao" ref="orders_dao" />
+		<property name="stdao" ref="store_dao" />
+		<property name="stockdao" ref="stock_dao" />
+	</bean> 
+	 -->
+	
 	<bean id="store_dao" class="controller.admin.store.Store_DAO">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>

@@ -50,7 +50,7 @@
 
 
 										<script
-											src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6860c17f933c111ae484eb77bc0cc287&libraries=services"></script>
+											src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d52f99e1775ed61d11d405f6fbe1ba1e&libraries=services"></script>
 										<script>
 											var latitude = "";
 											var longitude = "";
@@ -175,12 +175,12 @@
 									<div class="col-lg-10" style="display: inline-flex">
 										<div class="radio">
 											<label> <input type="radio" name="s_type" id="직영"
-												value="option1" checked>직영
+												value="직영" checked>직영
 											</label>
 										</div>
 										<div class="radio">
 											<label> <input type="radio" name="s_type" id="가맹"
-												value="option2">가맹
+												value="가맹">가맹
 											</label>
 										</div>
 									</div>

@@ -118,7 +118,7 @@
 							<strong> <span style="color: #5c7c97"> <i
 									class="fa fa-volume-up"></i>
 							</span>커뮤니티
-							</strong> <a class="plus" href="/d_time/board_list.do?type=1"><i class="fa fa-plus"></i></a>
+							</strong> <a class="plus" href="/d_time/board_list.do?type=건의사항"><i class="fa fa-plus"></i></a>
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
@@ -155,7 +155,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4">
+			
+				
+				<div class="col-lg-6 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong> <span style="color: #5c7c97"> <i
+									class="fa fa-volume-up"></i>
+							</span>Best 3
+							</strong> <a class="plus" href="/d_time/board_list.do?type=1"><i class="fa fa-plus"></i></a>
+						</div>
+						<div class="panel-body">
+							<c:forEach var="store" items="${best_store}" varStatus="status">
+							<li><a href="#">${status.count}위 : &nbsp; ${store.s_name}</a> <span
+									class="date_visit">매출액 :&nbsp;${store.sel_cost}</span></li>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+			
+				<!-- <div class="col-lg-3 col-md-4">
 					<a href="/d_time/store_list.do"
 						class="btn btn-default btn-lg btn-block margin-bottom02"> <i
 						class="fa fa-cogs fa-3x color-mainmenu"></i>
@@ -166,9 +185,9 @@
 						<div class="clearfix visible-xs-block"></div> 매출현황
 					</a>
 				</div>
-				<!-- 
+				
 			  	필요한 뷰포트에만 clearfix 를 추가하세요
-			  	<div class="clearfix visible-xs-block"></div> -->
+			  	<div class="clearfix visible-xs-block"></div>
 				<div class="col-lg-3 col-md-4">
 					<a  href="/d_time/store_order.do"
 						class="btn btn-default btn-lg btn-block margin-bottom02"> <i
@@ -180,9 +199,9 @@
 						class="fa fa-fw fa-wrench fa-3x color-mainmenu"></i>
 						<div class="clearfix visible-xs-block"></div> 물품관리
 					</a>
-				</div>
+				</div> -->
 			</div>
 
-
+		</div>
 
 </html>

@@ -118,14 +118,6 @@
 	</definition>
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	<definition name="stock/stock_status" extends="mem_layout">
 		<put-attribute name="title" value="Cafe.CiCHA" />
 		<put-attribute name="body"

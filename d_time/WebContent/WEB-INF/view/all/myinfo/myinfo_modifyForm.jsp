@@ -35,7 +35,7 @@
 				 <tr>
                     <td width="150px" height="50px" >비밀번호</td>
                     <td width="150px" >
-                        <input class='col-lg-12 form-control input-sm' type="text" type="text" name="mem_pwd" required>
+                        <input class='col-lg-12 form-control input-sm' type="password" name="mem_pwd" required>
                     </td>
                 </tr>
 

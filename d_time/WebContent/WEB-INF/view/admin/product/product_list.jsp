@@ -104,7 +104,6 @@ function submit_ok(){
 
 </script>
 
-<div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -113,15 +112,20 @@ function submit_ok(){
 		</div>
 
 		<div class="col-lg-12" style="margin-bottom:25px;">
-			<div class="text-right active fl-left">
+			<div class="text-right active fl-left width100">
 				<!-- Nav tabs -->
-				<ul class="nav nav-tabs in">
+				<ul class="nav nav-tabs-menu in">
 					<li id="order_ing" class="active"><a
 						href="/d_time/admin/product/product_list.do">재고물품<i
 							class="fa fa-angle-down"></i></a></li>
 					<li id="order_list"><a href="/d_time/admin/menu/menu_list.do">주문메뉴
 							<i class="fa fa-angle-down"></i>
 					</a></li>
+					<li id="order_list">	
+							<a href="/d_time/admin/menu/menu_add.do">메뉴추가 
+								<i class="fa fa-angle-down"></i>
+							</a>
+						</li>
 				</ul>
 			</div>
 		</div>
@@ -131,7 +135,7 @@ function submit_ok(){
 			onSubmit="return submit_ok();">
 			<div id="container" class="col-lg-12">
 				<div class="col-lg-3" style="padding:0; margin-right:15px; max-width:24%;" >
-					<div class="media media-services right scrollpoint sp-effect2"
+					<div class="media media-services-menu right scrollpoint sp-effect2"
 						style="overflow:auto;">
 						<div class="media-body">
 							<div class="menu_head">
@@ -164,7 +168,7 @@ function submit_ok(){
 					</div>
 				</div>
 				<div class="col-lg-3" style="padding:0; margin-right:15px; max-width:24%;" >
-					<div class="media media-services right scrollpoint sp-effect2"
+					<div class="media media-services-menu right scrollpoint sp-effect2"
 						style="overflow: auto;">
 						
 						<div class="media-body">
@@ -198,7 +202,7 @@ function submit_ok(){
 					</div>
 				</div>
 				<div class="col-lg-3" style="padding:0; margin-right:15px; max-width:24%;" >
-					<div class="media media-services right scrollpoint sp-effect2"
+					<div class="media media-services-menu right scrollpoint sp-effect2"
 						style="overflow: auto;">
 						
 						<div class="media-body">
@@ -232,7 +236,7 @@ function submit_ok(){
 					</div>
 				</div>
 				<div class="col-lg-3" style="padding:0; margin-right:15px; max-width:24%;" >
-					<div class="media media-services right scrollpoint sp-effect2"
+					<div class="media media-services-menu right scrollpoint sp-effect2"
 						style="overflow: auto;">
 						<div class="media-body">
 							<div class="menu_head">
@@ -270,4 +274,3 @@ function submit_ok(){
 			</div>
 		</form>
 	</div>
-</div>

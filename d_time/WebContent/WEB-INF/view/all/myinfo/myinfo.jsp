@@ -43,8 +43,8 @@
 
 				<dl>
 					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>비밀번호 :
-						${login.mem_pwd}
+						<i aria-hidden="true" style="margin-right: 15px"></i>인증코드 :
+						${login.s_code}
 					</dt>
 
 				</dl>

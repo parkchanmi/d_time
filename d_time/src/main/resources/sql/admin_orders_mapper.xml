@@ -9,6 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from orders where o_state='대기'
 	</select>
 	
+	
+	<select id="selectOrderSNO" parameterType="int" resultType="model.Orders_DTO">
+		select * from orders where s_no=#{s_no} order by o_date desc
+	</select>
+	
+	
+	
 	<select id="selectOrderStoreOne" parameterType="int" resultType="model.Orders_DTO">
 		select * from orders where o_no=#{o_no}
 	</select>

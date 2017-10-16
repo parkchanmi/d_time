@@ -45,9 +45,9 @@
 													</tr>
 										</c:forEach>
 									</c:forEach> --%>
-							<c:forEach var="stlist" items="${storelist}">
+							<c:forEach var="stlist" items="${storelist}" varStatus="status">
 								<tr id="132582">
-									<td>${stlist.s_no}</td>
+									<td>${status.count}</td>
 									<td><a href="store_info.do?s_no=${stlist.s_no}">${stlist.s_name}</a></td>
 									<c:forEach var="memlist" items="${memlist}">
 										<c:if test="${memlist.s_no == stlist.s_no}">

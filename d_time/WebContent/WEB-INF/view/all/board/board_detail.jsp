@@ -45,6 +45,14 @@
 
 
 		</c:if>
+		<c:if test="${login.mem_type=='관리자'}">
+			<input type="button" value="수정"
+				OnClick="window.location='/d_time/board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">
+			<input type="button" value="삭제"
+				OnClick="window.location='/d_time/board_delete.do?b_no=${board.b_no}&type=${type}'">
+
+
+		</c:if>
 		
 		
 	</div>

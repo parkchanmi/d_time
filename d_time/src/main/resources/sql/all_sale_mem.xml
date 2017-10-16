@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="saleMem">
 
 	<select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
-		select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store where store.s_no=#{s_no} and sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') group by sell.s_no, store.s_name, store.s_type order by sel_cost
+		select sell.s_no as s_no, store.s_name as s_name, store.s_type as s_type, sum(sel_cost) as sel_cost from sell, store where store.s_no=#{s_no} and sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') group by sell.s_no, store.s_name, store.s_type order by sel_cost
 	</select>
 	
 	<select id="selectDetail" resultType="model.Sell_DTO" parameterType="map">
-		select sel_date, sel_type, sel_history, sel_cost from sell where sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') order by sell.sel_date asc
+		select sel_date, sel_type, sel_history, sel_cost from sell where sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') and s_no=#{s_no} order by sell.sel_date desc
 	</select>
 	
 	<select id="selectMemYear" resultMap="mem_sal" parameterType="string">

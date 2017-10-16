@@ -52,18 +52,29 @@
 					title="sales"><a class="nav-link"  href="/d_time/stock_status.do"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">재고현황</span>
 				</a>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Tables"><a class="nav-link" href="/d_time/orders_list.do"> <i
-						class="fa fa-fw fa-table"></i> <span class="nav-link-text">발주현황</span>
-				</a></li>
-
+				
+				
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Components"><a
 					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
 					href="#collapseComponents05" data-parent="#exampleAccordion"> <i
-						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">게시판</span>
+						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">발주관리</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents05">
+						<li><a href="/d_time/orders_addForm.do">발주신청</a></li>
+						<li><a href="/d_time/orders_list.do">발주내역</a></li>
+					</ul></li>
+				
+				
+				
+
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Components"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseComponents06" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">게시판</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseComponents06">
 						<li><a href="/d_time/all/notice/notice_list.do">공지사항</a></li>
 						<c:forEach var="board_type" items="${typelist}">
 						<li><a href="/d_time/board_list.do?type=${board_type.board_type}">${board_type.board_type}</a></li>

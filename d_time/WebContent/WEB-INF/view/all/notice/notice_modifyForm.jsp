@@ -53,37 +53,59 @@
 	}
 </script>
 <body>
-<div class="panel panel-main">
-		<div class="panel-heading">
-			<strong> 공지 글 수정 </strong>
+	<div class="row"> 
+		<div class="col-lg-12">
+			<h3 class="page-header" style="font-size:30px;">
+				<i class="fa fa-th-large"></i>상세보기 
+			</h3>
 		</div>
-		<div class="visit_area">
-			<form action="/d_time/admin/notice/notice_modifyPro.do" method="post"
-		enctype="multipart/form-data" onsubmit="summer();">
-				<ul>
-					<li>제목&nbsp;<i
-						class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i><input class='form-control input-sm' type="text" name="n_title"
-			style="width: 700px;" value="${ndto.n_title }" required/></li>
-					<li>내용&nbsp;<i
-						class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>
-						<div id="summernote">${ndto.n_content}</div> 
-						<input name="n_content" id="content" type="hidden"> 
-						<input name="n_no" type="hidden" value="${ndto.n_no}"></li>
-						
-					<c:if test="${fname!=null}">
-						<li>파일첨부&nbsp;<i
-						class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${fname }</li>
-					</c:if>
-					
-				</ul>
+		<div class="col-lg-7">
+			<div class="panel panel-main" style="height:75%;">
+				<div class="panel-heading">
+					<strong> 공지 글 상세보기 </strong>
+				</div>
+				<div class="board-notice">
 
-				<input class="btn btn-info" type="submit" value="수정" style="padding: 9px 24px; font-size: 15px;"/>
-			</form>
+					<form action="/d_time/admin/notice/notice_modifyPro.do"
+						method="post" enctype="multipart/form-data" onsubmit="summer();">
+						<input class="btn btn-info modify-btn-board" type="submit" value="수정"/>
+						<ul>
+							<li class="padding-left-10 clear-both margin-bottom20">
+								<i class="fa fa-angle-right color_arrow margin_right fl-left" aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">제목 : </h3>
+								 <h4 class="board-text"><input class='form-control input-sm'
+								type="text" name="n_title" style="font-size:1.5rem; width:120%"
+								value="${ndto.n_title }" required /></h4>
+							</li>
+							<li class="padding-left-10 clear-both margin-bottom20">
+								<i class="fa fa-angle-right color_arrow margin_right fl-left" aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left h3-box">내용 : </h3>
+								<%--  <h4 class="board-text"><input class='form-control input-sm'
+								type="text" name="n_title" style="font-size:1.5rem; width:47%"
+								value="${ndto.n_title }" required /></h4> --%>
+								<div class="board-text">
+								<div id="summernote">${ndto.n_content}</div> <input
+								name="n_content" id="content" type="hidden"> <input
+								name="n_no" type="hidden" value="${ndto.n_no}"></div>
+							</li>
+						</ul>
+						
+						<c:if test="${fname!=null}">
+							<div class="file-box">
+								<div class="file-box-title fl-left">
+									<i class="fa fa-angle-right color_arrow margin_right fl-left" aria-hidden="true"></i>
+									<h3 class="fl-left menu-board-notice text-left margin-bottom0">파일첨부 : </h3>
+									<h4 class="board-text fl-left margin-right-num">${fname }</h4>
+								</div>
+							</div>
+						</c:if>
+						
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
+
 
 
 
@@ -107,8 +129,8 @@
 	<script type="text/javascript">
 		$(window).load(function() {
 			$('#summernote').summernote({ // summernote를 사용하기 위한 선언
-				width : 1600,
-				height : 500,
+				width : 700,
+				height : 400,
 				callbacks : {
 					onImageUpload : function(files, editor, welEditable) {
 						console.log(files);

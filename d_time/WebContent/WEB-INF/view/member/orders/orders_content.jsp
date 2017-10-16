@@ -10,93 +10,108 @@
 
 
 
-	<h1>뜐뚠뜐~~~</h1>
+	<h3><i class="fa fa-th-large">발주 신청 상세내역</i></h3>
 	<br>
 	<br>
-
+	<ul style="list-style: none; padding: 0px; font-size: 15px;">
+				
+				<li><i class="fa fa-angle-right color_arrow margin_right"
+					aria-hidden="true"></i>${orderdto.o_date}</li>
+				<li><i class="fa fa-angle-right color_arrow margin_right"
+					aria-hidden="true"></i>상태 : ${orderdto.o_state}</li>
+		
+			</ul>
 	<form method="GET">
-		<table class="table" width="700">
-			<thead>
-				<tr>
-					<td>분류</td>
-					<td>품목</td>
-					<td>수량</td>
+		<div class="col-lg-10" style="margin-bottom: 25px; width: 800px;">
 
-				</tr>
-			</thead>
-			<tbody>
+			<table class="table" width="700">
+				<thead>
+					<tr>
+						<td width="200" align="center">분 &nbsp &nbsp 류</td>
+						<td width="300" align="center">품 &nbsp &nbsp 목</td>
+						<td width="200" align="center">수 &nbsp &nbsp 량</td>
+
+					</tr>
+				</thead>
+		<c:if test="${um_list!=null}">
 				<tr>
-					<td width="100" colspan="3">음료</td>
+					<td width="200" align="center">재 &nbsp &nbsp 료</td>
+					<td></td>
+					<td></td>
+
 				</tr>
 				<c:forEach var="orders_content" items="${um_list}">
 					<tr>
-						<th></th>
-						<td width="200">${orders_content.umryo}</td>
-						<td width="200">${orders_content.umryo_num}</td>
+						<td></td>
+						<td width="300" align="center">${orders_content.umryo}</td>
+						<td width="200" align="center">${orders_content.umryo_num}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
-
-		</table>
-		<br /> <br />
-		<table>
-			<tbody>
+		</c:if>
+			</table>
+<c:if test="${sik_list!=null}">
+			<table class="table" width="700">
 				<tr>
-					<td width="100" colspan="3">식품</td>
+					<td width="200" align="center">식 &nbsp &nbsp 품</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<c:forEach var="orders_content" items="${sik_list}">
 					<tr>
-						<th></th>
-						<td width="200">${orders_content.sikpoom}</td>
-						<td width="200">${orders_content.sikpoom_num}</td>
-
+						<td></td>
+						<td width="300" align="center">${orders_content.sikpoom}</td>
+						<td width="200" align="center">${orders_content.sikpoom_num}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
-		<br /> <br />
-
-		<table>
-			<tbody>
+			</table>
+</c:if>
+<c:if test="${sang_list!=null}">
+			<table class="table" width="700">
 				<tr>
-					<td width="100" colspan="3">상품</td>
+					<td width="200" align="center">상 &nbsp &nbsp 품</td>
+					<td></td>
+					<td></td>
 				</tr>
 
 				<c:forEach var="orders_content" items="${sang_list}">
 					<tr>
-						<th></th>
-						<td width="200">${orders_content.sangpoom}</td>
-						<td width="200">${orders_content.sangpoom_num}</td>
+						<td></td>
+						<td width="300" align="center">${orders_content.sangpoom}</td>
+						<td width="200" align="center">${orders_content.sangpoom_num}</td>
 
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
-		<br /> <br />
 
-		<table>
-			<tbody>
+			</table>
+</c:if>
+<c:if test="${somo_list!=null}">
+			<table class="table" width="700">
 				<tr>
-					<td width="100" colspan="3">소모품</td>
+					<td width="200" align="center">소모품</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<c:forEach var="orders_content" items="${somo_list}">
 					<tr>
-						<th></th>
-						<td width="200">${orders_content.somopoom}</td>
-						<td width="200">${orders_content.somopoom_num}</td>
+						<td></td>
+						<td width="300" align="center">${orders_content.somopoom}</td>
+						<td width="200" align="center">${orders_content.somopoom_num}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
-		<br /> <br /> <input type="button" class="btn btn-default"
-			value="목록 보기" onclick="window.location='/d_time/orders_list.do'">
-		</button>
 
+			</table>
+</c:if>
+		</div>
+		<br /> <br />
 	</form>
-
+	<div style="clear: both;"></div>
+	<div class="col-lg-10" align="center" style="margin-bottom: 25px; width: 800px; ">
+		<input type="button" class="btn btn-default" value="목록 보기"
+			onclick="window.location='/d_time/orders_list.do'">
 
 
 	</div>
+
 	<!-- /.container-fluid-->
 	<!-- /.content-wrapper-->
 

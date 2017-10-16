@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -58,9 +60,35 @@ public class Notice_Controller{
 	}
 
 	@RequestMapping("/all/notice/notice_list.do")
-	public String notice_list(Model model,HttpSession session) {
-		List<Notice_DTO> nlist = ndao.getNoticeList();
-		model.addAttribute("nlist", nlist);
+	public String notice_list(Model model,HttpSession session,HttpServletRequest request) {
+		
+		String pageNum = request.getParameter("pageNum"); 
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		int count = ndao.Notice_Count();  
+		int pageSize = 10;
+		
+		int currentPage = Integer.parseInt(pageNum);     
+		int startRow = (currentPage - 1) * pageSize + 1;
+		int endRow = currentPage * pageSize;
+		
+		HashMap<Object,Object> map = new HashMap<Object,Object>();
+		map.put("startRow", startRow); 
+		map.put("endRow", endRow);
+		
+		List<Notice_DTO> nlist = ndao.getNoticeList(map); 
+		model.addAttribute("nlist", nlist); 
+		
+		int number = 0;
+		number = count - (currentPage - 1) * pageSize;
+		session.setAttribute("pageNum", new Integer(pageNum)); 
+		model.addAttribute("currentPage", new Integer(currentPage));
+		model.addAttribute("count", count);
+		model.addAttribute("startRow", new Integer(startRow));
+		model.addAttribute("endRow", new Integer(endRow));
+		model.addAttribute("number", new Integer(number));
+		model.addAttribute("pageSize",new Integer(pageSize));
 		
 		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
 		if(mdto.getMem_type().equals("관리자")) {

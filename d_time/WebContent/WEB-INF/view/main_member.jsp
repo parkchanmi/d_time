@@ -118,7 +118,7 @@
 							<strong> <span style="color: #5c7c97"> <i
 									class="fa fa-volume-up"></i>
 							</span>커뮤니티
-							</strong> <a class="plus" href="/d_time/board_list.do?type=1"><i class="fa fa-plus"></i></a>
+							</strong> <a class="plus" href="/d_time/board_list.do?type=건의사항"><i class="fa fa-plus"></i></a>
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">

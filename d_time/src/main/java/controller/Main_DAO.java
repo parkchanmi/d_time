@@ -10,6 +10,7 @@ import model.Board_Type_DTO;
 import model.Member_DTO;
 import model.Notice_DTO;
 import model.Review_DTO;
+import model.Sell_DTO;
 
 
 public class Main_DAO extends SqlSessionDaoSupport {
@@ -41,6 +42,14 @@ public class Main_DAO extends SqlSessionDaoSupport {
 		return count;
 	}
 
+	public List<Sell_DTO> FT_list(String from, String to) {//베스트 지점 3위
+		HashMap map = new HashMap();
+		map.put("from", from);
+		map.put("to", to);
+		List<Sell_DTO> sell = getSqlSession().selectList("main.selectList", map);
+
+		return sell;
+	}
 
 
    

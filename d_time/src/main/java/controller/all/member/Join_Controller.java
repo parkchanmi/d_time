@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.Member_DTO;
+import model.Store_DTO;
 
 @Controller
 public class Join_Controller {
@@ -64,7 +65,7 @@ public class Join_Controller {
 	public String overlapTest2(String s_code, Model model , Member_DTO member_DTO){
 		
 		
-		HashMap map = dao.selectcode(s_code);
+		Store_DTO map = dao.selectcode(s_code);
 		
 		int check =0;
 		if(map == null) {
@@ -74,9 +75,7 @@ public class Join_Controller {
 		}
 		else  {
 			
-		
-			
-			int s_no = Integer.parseInt(String.valueOf(map.get("s_no")));
+			int s_no = map.getS_no();
 		
 			Member_DTO member=dao.selectsno(s_no);
 				

@@ -18,7 +18,7 @@ public class Order_DAO extends SqlSessionDaoSupport {
 
 	public List<Orders_DTO> orderone(int s_no) {
 
-		List<Orders_DTO> ordersdto = getSqlSession().selectList("store.selectOrderStoreOne", s_no);
+		List<Orders_DTO> ordersdto = getSqlSession().selectList("store.selectOrderSNO", s_no);
 
 		return ordersdto;
 	}

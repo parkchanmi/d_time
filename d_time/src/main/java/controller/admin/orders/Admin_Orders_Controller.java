@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import controller.admin.product.Product_DAO;
 import controller.admin.stock.Stock_DAO;
 import controller.admin.store.Store_DAO;
+import controller.member.stock.Member_Stock_DAO;
 import model.Member_DTO;
 import model.Orders_DTO;
 import model.Product_DTO;
@@ -30,7 +32,7 @@ public class Admin_Orders_Controller {
 	@Autowired
 	Store_DAO stdao;
 	@Autowired
-	Product_DAO prodao;
+	Member_Stock_DAO stock;
 	@Autowired
 	Stock_DAO stockdao;
 
@@ -42,13 +44,7 @@ public class Admin_Orders_Controller {
 		this.stockdao = stockdao;
 	}
 
-	public Product_DAO getProdao() {
-		return prodao;
-	}
-
-	public void setProdao(Product_DAO prodao) {
-		this.prodao = prodao;
-	}
+	
 
 	public Store_DAO getStdao() {
 		return stdao;
@@ -76,6 +72,7 @@ public class Admin_Orders_Controller {
 			mav.addObject("ordersList", ordslist);
 
 			List<Store_DTO> stlist = stdao.storelist();
+			stlist.remove(0);
 			mav.addObject("storelist", stlist);
 		} else {
 
@@ -85,6 +82,7 @@ public class Admin_Orders_Controller {
 			mav.addObject("ordersList", ordslist);
 
 			List<Store_DTO> stlist = stdao.storelist();
+			stlist.remove(0);
 			mav.addObject("storelist", stlist);
 			
 			Store_DTO store = stdao.storeone(sno);
@@ -97,6 +95,20 @@ public class Admin_Orders_Controller {
 		return mav;
 	}
 
+	@RequestMapping("now_stock.do")
+	public String stock_status(int s_no,Model model) {
+		
+		List<Stock_DTO> list = stock.selectList(s_no);
+		String sname=stdao.storeName(s_no);
+
+		model.addAttribute("list", list);
+		model.addAttribute("storeName",sname);
+		return "now_stock/stock_status";
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/order_detail.do", method = RequestMethod.GET)
 	public ModelAndView orderdetail(ModelAndView mav, int o_no) {
 
@@ -160,7 +172,7 @@ public class Admin_Orders_Controller {
 		List<Store_DTO> stlist = stdao.storelist();
 		mav.addObject("storelist", stlist);
 
-		mav.setViewName("admin/orders/order_list");
+		mav.setViewName("redirect:/store_order.do");
 		return mav;
 	}
 

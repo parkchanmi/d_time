@@ -23,7 +23,7 @@
                 <tr>
                     <td width="150px" height="100px" align="center">비밀번호 :</td>
                     <td width="150px" align="center">
-                        <input class='col-lg-12 form-control input-sm' type="text" name="mem_pwd">
+                        <input class='col-lg-12 form-control input-sm' type="password" name="mem_pwd">
                     </td>
                 </tr>
 </table>

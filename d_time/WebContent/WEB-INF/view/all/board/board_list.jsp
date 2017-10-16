@@ -8,7 +8,7 @@
 <div class="col-lg-12">
 
 	<div class="marginB10 active">
-	<h3>${board_type}</h3>
+	<h3>${type}</h3>
 	
 		<!-- 글쓰기 버튼 -->
 		<%-- <table width="1000">
@@ -22,7 +22,7 @@
 		<%-- <ul class="nav nav-tabs in">
 			<!-- Nav tabs -->
 			<input type=hidden name="mem_no" value="${login.mem_no}">
-			<c:if test="${type==1}">
+			<c:if test="${type=='건의사항'}">
 			<li id="order_ing" class="active"><a href="board_list.do?type=1">건의사항<i
 					class="fa fa-angle-down"></i></a></li>	
 			<li id="order_list"><a href="board_list.do?type=2">물품교환<i
@@ -50,9 +50,7 @@
 
 			<tr>
 				<td>전체글 : ${count}</td>
-				<td width=500 colspan="5" align="right"><a
-					href="board_writeForm.do?type=${type}&pageNum=${pageNum}">글쓰기</a></td>
-
+				
 
 			</tr>
 		</table>
@@ -104,7 +102,7 @@
 				</c:forEach>
 			</table>
 		</c:if>
-
+<center>
 		<c:if test="${count > 0}">
 			<c:set var="pageCount"
 				value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
@@ -115,7 +113,7 @@
 			<c:set var="endPage" value="${startPage + pageBlock-1}" />
 			<c:if test="${endPage > pageCount}">
 				<c:set var="endPage" value="${pageCount}" />
-			</c:if>
+	 		</c:if>
 
 			<c:if test="${startPage > 10}">
 				<a href="board_list.do?type=${type}&pageNum=${startPage-10}">[이전]</a>
@@ -129,14 +127,20 @@
 				<a href="board_list.do?type=${type}&pageNum=${startPage + 10}">[다음]</a>
 			</c:if>
 		</c:if>
+</center>	  	
+<button class="btn btn-default"><a
+					href="board_writeForm.do?type=${type}&pageNum=${pageNum}">글쓰기</a></button>
+
 		<div align="center">
-			<form action="board_search.do" method="post" >
-				<select name="searchOption" style="width:70; height:40;">
-					<option value="지점명">지점명</option>
-					<option value="제목">제목</option>
+			<form action="board_search.do?type=${type}" method="post" >
+				<select id="searchOption" name="searchOption" style="width:70; height:40;">
+					<option value="s_name">지점명</option>
+					<option value="b_title">제목</option>
+					<option value="b_content">내용</option>
+              		<option value="all">제목+내용</option> 
 				</select>
 				 <input type="text" id="keyword" name="keyword" required style="width:170; height:40;"/> 
-				 <input	type=hidden name="b_type" value="${login.mem_no}">
+			
 				 <input	type="submit" value="검색" style="width:70; height:40;"	>
 
 			</form>

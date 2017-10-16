@@ -32,22 +32,66 @@
 
 						<div class="table-responsive">
 
-							<table class="table table-striped table-hover table-bordered_tB">
-								<thead>
-									<tr>
-										<th>지점명</th>
-										<th>구분</th>
-										<th>기간매출</th>
-									</tr>
-								</thead>
-								<c:forEach items="${list}" var="list">
+
+
+
+<style>
+.scrolltbody {
+	display: block;
+	
+	border-collapse: collapse;
+	
+}
+
+.scrolltbody th {
+}
+
+.scrolltbody td {
+	border-top: 0;
+}
+
+.scrolltbody tbody {
+	display: block;
+	height: 180px;
+	overflow: auto;
+}
+
+.scrolltbody th:nth-of-type(1), .scrolltbody td:nth-of-type(1) {
+	width: 300px;
+}
+
+.scrolltbody th:nth-of-type(2), .scrolltbody td:nth-of-type(2) {
+	width: 300px;
+}
+
+.scrolltbody th:last-child {
+	width: 300px;
+}
+
+.scrolltbody td:last-child {
+	width: 300px;
+}
+</style>
+
+					<table class="table table-striped table-hover table-bordered_tB scrolltbody">
+						<thead>
+							<tr>
+								<th>지점명</th>
+								<th>구분</th>
+								<th>기간 매출</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${list}" var="list">
 									<tr id="132582">
 										<td>${list.s_name}</td>
 										<td>${list.s_type}</td>
 										<td><fmt:formatNumber value="${list.sel_cost}" pattern="#,###"/>원</td>
 									</tr>
 								</c:forEach>
-							</table>
+						</tbody>
+					</table>
+
 						</div>
 					</div>
 				</div>

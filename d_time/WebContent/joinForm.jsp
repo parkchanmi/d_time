@@ -99,14 +99,7 @@
 			
 			<table>
 			
-			<tr>
-			<td height="100">구분</td>
-				<td>		
-				<input type="radio" name="mem_type" value="직영"   >직영
-				<input type="radio" name="mem_type" value="가맹" >가맹
-				<input type="radio" name="mem_type" value="관리자" >관리자
-				</td>
-			</tr>
+			
 				
 				<tr>
 					<td height="60">아이디</td>
@@ -157,6 +150,16 @@
                      <input type="hidden" name="s_codecheck" value="0">
                 </td>
 			</tr>
+			<tr>
+			<td height="100">구분</td>
+				<td>		
+				<input type="radio" name="mem_typeR" value="직영" id="j_type" disabled>직영
+				<input type="radio" name="mem_typeR" value="가맹" id="g_type" disabled>가맹
+				<input type="hidden" name="mem_type"/>
+				<input type="text" id="s_name" disabled/>
+				</td>
+			</tr>
+			
 				
 </table>
 <table>

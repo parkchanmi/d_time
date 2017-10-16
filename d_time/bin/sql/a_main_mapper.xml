@@ -24,5 +24,11 @@ select count(*) from store group by s_type having s_type='직영'
 select count(*) from store group by s_type having s_type='가맹'
 </select>
 
+<!-- 베스트 지점 3위 -->
+<select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
+select * from (select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store 
+where sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') 
+group by sell.s_no, store.s_name, store.s_type order by sel_cost desc) where rownum  &lt; 4
+</select>
 
 </mapper>

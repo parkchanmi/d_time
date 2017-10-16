@@ -5,9 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="notice_db">
 
 
-
-
-<select id="notice_all" resultType="model.Notice_DTO">
+<select id="notice_all" resultType="model.Notice_DTO" parameterType="map">
 select * from notice order by n_date desc
 </select>
 
@@ -45,5 +43,9 @@ select f_path from files where f_no=#{f_no}
 </select>
 <select id="get_fileName" parameterType="int" resultType="string">
 select f_name from files where f_no=#{f_no}
+</select>
+
+<select id="count_notice" resultType="int" >
+select count(*) from notice
 </select>
 </mapper>

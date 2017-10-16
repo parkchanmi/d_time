@@ -17,6 +17,16 @@
 			value="/WEB-INF/template/footer.jsp" />
 	</definition>
 <!-- 찬미 -->
+	<definition name="stock_layout" template="/WEB-INF/template/stock_layout.jsp">
+	</definition>
+	
+	<definition name="now_stock/stock_status" extends="stock_layout">
+		<put-attribute name="title" value="재고현황" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/admin/orders/stock_status.jsp" />
+	</definition>
+
+
 	<definition name="main_admin" extends="admin_layout">
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body" value="/WEB-INF/view/main_admin.jsp" />

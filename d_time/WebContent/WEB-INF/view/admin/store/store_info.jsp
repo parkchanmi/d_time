@@ -12,7 +12,7 @@
 					<div id="map" style="height: 600px;"></div>
 
 					<script type="text/javascript"
-						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6860c17f933c111ae484eb77bc0cc287"></script>
+						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d52f99e1775ed61d11d405f6fbe1ba1e"></script>
 
 					<script>
 						var list = new Array();
@@ -28,8 +28,8 @@
 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
-							center : new daum.maps.LatLng(list[0].s_lat,
-									list[0].s_lon), // 지도의 중심좌표
+							center : new daum.maps.LatLng("${storedto.s_lat}",
+									 "${storedto.s_lon}"), // 지도의 중심좌표
 							level : 5
 						// 지도의 확대 레벨
 						};
@@ -92,17 +92,13 @@
 			<div class="store_area" style="margin-bottom: 158px">
 				<ul>
 					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_loc}</li>
+						aria-hidden="true"></i>구분 : ${storedto.s_type}</li>
 					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_type}</li>
+						aria-hidden="true"></i>주소 : ${storedto.s_loc}</li>
 					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_code}</li>
+						aria-hidden="true"></i>인증코드 : ${storedto.s_code}</li>
 					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_lat}</li>
-					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_lon}</li>
-					<li><i class="fa fa-angle-right color_arrow margin_right"
-						aria-hidden="true"></i>${storedto.s_hp}</li>
+						aria-hidden="true"></i>전화번호 : ${storedto.s_hp}</li>
 				</ul>
 
 				<div class="form-group">

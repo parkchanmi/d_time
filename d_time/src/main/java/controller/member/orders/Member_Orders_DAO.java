@@ -19,8 +19,8 @@ public class Member_Orders_DAO extends SqlSessionDaoSupport {
 	}
 
 	//발주 내역 리스트
-	public List<Orders_DTO> order_List(int s_no) {
-		List<Orders_DTO> x = getSqlSession().selectList("orders.orders_list", s_no);
+	public List<Orders_DTO> order_List(HashMap map) {
+		List<Orders_DTO> x = getSqlSession().selectList("orders.orders_list", map);
 		return x;
 		
 	}
@@ -36,14 +36,7 @@ public class Member_Orders_DAO extends SqlSessionDaoSupport {
 		return std;
 		
 	}
-
 	
-	
-	public String order_umryo(int o_no) {
-		String x = getSqlSession().selectOne("orders.orders_umryo");
-		return x;
-	
-	}
 	
 	//발주 내역 총 게시글 수 
 	public int order_count(int s_no){

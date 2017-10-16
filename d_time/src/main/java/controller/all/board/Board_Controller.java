@@ -76,15 +76,27 @@ public class Board_Controller {
 		model.addAttribute("type", type);
 		/*System.out.println(list);*/ 
 		
+		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
+		
+		
+		if(mdto.getMem_type().equals("관리자")) {
+			return "admin/board/board_list";
+		}
 		return "board/board_list";
 		
 		}
 	
 /*글쓰기*/
 	@RequestMapping(value="board_writeForm.do", method = RequestMethod.GET)
-	public String boardform(String type, Model model,int pageNum) {
+	public String boardform(String type, Model model,int pageNum,HttpSession session) {
 		model.addAttribute("pageNum", new Integer(pageNum));
 		model.addAttribute("type", type); 
+		
+		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
+		
+		if(mdto.getMem_type().equals("관리자")) {
+			return "admin/board/board_writeForm";
+		}
 		return "board/board_writeForm"; 
 		
 		 
@@ -121,7 +133,15 @@ public class Board_Controller {
 		mav.addObject("reviewlist", reviewlist); 
 		mav.addObject("board", board);  
 		mav.addObject("type", type);   
-		mav.setViewName("board/board_detail");
+		
+		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
+		
+		if(mdto.getMem_type().equals("관리자")) {
+			mav.setViewName("admin/board/board_detail");
+		}else {
+			mav.setViewName("board/board_detail");
+		}
+		
 		
 		//System.out.println("board"+board); 
 		return mav;
@@ -166,12 +186,18 @@ public class Board_Controller {
 	
 	/*글수정*/
 	@RequestMapping(value="board_modifyForm.do", method = RequestMethod.GET)
-	public String modify(String type,Model model,int b_no) {
+	public String modify(String type,Model model,int b_no,HttpSession session) {
 		//b_dao.modifyBoard(b_no); 
 
 		Board_DTO board =  b_dao.selectBoard_detail(b_no); 
 		model.addAttribute("board", board); 
 		model.addAttribute("type",type); 
+		
+		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
+		
+		if(mdto.getMem_type().equals("관리자")) {
+			return "admin/board/board_modifyForm";
+		}	
 		return "board/board_modifyForm";
 	}
 	
@@ -190,7 +216,7 @@ public class Board_Controller {
 	
 	/*검색*/
 	@RequestMapping(value="board_search.do", method = RequestMethod.POST)
-	public String search(Model model,String keyword,String searchOption,HttpServletRequest request) {
+	public String search(Model model,String keyword,String searchOption,HttpServletRequest request,String type,HttpSession session) {
 		//System.out.println("type3"+type);
 		/*String b_type;
 		if(type ==1) {
@@ -199,9 +225,10 @@ public class Board_Controller {
 			b_type="물품교환";
 		} */
 		//System.out.println("b2"+b_type);
-		String b_type="건의사항";
 		
+		String b_type=type;
 		
+		System.out.println("type1:"+type);
 	
 		
 		String pageNum = request.getParameter("pageNum"); 
@@ -215,19 +242,19 @@ public class Board_Controller {
 		
 		int currentPage = Integer.parseInt(pageNum);
 		int startRow = (currentPage - 1) * pageSize + 1;
-		System.out.println("size"+pageSize);
-		System.out.println("currentpage"+currentPage);
+		//System.out.println("size"+pageSize);
+		//System.out.println("currentpage"+currentPage);
 		int endRow = currentPage * pageSize;
 		
-		List<Board_DTO> blist = b_dao.searchBoard(keyword,b_type,startRow,endRow); 
+		List<Board_DTO> blist = b_dao.searchBoard(searchOption,keyword,b_type,startRow,endRow); 
 		if(blist!=null) {
-			System.out.println("검색결과:"+blist.size());
+			//System.out.println("검색결과:"+blist.size());
 			count = blist.size();
 		}
 		
 		int number = 0;
 		number = count - (currentPage - 1) * pageSize;
-		
+		model.addAttribute("searchOption", searchOption);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("currentPage", 1);
 		model.addAttribute("count", count);
@@ -237,13 +264,20 @@ public class Board_Controller {
 		model.addAttribute("pageSize",new Integer(pageSize));
 		model.addAttribute("list", blist);
 		model.addAttribute("type", b_type);
+		System.out.println("type2:"+type);
 		
 		
 		
 		
+		Member_DTO mdto = (Member_DTO) session.getAttribute("login");
 		
 		
+		if(mdto.getMem_type().equals("관리자")) {
+			return "admin/board/board_list";
+		}
 		return "board/board_list";
+		
+		
 	}
 
 

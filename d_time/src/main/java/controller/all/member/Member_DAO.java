@@ -7,6 +7,7 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 
 import model.Member_DTO;
+import model.Store_DTO;
 
 public class Member_DAO extends SqlSessionDaoSupport {
 	
@@ -29,8 +30,8 @@ public class Member_DAO extends SqlSessionDaoSupport {
 	}
 
 	//지점코드 유무확인
-	public HashMap selectcode(String s_code) {
-		HashMap x=getSqlSession().selectOne("mem.selectcode", s_code);
+	public Store_DTO selectcode(String s_code) {
+		Store_DTO x=getSqlSession().selectOne("mem.selectcode", s_code);
 		return x;
 	}
 	

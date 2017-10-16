@@ -50,6 +50,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		/* oder_drink */
 		String order_drink = orderStock.getO_drink();
+		if(order_drink!=null) {
 		String[] split_odrink = order_drink.split(",");
 
 		for (int i = 0; i < split_odrink.length; i = i + 2) {
@@ -59,17 +60,13 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 			int countadd = Integer.parseInt(split_odrink[i + 1]);// 발주신청으로 입력받은 수량.
 
-			/*int st_std = getSqlSession().selectOne("store.selectCount", split_odrink[i]);
-			System.out.println("단위:" + st_std);
-			int need_count = st_std * countadd; // (1000*3)
-*/
 			odrink.put("s_no", s_no);
 			odrink.put("st_name", split_odrink[i]);
 			odrink.put("st_count", countadd); // 3000
 			odrink.put("st_type", "음료");
 
 			String stnameSame = getSqlSession().selectOne("store.stnameSame", odrink);
-			System.out.println(stnameSame);
+	//		System.out.println(stnameSame);
 
 			if (stnameSame != null) {
 				int stockadd = getSqlSession().update("store.updatestock", odrink);
@@ -80,9 +77,11 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 			}
 
 		}
+		}
 
 		/* order_food */
 		String order_food = orderStock.getO_food();
+		if(order_food!=null) {
 		String[] split_ofood = order_food.split(",");
 
 		for (int j = 0; j < split_ofood.length; j = j + 2) {
@@ -92,9 +91,6 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 			int countadd = Integer.parseInt(split_ofood[j + 1]);// 발주신청으로 입력받은 수량.
 
-		/*	int st_std = getSqlSession().selectOne("store.selectCount", split_ofood[j]);
-			System.out.println("단위:" + st_std);*/
-			//int need_count = st_std * countadd; // (1000*3)
 
 			ofood.put("s_no", s_no);
 			ofood.put("st_name", split_ofood[j]);
@@ -102,7 +98,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 			ofood.put("st_type", "식품");
 
 			String stnameSame = getSqlSession().selectOne("store.stnameSame", ofood);
-			System.out.println(stnameSame);
+	//		System.out.println(stnameSame);
 
 			if (stnameSame != null) {
 				int stockadd = getSqlSession().update("store.updatestock", ofood);
@@ -112,9 +108,10 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 				int stockinsert = getSqlSession().insert("store.insertstock", ofood);
 			}
 		}
-
+		}
 		/* order_product */
 		String order_product = orderStock.getO_product();
+		if(order_product!=null) {
 		String[] split_product = order_product.split(",");
 
 		for (int k = 0; k < split_product.length; k = k + 2) {
@@ -124,9 +121,6 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 			int countadd = Integer.parseInt(split_product[k + 1]);// 발주신청으로 입력받은 수량.
 
-			int st_std = getSqlSession().selectOne("store.selectCount", split_product[k]);
-			System.out.println("단위:" + st_std);
-			//int need_count = st_std * countadd; // (1000*3)
 
 			oproduct.put("s_no", s_no);
 			oproduct.put("st_name", split_product[k]);
@@ -134,7 +128,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 			oproduct.put("st_type", "상품");
 
 			String stnameSame = getSqlSession().selectOne("store.stnameSame", oproduct);
-			System.out.println(stnameSame);
+	//		System.out.println(stnameSame);
 
 			if (stnameSame != null) {
 				int stockadd = getSqlSession().update("store.updatestock", oproduct);
@@ -144,9 +138,10 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 				int stockinsert = getSqlSession().insert("store.insertstock", oproduct);
 			}
 		}
-
+		}
 		/* order_thing */
 		String order_thing = orderStock.getO_thing();
+		if(order_thing!=null) {
 		String[] split_thing = order_thing.split(",");
 
 		for (int n = 0; n < split_thing.length; n = n + 2) {
@@ -156,9 +151,6 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 			int countadd = Integer.parseInt(split_thing[n + 1]);// 발주신청으로 입력받은 수량.
 
-			int st_std = getSqlSession().selectOne("store.selectCount", split_thing[n]);
-			System.out.println("단위:" + st_std);
-			//int need_count = st_std * countadd; // (1000*3)
 
 			othing.put("s_no", s_no);
 			othing.put("st_name", split_thing[n]);
@@ -176,7 +168,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 				int stockinsert = getSqlSession().insert("store.insertstock", othing);
 			}
 		}
-
+		}
 	}
 
 	public List<HashMap> odrink(int o_no, int s_no) {
@@ -187,6 +179,9 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		/* oder_drink */
 		String order_drink = orderStock.getO_drink();
+		if(order_drink==null)
+			return null;
+		
 		String[] split_odrink = order_drink.split(",");
 
 		for (int i = 0; i < split_odrink.length; i = i + 2) {
@@ -205,7 +200,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		}
 
-		System.out.println(ordrinklist);
+	//	System.out.println(ordrinklist);
 
 		return ordrinklist;
 	}
@@ -218,6 +213,8 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		/* oder_food */
 		String order_food = orderStock.getO_food();
+		if(order_food==null)
+			return null;
 		String[] split_ofood = order_food.split(",");
 
 		for (int j = 0; j < split_ofood.length; j = j + 2) {
@@ -236,7 +233,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		}
 
-		System.out.println(ordrinklist);
+	//	System.out.println(ordrinklist);
 
 		return ordrinklist;
 	}
@@ -248,6 +245,8 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		/* oder_drink */
 		String order_product = orderStock.getO_product();
+		if(order_product==null)
+			return null;
 		String[] split_product = order_product.split(",");
 
 		for (int k = 0; k < split_product.length; k = k + 2) {
@@ -266,7 +265,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		}
 
-		System.out.println(ordrinklist);
+	//	System.out.println(ordrinklist);
 
 		return ordrinklist;
 	}
@@ -278,6 +277,8 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 		Orders_DTO orderStock = getSqlSession().selectOne("store.selectOrderStockOne", o_no);// o_no에 해당하는 값 갖고오기.
 
 		String order_thing = orderStock.getO_thing();
+		if(order_thing==null)
+			return null;
 		String[] split_thing = order_thing.split(",");
 
 		for (int n = 0; n < split_thing.length; n = n + 2) {
@@ -296,7 +297,7 @@ public class Stock_DAO extends SqlSessionDaoSupport {
 
 		}
 
-		System.out.println(ordrinklist);
+	//	System.out.println(ordrinklist);
 
 		return ordrinklist;
 	}

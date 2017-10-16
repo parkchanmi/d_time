@@ -15,47 +15,57 @@
 <body>
 
 	<center>
-
-<div class="panel panel-main" width="3px">
-		<div class="panel-heading" width="1000">
+<div class="panel panel-main" style="width:750;">
+		<div class="panel-heading" style="width:750;">
 			<strong> 쪽지 상세보기 </strong>
 		</div>
-		</div>
-		<table width="1000" border="1" cellspacing="0" cellpadding="0" align="center"> 
+		</div>	 
+		 <div class="col-md-6">
+           <div class="media2 media-services scrollpoint sp-effect2 active animated fadeInRight">
+           <div class="media-body">
+		<table width="1000"  class="table" align="center"> 
 	  <tr height="30">
-	    <td align="center" width="100">제목</td>
-	    <td align="center" width="100" align="center">${msg_detail.msg_title}</td>
+	    <th  width="100">제목</th>
+	    <td  width="100" >${msg_detail.msg_title}</td>
 	    
-	    <td align="center" width="125" >보낸 사람</td>
-	    <td align="center" width="125" align="center">${msg_detail.sen_sname}</td>
+	    <th width="125" >보낸 사람</th>
+	    <td  width="125">${msg_detail.sen_sname}</td>
 	  </tr>
 	  
 	  <tr height="30">
-	    <td align="center" width="125" >시간</td>
-	    <td align="center" width="125" align="center">${msg_detail.msg_date}</td>
-	    <td align="center" width="125" >받은 사람</td>
-	    <td align="center" width="125" align="center">${msg_detail.rcv_sname}</td>
+	    <th width="125" >시간</th>
+	    <td width="125" >${msg_detail.msg_date}</td>
+	    <th width="125" >받은 사람</th>
+	    <td width="125" >${msg_detail.rcv_sname}</td>
 	  </tr>
 	
 	  <tr>
-	    <td align="center" width="125" >글내용</td>
-	    <td align="left" width="375" height="400" colspan="3"><pre>${msg_detail.msg_content}</pre></td>
+	    <th width="125" >글내용</th>
+	    <td width="375" height="400" colspan="3"><pre>${msg_detail.msg_content}</pre></td>
 	  </tr>
 	  <tr height="30">     
 	    </tr>
 	</table>   
-
+</div>
+</div>
+</div>
 	<table>
 	<tr>
 					<td colspan="2" align="center">
 					
 					<div class="form-group">
+						<input type="button" value="목록보기" class="btn btn-primary btn-block m-t-md"
+								onClick="history.back()">
+					</div>
+								
+			<td colspan="2" align="center">
+			<div class="form-group">
 						<input type="button" value="삭제" class="btn btn-default btn-block m-t-md"
 								OnClick="window.location='/d_time/Msg_delete.do?msg_no=${msg_detail.msg_no}'">
 					</div>
 					</td>
 					</tr>
-					</table>
+		</table>
 					
 			<!-- Bootstrap core JavaScript -->
 	<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>

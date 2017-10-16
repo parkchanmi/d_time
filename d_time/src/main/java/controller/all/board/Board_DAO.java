@@ -68,9 +68,10 @@ public class Board_DAO extends SqlSessionDaoSupport {
 		return r;
 	}
 
-	public List<Board_DTO> searchBoard(String keyword,String b_type,int startRow,int endRow) {
+	public List<Board_DTO> searchBoard(String searchOption,String keyword,String b_type,int startRow,int endRow) {
 		keyword= "%"+keyword+"%";
 		HashMap<Object,Object> map = new HashMap<Object,Object>();
+		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("b_type", b_type);
 		map.put("startRow", startRow); 

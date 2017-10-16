@@ -68,11 +68,15 @@ ul {
 					<li>말머리&nbsp;<i
 						class="fa fa-angle-right color_arrow margin_right"
 						aria-hidden="true"></i><select name="b_type">
-						<c:forEach var="type" items="${typelist}">
-							<option value="${type.board_type}">${type.board_type}</option>   
+						<c:forEach var="b_type" items="${typelist}">
+						<c:if test="${b_type.board_type==type}">
+						<option value="${b_type.board_type}" selected>${b_type.board_type}</option>
+						</c:if>
+						<c:if test="${b_type.board_type!=type}">
+						<option value="${b_type.board_type}" >${b_type.board_type}</option>
+						</c:if>  
 						</c:forEach>
-						<!-- 	<option value="건의사항">건의사항</option>    
-							<option value="물품교환">물품교환</option> -->
+						
 					</select></li>
 					<li>제목&nbsp;<i
 						class="fa fa-angle-right color_arrow margin_right"
@@ -88,7 +92,7 @@ ul {
 				</ul>
 
 				<input class="btn btn-info" type="submit" value="글쓰기"
-					style="padding: 9px 24px; font-size: 15px;" /><input class="btn btn-info" type="reset" value="다시작성" style="padding: 9px 24px; font-size: 15px;">
+					style="padding: 9px 24px; font-size: 15px;" />
 					<input class="btn btn-info" type="button" style="padding: 9px 24px; font-size: 15px;"
 					value="목록보기" OnClick="window.location='board_list.do?type=${type}'">
 			</form>

@@ -29,10 +29,11 @@
 			<thead>
 				<tr>
 					
-					<th>제목</th>
+				
 					<th>날짜</th>
-					<th>보낸사람</th>
-					<th>받는 사람</th>
+						<th>제목</th>
+					<th>보낸 지점</th>
+					<th>받는 지점</th>
 
 				</tr>
 			</thead>
@@ -41,9 +42,8 @@
 				
 
 					<tr >
-
-						<td><a href="msg_detail.do?msg_no=${msglist.msg_no}">${msglist.msg_title}</a></td> 
 						<td>${msglist.msg_date}</td>
+						<td><a href="msg_detail.do?msg_no=${msglist.msg_no}">${msglist.msg_title}</a></td> 
 						<td>${msglist.sen_sname}</td>
 						<td>${msglist.rcv_sname}</td>
 

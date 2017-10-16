@@ -30,20 +30,22 @@
 	</definition> 
 
 
-
-
-
-
-
-
 <definition name="summer_layout" template="/WEB-INF/template/summer_layout.jsp">
 		<put-attribute name="header"
 			value="/WEB-INF/template/admin_header.jsp" />
 		
+		<put-attribute name="footer"
+			value="/WEB-INF/template/footer.jsp" />
+	</definition>
+	
+	<definition name="summer_mem_layout" template="/WEB-INF/template/summer_layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/template/mem_header.jsp" />
 		
 		<put-attribute name="footer"
 			value="/WEB-INF/template/footer.jsp" />
 	</definition>
+	
 	<definition name="admin/notice/notice_list" extends="admin_layout">
 		<put-attribute name="title" value="공지사항글목록" />
 		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_list.jsp" />
@@ -80,7 +82,7 @@
 
 
 
-<definition name="board/board_list" extends="mem_layout">
+	<definition name="board/board_list" extends="mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body" value="/WEB-INF/view/all/board/board_list.jsp" />
 	</definition>
@@ -89,16 +91,54 @@
 		<put-attribute name="body"
 			value="/WEB-INF/view/all/board/board_detail.jsp" />
 	</definition>
-	<definition name="board/board_writeForm" extends="summer_layout">
+	<definition name="board/board_writeForm" extends="summer_mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body"
 			value="/WEB-INF/view/all/board/board_writeForm.jsp" />
 	</definition>
-	<definition name="board/board_modifyForm" extends="summer_layout">
+	<definition name="board/board_modifyForm" extends="summer_mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
 		<put-attribute name="body"
 			value="/WEB-INF/view/all/board/board_modifyForm.jsp" />
 	</definition>
+	
+	
+	<definition name="admin/board/board_list" extends="admin_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body" value="/WEB-INF/view/all/board/board_list.jsp" />
+	</definition>
+	<definition name="admin/board/board_detail" extends="admin_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/board/board_detail.jsp" />
+	</definition>
+	<definition name="admin/board/board_writeForm" extends="summer_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/board/board_writeForm.jsp" />
+	</definition>
+	<definition name="admin/board/board_modifyForm" extends="summer_layout">
+		<put-attribute name="title" value="Ci.CHA" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/board/board_modifyForm.jsp" />
+	</definition>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

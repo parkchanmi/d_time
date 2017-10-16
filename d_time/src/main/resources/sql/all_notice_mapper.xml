@@ -3,7 +3,17 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice_db">
-
+<select id="search_notice" parameterType="map" resultType="model.Notice_DTO"> 
+select n_no, n_title, n_content, n_date, n_count, r from 
+(select n_no, n_title, n_content, n_date, n_count, rownum r from 
+(select * from notice where 
+<choose>
+<when test="searchOption == 'all'">
+(n_content like #{keyword} or n_title like #{keyword})</when>
+<otherwise>${searchOption} like #{keyword}</otherwise> 
+</choose>
+order by n_date desc
+)order by n_no desc) where r &gt;=#{startRow} and r &lt;=#{endRow}</select> 
 
 <select id="notice_all" resultType="model.Notice_DTO" parameterType="map">
 select * from notice order by n_date desc

@@ -18,7 +18,12 @@
 <c:if test="${check==1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
-    <td height="39" >${mem_id} 이미 사용중인 아이디입니다.</td>
+  <p></p>
+    <td height="39" align="center">
+    <p><b>${mem_id}</b>(은)는</p> 
+    <p>이미 사용중인 아이디입니다.</p>
+    </td>
+    <p></p>
   </tr>
 </table>
 
@@ -27,9 +32,10 @@
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td  align="center">
-       다른 아이디을 선택하세요.<p>
-       <input type="text" size="10" maxlength="12" name="mem_id">
-       <input type="submit" value="id중복확인">
+       <p>다른 아이디을 선택하세요.</p>
+       <p></p>
+       <input type="text" size="10" maxlength="12" name="mem_id" class='col-lg-6 form-control input-sm' style="width:150;">
+       <input type="submit" value="id중복확인" class="btn btn-default">
     </td>
   </tr>
 </table>
@@ -39,8 +45,11 @@
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="center">
-      <p>입력하신 ${mem_id} 는 사용하실 수 있는 id입니다. </p>
-      <input type="button" value="닫기" onclick="setid()">
+      <p></p>
+      <p>입력하신 <b>${mem_id}</b>(은)는 </p>
+      <p>사용하실 수 있는 아이디입니다. </p>
+      <p></p>
+      <input type="button" value="확인" onclick="setid()" class="btn btn-default"  style="width:100;">
     </td>
   </tr>
 </table>

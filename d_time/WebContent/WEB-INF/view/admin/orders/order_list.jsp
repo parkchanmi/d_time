@@ -40,73 +40,120 @@
 	});
 </script>
 <meta charset="utf-8">
-	<div class="row">
-		<div class="col-lg-12">
-			<h3 class="page-header">
-				<i class="fa fa-th-large"></i>발주관리
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">
+			<i class="fa fa-th-large"></i>발주관리
+		</h3>
+		<h3 class="board-listtotal">
+				<i class="fa fa-list-ul" aria-hidden="true"></i> 전체글 : ${count}
 			</h3>
-		</div>
-
-		<!-- /.col-lg-12 -->
-		<div class="col-lg-12">
-			<div class="text-right active fl-left">
-
-
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs in">
-					<li id="order_ing" ><a href="store_order.do">발주대기함<i
-							class="fa fa-angle-down"></i></a></li>
-					<li id="order_list"><a href="javascript:void(0);">지점발주현황 <i
-							class="fa fa-angle-down"></i>
-					</a></li>
-					<div class="table-responsive disN order_list">
-						<select name="f_no" id="f_no"
-							class="form-control select_box_style" onchange="store_change(this.value);">
-							<option value="0">지점명을 선택하세요</option>
-							<c:forEach var="storelist" items="${storelist}">
-								<option value="${storelist.s_no}"
-									${s_no == storelist.s_no ? "selected" :""}>${storelist.s_name}</option>
-							</c:forEach>
-						</select>
-					</div>
-
-				</ul>
-
-			</div>
-			<!--발주대기함-->
-			<div class="table-responsive order_ing">
-				<table class="table table-striped table-hover table-bordered_tB">
-					<thead>
-						<tr>
-							<th>No.</th>
-							<th>제목</th>
-							<th>지점명</th>
-							<th>상태</th>
-						</tr>
-					</thead>
-					<c:forEach var="ordlist" items="${ordersList}" varStatus="status">
-						<tr id="132582" style="cursor: pointer;"
-							onClick=" location.href='order_detail.do?o_no=${ordlist.o_no} & s_no=${ordlist.s_no}' "
-							onMouseOver=" window.status = 'order_detail.do' "
-							onMouseOut=" window.status = '' ">
-
-							<td>${status.count}</td>
-							<td><fmt:formatDate
-                           value="${ordlist.o_date}" type="date" dateStyle="long" />신청내역</td>
-							<c:forEach var="storelist" items="${storelist}">
-								<c:if test="${ordlist.s_no == storelist.s_no}">
-									<td>${storelist.s_name}</td>
-								</c:if>
-							</c:forEach>
-							<td>${ordlist.o_state}</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-		</div>
-		<!-- /.panel -->
-
 	</div>
+
+	<!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<div class="text-right active fl-left">
+
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs in">
+				<li id="order_ing"><a href="store_order.do">발주대기함<i
+						class="fa fa-angle-down"></i></a></li>
+				<li id="order_list"><a href="javascript:void(0);">지점발주현황 <i
+						class="fa fa-angle-down"></i>
+				</a></li>
+				<div class="table-responsive disN order_list">
+					<select name="f_no" id="f_no" class="form-control select_box_style"
+						onchange="store_change(this.value);">
+						<option value="0">지점명을 선택하세요</option>
+						<c:forEach var="storelist" items="${storelist}">
+							<option value="${storelist.s_no}"
+								${s_no == storelist.s_no ? "selected" :""}>${storelist.s_name}</option>
+						</c:forEach>
+					</select>
+				</div>
+
+			</ul>
+
+		</div>
+		<!--발주대기함-->
+		<br>
+		<div class="table-responsive marginT20 order_ing">
+
+			
+			<table class="table table-striped table-hover table-bordered_tB">
+
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th>제목</th>
+						<th>지점명</th>
+						<th>상태</th>
+					</tr>
+				</thead>
+				<c:forEach var="orderslist" items="${list}">
+					<c:if test="${number > 0 }">
+						<tr>
+
+							<td align="center"><c:out value="${number}" /> <c:set
+									var="number" value="${number-1 }" /></td>
+							<td align="center"><a
+								href="orders_content.do?o_no=${orderslist.o_no}&pageNum=${pageNum}"><fmt:formatDate
+										value="${orderslist.o_date}" type="date" dateStyle="long" />
+									발주 신청 내역 </a></td>
+							<td align="center">${orderslist.o_state}</td>
+						</tr>
+
+					</c:if>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+	<div align="center" class="col-lg-10" style="margin-bottom: 25px;">
+		<c:if test="${count > 0}">
+			<c:set var="pageCount"
+				value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
+			<c:set var="pageBlock" value="${10}" />
+			<fmt:parseNumber var="result" value="${currentPage / 10}"
+				integerOnly="true" />
+			<c:set var="startPage" value="${result * 10 + 1}" />
+			<c:set var="endPage" value="${startPage + pageBlock-1}" />
+			<c:if test="${endPage > pageCount}">
+				<c:set var="endPage" value="${pageCount}" />
+			</c:if>
+	<c:if test="${s_no==null}">
+			<c:if test="${startPage > 10}">
+				<a href="store_order.do?pageNum=${startPage-10}">[이전]</a>
+			</c:if>
+
+			<c:forEach var="i" begin="${startPage}" end="${endPage}">
+				<a href="store_order.do?pageNum=${i}">[${i}]</a>
+			</c:forEach>
+
+			<c:if test="${endPage < pageCount}">
+				<a href="store_order.do?pageNum=${startPage + 10}">[다음]</a>
+			</c:if>
+		</c:if>
+	
+	<c:if test="${s_no!=null}">
+			<c:if test="${startPage > 10}">
+				<a href="store_order.do?s_no=${s_no}&pageNum=${startPage-10}">[이전]</a>
+			</c:if>
+
+			<c:forEach var="i" begin="${startPage}" end="${endPage}">
+				<a href="store_order.do?s_no=${s_no}&pageNum=${i}">[${i}]</a>
+			</c:forEach>
+
+			<c:if test="${endPage < pageCount}">
+				<a href="store_order.do?s_no=${s_no}&pageNum=${startPage + 10}">[다음]</a>
+			</c:if>
+		</c:if>
+	</c:if>
+	</div>
+	<!-- /.panel -->
+
+</div>
 
 
 

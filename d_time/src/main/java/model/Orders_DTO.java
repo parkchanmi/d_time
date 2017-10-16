@@ -11,8 +11,10 @@ public class Orders_DTO {
 	private String o_drink;
 	private String o_food;
 	private String o_product;
+	
 	private String o_thing;
 	private String o_state;
+	private String s_name;
 	private int r;
 
 	public Orders_DTO(String o_drink, String o_food, String o_product, String o_thing) {
@@ -21,7 +23,14 @@ public class Orders_DTO {
 		this.o_product = o_product;
 		this.o_thing = o_thing;
 	}
-	
+	public String getS_name() {
+		return s_name;
+	}
+
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+
 	public int getR() {
 		return r;
 	}

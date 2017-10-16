@@ -7,12 +7,17 @@
 
 
 <% request.setCharacterEncoding("utf-8");%>
-
+<!-- Bootstrap core CSS -->
+ <link href="resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
+   rel="stylesheet">
 
 <c:if test="${check==0}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
-    <td height="39" >${storeinfo.s_name} 해당 지점이 존재하지 않습니다.</td>
+    <td height="39" align="center" >
+    <p></p>
+    <p></p>
+    <b>${storeinfo.s_name}</b> 해당 지점이 존재하지 않습니다.</td>
   </tr>
 </table>
 
@@ -20,9 +25,11 @@
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="center">
-       다른 코드를 입력하세요.<p>
-       <input type="text" size="10" maxlength="12" name="s_code">
-       <input type="submit" value="코드확인">
+      <p> 다른 지점코드를 입력하세요.</p>
+      <p></p>
+      <p></p>
+       <input type="text" size="10" maxlength="12" name="s_code" class='col-lg-6 form-control input-sm' style="width:160;">
+       <input type="submit" class="btn btn-default"  value="코드확인">
     </td>
   </tr>
 </table>
@@ -33,8 +40,10 @@
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="center">
-      <p>입력하신 ${storeinfo.s_name}은 가입 가능한 지점입니다.</p>
-      <input type="button" value="닫기" onclick="sets_code('${storeinfo.s_code}',${storeinfo.s_no},'${storeinfo.s_type}','${storeinfo.s_name}')">
+    <p></p>
+      <p>입력하신<b>${storeinfo.s_name}</b>(은)는</p>
+      <p>지점이 존재합니다. </p>
+      <input type="button" class="btn btn-default" style="width:100;" value="확인" onclick="sets_code('${storeinfo.s_code}',${storeinfo.s_no})">
     </td>
   </tr>
 </table>
@@ -43,7 +52,11 @@
 <c:if test="${check==2}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
-    <td height="39" >${storeinfo.s_name}은 이미 등록된 지점입니다.</td>
+    <td height="39" align="center" >
+    <p><b>${storeinfo.s_name}</b>(은)는</p>
+    <p> 이미 등록된 지점입니다.</p></td>
+    <p></p>
+    <p></p>
   </tr>
 </table>
 
@@ -51,9 +64,10 @@
 <table width="270" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td align="center">
-       다른 코드를 입력하세요.<p>
-       <input type="text" size="10" maxlength="12" name="s_code">
-       <input type="submit" value="코드확인">
+      <p>다른 지점코드를 입력하세요.</p> 
+       <p></p>
+       <input type="text" size="10" maxlength="12" name="s_code" class='col-lg-6 form-control input-sm' style="width:160;">
+       <input class="btn btn-default"  style="width:100;"  type="submit" value="코드확인">     
     </td>
   </tr>
 </table>
@@ -63,6 +77,7 @@
 
 </body>
 </html>
+
 <script>
 
   function sets_code(s_code,s_no,s_type,s_name)

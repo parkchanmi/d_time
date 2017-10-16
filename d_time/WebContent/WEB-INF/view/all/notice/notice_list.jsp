@@ -9,14 +9,21 @@
 			</h3>
 		</div>
 		<div class="col-lg-12">
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table width="1500">
+			<div class="panel-body"> 
+				<div class="table-responsive marginT20 order_ing">
+					<h3 class="board-listtotal">
+						<i class="fa fa-list-ul" aria-hidden="true"></i> 전체글 : ${count}
+					</h3>
 
-						<tr>
-							<td>전체글 : ${count}</td>
-						</tr>
-					</table>
+					<c:if test="${login.mem_type=='관리자'}">
+						<button class="write-btn-css btn btn-confirm-blue"
+							style="float: right;"
+							onclick="javascript:location.href='/d_time/admin/notice/notice_write.do'">
+							글쓰기<i class="fa fa-pencil-square-o color-write"
+								aria-hidden="true"></i>
+						</button>
+					</c:if>
+
 					<c:if test="${count == 0}">
 						<table class="table table-striped table-hover table-bordered_tB">
 							<tr>
@@ -26,68 +33,82 @@
 					</c:if>
 					<c:if test="${count > 0}">
 
-						<div class="table-responsive">
-							<table class="table table-striped table-hover ">
-								<thead>
+						<table class="table table-striped table-hover table-bordered_tB"
+							style="display: inline-table; margin-top: 14px;">
+
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>제목</th>
+									<th>날짜</th>
+									<th>조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="notice" items="${nlist}" varStatus="status">
 									<tr>
-										<th>No</th>
-										<th>제목</th>
-										<th>날짜</th>
-										<th>조회수</th>
+										<td>${status.count}</td>
+										<td><a
+											href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}">${notice.n_title}</a></td>
+										<td><fmt:formatDate value="${notice.n_date}"
+												pattern="yyyy.MM.dd HH:mm" /></td>
+										<td>${notice.n_count}</td>
+
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="notice" items="${nlist}" varStatus="status">
-										<tr>
-											<td>${status.count}</td>
-											<td><a
-												href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}">${notice.n_title}</a></td>
-											<td><fmt:formatDate value="${notice.n_date}"
-													pattern="yyyy.MM.dd HH:mm" /></td>
-											<td>${notice.n_count}</td>
+								</c:forEach>
 
-										</tr>
-									</c:forEach>
-
-								</tbody>
-							</table>
+							</tbody>
+						</table>
 					</c:if>
-					<br />
-					<br />
-					<center>
-						<c:if test="${count > 0}">
-							<c:set var="pageCount"
-								value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
-							<c:set var="pageBlock" value="${10}" />
-							<fmt:parseNumber var="result" value="${currentPage / 10}"
-								integerOnly="true" />
-							<c:set var="startPage" value="${result * 10 + 1}" />
-							<c:set var="endPage" value="${startPage + pageBlock-1}" />
-							<c:if test="${endPage > pageCount}">
-								<c:set var="endPage" value="${pageCount}" />
+					<br /> <br />
+					<div class="text-center">
+						<ul class="pagination-01">
+							<c:if test="${count > 0}">
+								<c:set var="pageCount"
+									value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
+								<c:set var="pageBlock" value="${10}" />
+								<fmt:parseNumber var="result" value="${currentPage / 10}"
+									integerOnly="true" />
+								<c:set var="startPage" value="${result * 10 + 1}" />
+								<c:set var="endPage" value="${startPage + pageBlock-1}" />
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+
+								<c:if test="${startPage > 10}">
+									<li><i class="fa fa-angle-left"></i><a
+										href="notice_list.do?pageNum=${startPage-10}"></a></li>
+								</c:if>
+
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+									<li class="paginate_button"><a
+										href="notice_list.do?pageNum=${i}">${i}</a></li>
+								</c:forEach>
+
+								<c:if test="${endPage < pageCount}">
+									<li><i class="fa fa-angle-right"></i><a
+										href="notice_list.do?pageNum=${startPage + 10}"></a></li>
+								</c:if>
 							</c:if>
+						</ul>
+					</div>
+					<div align="center">
+         <form action="/d_time/notice_search.do" method="post" >
+            <select id="searchOption" name="searchOption" style="width:70; height:40;">
+               <option value="n_title">제목</option>
+               <option value="n_content">내용</option>
+               <option value="all">제목+내용</option> 
+            </select>
+             <input type="text" id="keyword" name="keyword" required style="width:170; height:40;"/> 
+         
+             <input   type="submit" value="검색" style="width:70; height:40;"   >
 
-							<c:if test="${startPage > 10}">
-								<a href="notice_list.do?pageNum=${startPage-10}">[이전]</a>
-							</c:if>
-
-							<c:forEach var="i" begin="${startPage}" end="${endPage}">
-								<a href="notice_list.do?pageNum=${i}">[${i}]</a>
-							</c:forEach>
-
-							<c:if test="${endPage < pageCount}">
-								<a href="notice_list.do?pageNum=${startPage + 10}">[다음]</a>
-							</c:if>
-						</c:if>
-					</center>
-					<c:if test="${login.mem_type=='관리자'}">
-
-						<button class="btn btn-default"
-							onclick="javascript:location.href='/d_time/admin/notice/notice_write.do'">글쓰기</button>
-					</c:if>
+         </form>
+      </div>
+				
+				
 				</div>
 			</div>
-			</div>
-			</div>
-		
+		</div>
+	</div>
 </body>

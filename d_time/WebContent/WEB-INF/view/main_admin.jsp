@@ -3,6 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 
+<style>
+ul,li,or { list-style:none;}
+</style>
 	<meta charset="utf-8">
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
@@ -112,6 +115,30 @@
 		</div>
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
+			<div class="col-lg-3 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong> <span style="color: #5c7c97"> <i
+									class="fa fa-volume-up"></i>
+							</span>최근 발주 내역
+							</strong> <a class="plus" href="/d_time/store_order.do"><i class="fa fa-plus"></i></a>
+						</div>
+						<div class="panel-body">
+							<ul>
+							<c:forEach var="order" items="${orders}">
+							<li><a href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}"><i
+										class="fa fa-angle-right color_arrow margin_right"
+										aria-hidden="true"></i>${order.s_name}의 ${order.o_no}번 발주 신청</a> <span
+									class="date_visit"><fmt:formatDate value="${order.o_date}"
+									pattern="yyyy.MM.dd HH:mm" /></span></li>
+							
+							</c:forEach>
+							
+							
+							</ul>
+						</div>
+					</div>
+				</div>
 				<div class="col-lg-6 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
@@ -157,13 +184,13 @@
 				</div>
 			
 				
-				<div class="col-lg-6 col-md-4">
+				<div class="col-lg-3 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong> <span style="color: #5c7c97"> <i
 									class="fa fa-volume-up"></i>
 							</span>Best 3
-							</strong> <a class="plus" href="/d_time/board_list.do?type=1"><i class="fa fa-plus"></i></a>
+							</strong> <a class="plus" href="/d_time/sale.do"><i class="fa fa-plus"></i></a>
 						</div>
 						<div class="panel-body">
 							<c:forEach var="store" items="${best_store}" varStatus="status">

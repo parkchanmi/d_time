@@ -58,8 +58,10 @@ public class Login_Controller {
 		}
 		System.out.println(memberDto.getMem_id());
 		Member_DTO member=dao.loginMem(memberDto);
-	/*	if(member==null) {
-			return "redirect:index.jsp";
+		if(member==null) {
+			model.addAttribute("empty_login", 2);
+			System.out.println("잘못된 값");
+			return "index"; //비어있는값
 		}
 		System.out.println("로그인성공"+member.getMem_id());
 		
@@ -71,10 +73,10 @@ public class Login_Controller {
 		}
 		else {
 			return "redirect:main_member.do";
-		}*/
+		}
 		
 		
-		try {
+		/*try {
 			authenticator.authenticate(member); // 아이디와 비밀번호가 다르면 에러발생 -> catch 
 
 			//문제없을시
@@ -91,12 +93,11 @@ public class Login_Controller {
 			}
 			//return "redirect:/index.jsp";
 		}catch(AuthenticationException e) {
-			result.reject("invalidIdOrPassword",new Object[] {member},null); 
-			//reject:예외코드 추가(글로벌에러코드)  rejectValue : 필드에러
-			//0번인덱스에 값을 받아서 에러메시지에 사용
-			return "redirect:/index.jsp";
+			model.addAttribute("empty_login", 2);
+			System.out.println("잘못된 값");
+			return "index"; //비어있는값
 		}
-		
+		*/
 		
 		
 		

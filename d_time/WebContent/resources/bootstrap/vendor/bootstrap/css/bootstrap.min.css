@@ -877,6 +877,54 @@ pre code {
 	letter-spacing: -0.5px;
 }
 
+h3.board-listtotal {
+	letter-spacing: -0.5px;
+	font-size:15px;
+	display:inline-block;
+}
+
+.pagination-01 {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.pagination-01 >li {
+    display: inline-block;
+    margin-right:3px;
+}
+
+.pagination-01 >li>a, .pagination-01 >li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination-01 >li>a:hover, .pagination-01 >li>a:active {
+	 z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    cursor:pointer;
+}
+.pagination-01 >.active>a, .pagination-01 >.active>a:focus, .pagination-01 >.active>a:hover, .pagination-01 >.active>span, .pagination-01 >.active>span:focus, .pagination-01 >.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+
+
 .store_title {
 	display: inline-block;
 	margin: 15px 10px 35px 0;

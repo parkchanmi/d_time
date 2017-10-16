@@ -6,12 +6,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="selectOrdersList" resultType="model.Orders_DTO">
-		select * from orders where o_state='대기'
+		select o_no, o_date, s_name, o_state, r from (select o_no, o_date, s_name, o_state , rownum r from
+      (select a.o_no, a.o_date, c.s_name , a.o_state from orders a, store c where a.s_no = c.s_no and a.o_state='대기' ORDER
+      by a.o_no desc)   order by o_no desc) where r &gt;=#{startRow} and r &lt;=#{endRow}
 	</select>
-	
+	<select id="ordercount" resultType="int">
+   select count(*) from orders where o_state='대기'
+   </select>
+   <select id="ordercountOne" resultType="int" parameterType="int">
+      select count(*) from
+      orders where s_no=#{s_no}
+   </select>
 	
 	<select id="selectOrderSNO" parameterType="int" resultType="model.Orders_DTO">
-		select * from orders where s_no=#{s_no} order by o_date desc
+		select o_no, o_date, s_name, o_state, r from (select o_no, o_date, s_name, o_state , rownum r from
+      (select a.o_no, a.o_date, c.s_name , a.o_state from orders a, store c where   a.s_no = c.s_no and c.s_no=#{s_no}
+      ORDER by a.o_no desc) order by o_no desc) where r&gt;=#{startRow} and r&lt;=#{endRow}
 	</select>
 	
 	

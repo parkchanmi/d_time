@@ -11,7 +11,16 @@ import model.Notice_DTO;
 public class Notice_DAO extends SqlSessionDaoSupport{
 	
 	
-
+	public List<Notice_DTO> searchNotice(String searchOption, String keyword, int startRow, int endRow) {
+	      keyword= "%"+keyword+"%";
+	      HashMap<Object,Object> map = new HashMap<Object,Object>();
+	      map.put("searchOption", searchOption);
+	      map.put("keyword", keyword);
+	      map.put("startRow", startRow); 
+	      map.put("endRow", endRow);
+	      List<Notice_DTO> x = getSqlSession().selectList("notice_db.search_notice", map); 
+	      return x;
+	   }
 	public List<Notice_DTO> getNoticeList(HashMap map) {
 		List<Notice_DTO> nlist = getSqlSession().selectList("notice_db.notice_all",map);
 		return nlist; 

@@ -20,6 +20,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -156,7 +157,49 @@ public class Notice_Controller{
 	}
 	
 	
-	
+	/*검색*/
+	   @RequestMapping(value="notice_search.do", method = RequestMethod.POST)
+	   public String search(Model model,String keyword,String searchOption,HttpServletRequest request,HttpSession session) {
+	      
+	   
+	      String pageNum = request.getParameter("pageNum"); 
+	      
+	      if (pageNum == null) {
+	         pageNum = "1";
+	      }
+	      
+	      int count = ndao.Notice_Count();  
+	      int pageSize = 10;
+	      
+	      int currentPage = Integer.parseInt(pageNum);
+	      int startRow = (currentPage - 1) * pageSize + 1;
+	      int endRow = currentPage * pageSize;
+	      
+	      List<Notice_DTO> nlist = ndao.searchNotice(searchOption,keyword,startRow,endRow); 
+	      if(nlist!=null) {
+	         count = nlist.size();
+	      }
+	      
+	      int number = 0;
+	      number = count - (currentPage - 1) * pageSize;
+	      model.addAttribute("searchOption", searchOption);
+	      model.addAttribute("keyword", keyword);
+	      model.addAttribute("currentPage", new Integer(currentPage));
+	      model.addAttribute("count", count);
+	      model.addAttribute("startRow", new Integer(startRow));
+	      model.addAttribute("endRow", new Integer(endRow));
+	      model.addAttribute("number", new Integer(number));
+	      model.addAttribute("pageSize",new Integer(pageSize));
+	      model.addAttribute("nlist", nlist);
+	      
+	      
+	      Member_DTO mdto = (Member_DTO) session.getAttribute("login");
+	      if(mdto.getMem_type().equals("관리자")) {
+	         return "admin/notice/notice_list";
+	      }
+	      
+	      return "mem/notice/notice_list";
+	   }
 	
 	
 	

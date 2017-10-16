@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import model.Board_DTO;
 import model.Board_Type_DTO;
 import model.Notice_DTO;
+import model.Orders_DTO;
 import model.Sell_DTO;
 
 @Controller
@@ -51,6 +52,9 @@ public class Main_Controller {
 		model.addAttribute("store1",store_1);
 		model.addAttribute("store2",store_2);
 		
+		//최근발주내역 10개
+		List<Orders_DTO> olist = dao.orders_list();
+		model.addAttribute("orders",olist);
 		
 		
 		Calendar cal = Calendar.getInstance();

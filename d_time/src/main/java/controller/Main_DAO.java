@@ -9,6 +9,7 @@ import model.Board_DTO;
 import model.Board_Type_DTO;
 import model.Member_DTO;
 import model.Notice_DTO;
+import model.Orders_DTO;
 import model.Review_DTO;
 import model.Sell_DTO;
 
@@ -49,6 +50,11 @@ public class Main_DAO extends SqlSessionDaoSupport {
 		List<Sell_DTO> sell = getSqlSession().selectList("main.selectList", map);
 
 		return sell;
+	}
+	
+	public List<Orders_DTO> orders_list(){
+		List<Orders_DTO> olist = getSqlSession().selectList("main.ordersList");
+		return olist;
 	}
 
 

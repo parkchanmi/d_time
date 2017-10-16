@@ -27,8 +27,13 @@ $(document).ready(function(){
 
 <c:if test="${empty_login==1}">
 <script>
-alert('비어있음!');
-//location.href="#myModal";
+alert('아이디와 비밀번호를 입력하세요!');
+
+</script>
+</c:if>
+<c:if test="${empty_login==2}">
+<script>
+alert('아이디 or 비밀번호 오류!');
 
 </script>
 </c:if>

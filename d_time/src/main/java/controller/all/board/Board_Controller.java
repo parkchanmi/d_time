@@ -263,7 +263,7 @@ public class Board_Controller {
 		model.addAttribute("number", new Integer(number));
 		model.addAttribute("pageSize",new Integer(pageSize));
 		model.addAttribute("list", blist);
-		model.addAttribute("type", b_type);
+		model.addAttribute("type", type);
 		System.out.println("type2:"+type);
 		
 		

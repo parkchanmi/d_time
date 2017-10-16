@@ -30,5 +30,11 @@ select * from (select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as se
 where sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') 
 group by sell.s_no, store.s_name, store.s_type order by sel_cost desc) where rownum  &lt; 4
 </select>
+<!-- 최근발주내역 -->
+<select id="ordersList" resultType="model.Orders_DTO">
+ select o_no, o_date, s_name, o_state, r from (select o_no, o_date, s_name, o_state , rownum r from
+      (select a.o_no, a.o_date, c.s_name , a.o_state from orders a, store c where a.s_no = c.s_no and a.o_state='대기' ORDER
+      by a.o_no desc)  order by o_no desc) where r &lt; 10
+</select>
 
 </mapper>

@@ -60,8 +60,8 @@ function removeRow(remove) {
 	oTbl.deleteRow(oTbl.clickedRowIndex);
 }
 
-function removeProd(p_no){
-	if(confirm("정말 삭제하시겠습니까??"+p_no) == true){
+function removeProd(p_no,p_name){
+	if(confirm(p_name+"를 삭제하시겠습니까??") == true){
 		location.href='/d_time/admin/product/product_delete.do?p_no='+p_no;
 	}
 }
@@ -158,7 +158,7 @@ function submit_ok(){
 												<td width=100px>${drink.p_name}</td>
 												<td width=100px>${drink.p_std}</td>
 												<td><input class="btn btn-default btn-sm" type=button
-													value='삭제' onClick='removeProd(${drink.p_no})' /></td>
+													value='삭제' onClick='removeProd(${drink.p_no},"${drink.p_name}")' /></td>
 											</tr>
 										</c:if>
 									</c:forEach>
@@ -192,7 +192,7 @@ function submit_ok(){
 												<td width=100px>${food.p_name}</td>
 												<td width=100px>${food.p_std}</td>
 												<td><input class="btn btn-default btn-sm" type=button
-													value='삭제' onClick='removeProd(${food.p_no});' /></td>
+													value='삭제' onClick='removeProd(${food.p_no},"${food.p_name}");' /></td>
 											</tr>
 										</c:if>
 									</c:forEach>
@@ -226,7 +226,7 @@ function submit_ok(){
 												<td width=100px>${product.p_name}</td>
 												<td width=100px>${product.p_std}</td>
 												<td><input class="btn btn-default btn-sm" type=button
-													value='삭제' onClick='removeProd(${product.p_no})' /></td>
+													value='삭제' onClick='removeProd(${product.p_no},"${product.p_name}")' /></td>
 											</tr>
 										</c:if>
 									</c:forEach>
@@ -259,7 +259,7 @@ function submit_ok(){
 												<td width=100px>${thing.p_name}</td>
 												<td width=100px>${thing.p_std}</td>
 												<td><input class="btn btn-default btn-sm" type=button
-													value='삭제' onClick='removeProd(${thing.p_no})' /></td>
+													value='삭제' onClick='removeProd(${thing.p_no},"${thing.p_name}")' /></td>
 											</tr>
 										</c:if>
 									</c:forEach>

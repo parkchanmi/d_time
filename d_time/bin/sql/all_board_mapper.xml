@@ -59,8 +59,11 @@ delete from review where r_no=#{r_no}
 select b_no, s_name, b_type, b_title, b_content, b_date, b_count, r from 
 (select b_no, s_name, b_type, b_title, b_content, b_date, b_count, rownum r from 
 (select a.b_no, c.s_name, a.b_type, a.b_title, a.b_content, a.b_date, a.b_count from board a , member b , store c 
-where b_type=#{b_type} and  <choose><when test="searchOption == 'all'">b_title like #{keyword} or b_content like #{keyword}</when>
- <otherwise>${searchOption} like #{keyword}</otherwise></choose> 
+where b_type=#{b_type} and  
+<choose>
+<when test="searchOption == 'all'">(a.b_title like #{keyword} or a.b_content like #{keyword})</when>
+<otherwise>${searchOption} like #{keyword}</otherwise>
+</choose> 
  and a.mem_no = b.mem_no and b.s_no = c.s_no order by b_no desc )
 order by b_no desc) where r &gt;=#{startRow} and r &lt;=#{endRow} </select>
 </mapper>  

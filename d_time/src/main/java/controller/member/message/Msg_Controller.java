@@ -45,7 +45,9 @@ import model.Message_DTO;
 
 			model.addAttribute("list", list);
 			
-			System.out.println("����Ʈ: "+list);
+			//System.out.println("����Ʈ: "+list);
+			
+			
 			
 			if(member.getMem_type().equals("관리자")) {
 			return "admin/message/msg_receive_list";
@@ -65,7 +67,6 @@ import model.Message_DTO;
 
 			model.addAttribute("list", list);
 
-			System.out.println("����Ʈ: "+list);
 			
 			if(member.getMem_type().equals("관리자")) {
 			return "admin/message/msg_send_list";
@@ -75,12 +76,17 @@ import model.Message_DTO;
 		
 		/*���� ��������*/
 		@RequestMapping("msg_detail.do")
-		public String rcvdetail(Model model, int msg_no, HttpSession session) {
+		public String rcvdetail(Model model, int msg_no,  HttpSession session, String type) {
+			
 			Message_DTO msg_detail = msg_dao.select_datail(msg_no);
 			Member_DTO member = (Member_DTO) session.getAttribute("login");
 			
+			//msg_dao.msg_state(msg_no);
+			if(type.equals("receivebox")) {//받은쪽지 읽음처리
+				msg_dao.updateState(msg_no);
+			}
 			model.addAttribute("msg_detail", msg_detail);
-			
+			model.addAttribute("type", type);
 			if(member.getMem_type().equals("관리자")) {
 			return "admin/message/msg_detail";
 			}

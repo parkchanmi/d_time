@@ -2,17 +2,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html lang="en">
-
 
 <meta charset="utf-8">
 
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">
+			<h3 ><i class="fa fa-th-large"></i>발주 신청 내역</h3>
+		</h3>
+		<h3 class="board-listtotal">
+				<i class="fa fa-list-ul" aria-hidden="true"></i> 전체글 : ${count}
+			</h3>
+	</div>
 
-	<h3 ><i class="fa fa-th-large"></i>발주 신청 내역</h3>
- 
-   <div class="col-lg-10">
-      <br> 전체 글 : ${count}
-   </div>
+	
    <div class="col-lg-10" style="margin-bottom: 25px;">
 
       <table class="table table-striped">
@@ -44,6 +47,7 @@
    </div>
    <div style="clear: both;"></div>
    <div align="center" class="col-lg-10" style="margin-bottom: 25px;">
+   <ul class="pagination-01">
       <c:if test="${count > 0}">
          <c:set var="pageCount"
             value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
@@ -57,17 +61,19 @@
          </c:if>
 
          <c:if test="${startPage > 10}">
-            <a href="orders_list.do?pageNum=${startPage-10}">[이전]</a>
+            <li><i class="fa fa-angle-left"></i><a href="orders_list.do?pageNum=${startPage-10}"></a></li>
          </c:if>
 
          <c:forEach var="i" begin="${startPage}" end="${endPage}">
-            <a href="orders_list.do?pageNum=${i}">[${i}]</a>
+           <li class="paginate_button"><a href="orders_list.do?pageNum=${i}">${i}</a></li>
          </c:forEach>
 
          <c:if test="${endPage < pageCount}">
-            <a href="orders_list.do?pageNum=${startPage + 10}">[다음]</a>
+           <li><i class="fa fa-angle-right"></i><a href="orders_list.do?pageNum=${startPage + 10}"></a></li>
          </c:if>
       </c:if>
+      </ul>
+   </div>
    </div>
    <!-- /.container-fluid-->
    <!-- /.content-wrapper-->
@@ -75,6 +81,7 @@
    <a class="scroll-to-top rounded" href="#page-top"> <i
       class="fa fa-angle-up"></i>
    </a>
+   
    <!-- Logout Modal-->
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,6 +104,7 @@
          </div>
       </div>
    </div>
+   
    <!-- Bootstrap core JavaScript-->
    <script src="/d_time/resources/bootstrap/vendor/jquery/jquery.min.js"></script>
    <script src="/d_time/resources/bootstrap/vendor/popper/popper.min.js"></script>

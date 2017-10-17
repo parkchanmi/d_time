@@ -104,4 +104,13 @@ public class Member_DAO extends SqlSessionDaoSupport {
 			return x;
 		
 		}
+
+		public int memupdate(int s_no, String s_type) {
+			HashMap map = new HashMap<String, String>();
+			map.put("s_no", s_no);
+			map.put("mem_type", s_type);
+			int x=getSqlSession().update("mem.change_stype",map);
+			return x;
+			
+		}
 }

@@ -165,6 +165,9 @@ function now_stock(s_no){
 							<a
 								href="store_confirm.do?o_no=${orderdto.o_no}&s_no=${orderdto.s_no}"
 								class="btn btn-secondary">승인</a>
+							<a
+								href="store_confirm.do?not=1&o_no=${orderdto.o_no}&s_no=${orderdto.s_no}"
+								class="btn btn-secondary">거절</a>
 						</c:if>
 						<c:if test="${orderdto.o_state=='승인'}">
 							<a class="btn btn-secondary">승인완료</a>

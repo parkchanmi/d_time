@@ -137,10 +137,19 @@ function submit_confirm(){
 		return false;
 	}
 }
+function menu_recipe(){
+	
+	// url과 사용자 입력 id를 조합합니다.
+    url = "/d_time/sell/menu_recipe.do";
+   
+    // 새로운 윈도우를 엽니다.
+    open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=1400,height=800"); 
+}
 </script>
 <body>
 
 	<h3>판매모드</h3>
+	<button onclick="menu_recipe()">레시피</button>
 	<br />
 	<br />
 	<style>

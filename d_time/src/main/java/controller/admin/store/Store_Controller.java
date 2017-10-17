@@ -41,16 +41,26 @@ public class Store_Controller {
 	}
 
 	@RequestMapping(value = "/store_list.do", method = RequestMethod.GET)
-	public ModelAndView storelist(ModelAndView mav, HttpSession session) {
-
+	public ModelAndView storelist(String type,ModelAndView mav, HttpSession session) {
+		if(type==null)
+			type="all";
+		if(type.equals("all")||type==null) {
+			List<Store_DTO> stlist = stdao.storelist();
+			mav.addObject("storelist", stlist);
+		}
+		if(type.equals("zik")) {
+			List<Store_DTO> stlist = stdao.storelist_J();
+			mav.addObject("storelist", stlist);
+		}
+		if(type.equals("ga")) {
+			List<Store_DTO> stlist = stdao.storelist_G();
+			mav.addObject("storelist", stlist);
+		}
+		
 		List<Member_DTO> memlist = memdao.memlist();
-		// mav.addObject("memlist",memlist);
 
 		session.setAttribute("memlist", memlist);
-
-		List<Store_DTO> stlist = stdao.storelist();
-
-		mav.addObject("storelist", stlist);
+		mav.addObject("type",type);
 		mav.setViewName("admin/store/store_list");
 
 		return mav;
@@ -111,7 +121,10 @@ public class Store_Controller {
 
 		// stdao.storeinsert(storedto);
 
-		stdao.storeupdate(storedto);
+		stdao.storeupdate(storedto); //정보수정
+		memdao.memupdate(s_no,storedto.getS_type());
+		
+		
 		Store_DTO store = stdao.storeone(s_no);
 
 		mav.addObject("storedto", store);

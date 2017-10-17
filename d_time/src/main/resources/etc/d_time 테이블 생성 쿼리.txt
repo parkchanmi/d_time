@@ -1,0 +1,193 @@
+/*지점*/
+create table store(
+    s_no number primary key,
+    s_name varchar2(1000) not null unique,
+    s_loc varchar2(1000) not null,
+    s_type varchar2(50) not null,
+    s_code varchar2(50) not null,
+    s_lat number not null,
+    s_lon number not null,
+    s_hp varchar2(50) not null
+);
+
+/* 회원 */
+create table member(
+mem_no number primary key,
+s_no number not null unique,
+mem_type varchar2(50) NOT NULL,
+mem_id varchar2(1000) NOT NULL unique,
+mem_pwd varchar2(1000) NOT NULL,
+mem_name varchar2(50) NOT NULL,
+mem_hp varchar2(1000) NOT NULL,
+CONSTRAINT mem_no_fk FOREIGN KEY (s_no) REFERENCES store(s_no) on delete cascade
+);
+
+/*쪽지*/
+create table message(
+msg_no number primary key,
+msg_title varchar2(1000) not null,
+msg_content varchar2(1000) not null,
+msg_date date default sysdate not null,
+msg_state number default 0 not null,
+msg_sender number not null,
+msg_receiver number not null,
+CONSTRAINT msg_sender_fk  FOREIGN KEY (msg_sender) references member(mem_no) on delete cascade,
+CONSTRAINT msg_receiver_fk  FOREIGN KEY (msg_receiver) references member(mem_no) on delete cascade
+);
+
+/*게시판*/
+create table board(
+b_no number primary key,
+mem_no number not null,
+b_type varchar2(50) not null,
+b_title varchar2(1000) not null,
+b_content varchar2(4000) not null,
+b_date date default sysdate not null,
+b_count number default 0 not null,
+CONSTRAINT b_memno_fk  FOREIGN KEY (mem_no) references member(mem_no) on delete cascade
+);
+
+/*리뷰*/
+create table review(
+r_no number primary key,
+b_no number not null,
+mem_no number not null,
+r_content varchar2(4000) not null,
+r_date date default sysdate not null,
+CONSTRAINT r_bno_fk FOREIGN KEY (b_no) references board(b_no) on delete cascade ,
+CONSTRAINT r_memno_fk FOREIGN KEY (mem_no) references member(mem_no) on delete cascade
+);
+
+/* 파일 */
+create table files(
+f_no number primary key,
+f_path varchar2(2000) not null,
+f_name varchar2(2000) not null,
+f_size number not null
+); 
+
+/* 공지 */
+create table notice(
+n_no number primary key,
+n_title varchar2(1000) not null,
+n_content varchar2(4000) not null,
+n_date date default sysdate not null,
+n_count number default 0 not null,
+f_no number,
+CONSTRAINT n_no_fk FOREIGN KEY (f_no) REFERENCES files(f_no) on delete set null
+);
+
+/*물품목록*/
+create table product(
+    p_no number primary key,
+    p_type varchar2(50) not null,
+    p_name varchar2(1000) not null unique,
+    p_std number not null
+);
+
+/*발주*/
+create table orders(
+o_no number primary key,
+s_no number not null,
+o_date date default sysdate not null,
+o_drink varchar2(1000),
+o_food varchar2(1000),
+o_product varchar2(1000),
+o_thing varchar2(1000),
+o_state varchar2(50) not null,
+CONSTRAINT o_no_fk FOREIGN KEY (s_no) REFERENCES store(s_no) on delete cascade
+);
+
+/*재고상태*/
+create table stock(
+st_no number primary key,
+s_no number not null,
+st_type varchar2(50) not null,
+st_name varchar2(1000) not null,
+st_count number default 0 not null,
+CONSTRAINT st_no_fk FOREIGN KEY (s_no) REFERENCES store(s_no) on delete cascade
+);
+
+/*주문메뉴*/
+create table menu(
+m_no number primary key,
+m_type varchar2(50) not null,
+m_name varchar2(1000) not null,
+m_recipe varchar2(4000) not null,
+m_cost number not null
+);
+
+/*판매*/
+create table sell(
+    sel_no number primary key,
+    s_no number not null,
+    sel_date date default sysdate not null,
+    sel_cost number not null,
+    sel_history varchar2(4000) not null,
+    sel_type varchar2(50) not null,
+    sel_count number not null,
+    CONSTRAINT sel_sno_fk FOREIGN KEY (s_no) REFERENCES store(s_no) on delete cascade
+);
+
+/*게시판타입*/
+create table board_type(
+board_type varchar2(100) primary key,
+row_index number
+);
+commit;
+
+create sequence store_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence member_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence message_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence board_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence review_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence notice_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence files_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence product_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence orders_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence stock_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence menu_no
+start with 4
+increment by 1
+maxvalue 100000;
+create sequence sell_no
+start with 4
+increment by 1
+maxvalue 100000;
+
+commit;
+
+
+
+
+

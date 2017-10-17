@@ -100,16 +100,7 @@
 					<li><i class="fa fa-angle-right color_arrow margin_right"
 						aria-hidden="true"></i>전화번호 : ${storedto.s_hp}</li>
 				</ul>
-
-				<div class="form-group">
-					<div class="col-lg-6 col-lg-offset-2">
-						<a href="store_modify.do?s_no=${storedto.s_no}"
-							class="btn btn-primary">수정</a> <a href="#alertDel"
-							class="btn btn-secondary" data-toggle="modal">삭제</a>
-					</div>
-				</div>
 			</div>
-		</form>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<strong><i class="fa fa-user"></i></span>담당자 정보</strong>
@@ -132,6 +123,17 @@
 				</dl>
 			</div>
 		</div>
+		<div class="form-group">
+					<div class="col-lg-6 col-lg-offset-2">
+						<a href="store_modify.do?s_no=${storedto.s_no}"
+							class="btn btn-primary">수정</a> 
+							<a href="#alertDel"
+							class="btn btn-secondary" data-toggle="modal">삭제</a>
+							<a href="/d_time/store_list.do"
+							class="btn btn-secondary">목록보기</a>
+					</div>
+				</div>
+				</form>
 	</div>
 	<!-- /.panel-body -->
 

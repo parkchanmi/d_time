@@ -4,16 +4,16 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <style>
-ul,li,or { list-style:none;}
+ul,li,or { list-style:none; padding-top:5px;}
 </style>
 	<meta charset="utf-8">
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
-				<div class="col-lg-3 col-md-6">
+				<%-- <div class="col-lg-3 col-md-6">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong><span style="color: #5c7c97"><i
-									class="fa fa-desktop"></i></span>회원</strong>
+									class="fa fa-user"></i></span>회원</strong>
 						</div>
 						<div class="info_area">
 							<dl>
@@ -36,8 +36,43 @@ ul,li,or { list-style:none;}
 								href="/d_time/logout.do">로그아웃 <i class="fa fa-sign-out"></i></a>
 						</div> -->
 					</div>
+				</div> --%>
+<div class="col-lg-3 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong><span style="color: #5c7c97"><i
+									class="fa fa-desktop"></i></span> 매장 </strong>
+						</div>
+						<div class="admin_area">
+							<dl>
+								<dt>
+									<a href="/d_time/store_list.do?type=zik"><i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i></a><br>직영점<br>
+									<span>${store1}지점</span>
+								</dt>
+								<dt>
+									<a href="/d_time/store_list.do?type=ga"><i class="fa fa-user-o fa-4x" aria-hidden="true"></i></a><br>가맹점<br>
+									<span>${store2}지점</span>
+								</dt>
+							</dl>
+						</div>
+					</div>
 				</div>
-
+				<div class="col-lg-3 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong> <span style="color: #5c7c97"> <i
+									class="fa fa-area-chart"></i>
+							</span>Best 3
+							</strong> <a class="plus" href="/d_time/sale.do"><i class="fa fa-plus"></i></a>
+						</div>
+						<div class="panel-body info_area">
+							<c:forEach var="store" items="${best_store}" varStatus="status">
+							<li><a href="#">${status.count}위 : &nbsp; ${store.s_name}</a> <span
+									class="date_visit">매출액 :&nbsp;${store.sel_cost}</span></li>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="panel panel-main">
 						<div class="panel-heading">
@@ -57,80 +92,34 @@ ul,li,or { list-style:none;}
 							
 							</c:forEach>
 							
-								<!-- <li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[New매장 오픈] 종로 1가점을 오픈하였습니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[New매장 오픈] 종로 1가점을 오픈하였습니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
-									class="date_visit">2017.09.20</span></li> -->
-								<!-- <li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[New매장 오픈] 종로 1가점을 오픈하였습니다.</a> <span
-									class="date_visit">2017.09.20</span></li>
-								<li><a href="#"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>[이벤트 안내]9/19부터 신메뉴 출시 예정입니다.</a> <span
-									class="date_visit">2017.09.20</span></li> -->
+								
 							</ul>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-lg-3 col-md-4">
-					<div class="panel panel-main">
-						<div class="panel-heading">
-							<strong><span style="color: #5c7c97"><i
-									class="fa fa-user"></i></span> 매장 </strong>
-						</div>
-						<div class="admin_area">
-							<dl>
-								<dt>
-									<i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i></i><br>직영점<br>
-									<span>${store1}지점</span>
-								</dt>
-								<dt>
-									<i class="fa fa-user-o fa-4x" aria-hidden="true"></i><br>가맹점<br>
-									<span>${store2}지점</span>
-								</dt>
-							</dl>
-						</div>
-					</div>
-				</div>
+				
 
 			</div>
 		</div>
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
-			<div class="col-lg-3 col-md-4">
+			<div class="col-lg-4 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong> <span style="color: #5c7c97"> <i
-									class="fa fa-volume-up"></i>
+									class="fa fa-table"></i>
 							</span>최근 발주 내역
 							</strong> <a class="plus" href="/d_time/store_order.do"><i class="fa fa-plus"></i></a>
 						</div>
-						<div class="panel-body">
-							<ul>
+						<div class="panel-body visit_area">
+							<ul class="main_order">
 							<c:forEach var="order" items="${orders}">
-							<li><a href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}"><i
-										class="fa fa-angle-right color_arrow margin_right"
-										aria-hidden="true"></i>${order.s_name}의 ${order.o_no}번 발주 신청</a> <span
+							<li><span
 									class="date_visit"><fmt:formatDate value="${order.o_date}"
-									pattern="yyyy.MM.dd HH:mm" /></span></li>
+									pattern="yyyy.MM.dd HH:mm"/></span>&nbsp;<a href="/d_time/order_detail.do?o_no=${order.o_no}&pageNum=1"><i
+										class="fa fa-angle-right color_arrow margin_right"
+										aria-hidden="true"></i>${order.s_name}의 ${order.o_no}번 발주 신청</a> </li>
 							
 							</c:forEach>
 							
@@ -139,7 +128,7 @@ ul,li,or { list-style:none;}
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-4">
+				<div class="col-lg-8 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong> <span style="color: #5c7c97"> <i
@@ -162,11 +151,11 @@ ul,li,or { list-style:none;}
 									</thead>
 									<tbody>
 									<c:forEach var="board" items="${board_list}"  varStatus="status">
-								<tr>
+								<tr onClick='javascript:location.href="board_detail.do?b_no=${board.b_no}&type=${board.b_type}&pageNum=1"'>
 											<td>${status.count}</td>
 											<td>${board.b_type }</td>
-											<td><a href="board_detail.do?b_no=${board.b_no}&type=1&pageNum=1">${board.b_title}</a></td>
-											<td>${board.mem_no}</td>
+											<td>${board.b_title}</td>
+											<td>${board.s_name}</td>
 											<td><fmt:formatDate value="${board.b_date}"
 									pattern="yyyy.MM.dd HH:mm" /></td>
 											<td>${board.b_count}</td>
@@ -184,22 +173,7 @@ ul,li,or { list-style:none;}
 				</div>
 			
 				
-				<div class="col-lg-3 col-md-4">
-					<div class="panel panel-main">
-						<div class="panel-heading">
-							<strong> <span style="color: #5c7c97"> <i
-									class="fa fa-volume-up"></i>
-							</span>Best 3
-							</strong> <a class="plus" href="/d_time/sale.do"><i class="fa fa-plus"></i></a>
-						</div>
-						<div class="panel-body">
-							<c:forEach var="store" items="${best_store}" varStatus="status">
-							<li><a href="#">${status.count}위 : &nbsp; ${store.s_name}</a> <span
-									class="date_visit">매출액 :&nbsp;${store.sel_cost}</span></li>
-							</c:forEach>
-						</div>
-					</div>
-				</div>
+				
 			
 				<!-- <div class="col-lg-3 col-md-4">
 					<a href="/d_time/store_list.do"

@@ -22,7 +22,7 @@ public class DownloadMemView extends AbstractXlsView{
 	@SuppressWarnings("unchecked")
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		response.setHeader("Content-Disposition", "attachment; filename=\"mem_test.xls\";");
+		response.setHeader("Content-Disposition", "attachment; filename=\"mem_sale.xls\";");
 		
 		Font font = workbook.createFont();
 		CellStyle style = workbook.createCellStyle();

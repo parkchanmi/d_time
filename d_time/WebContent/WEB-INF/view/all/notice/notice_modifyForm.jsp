@@ -56,13 +56,13 @@
 	<div class="row"> 
 		<div class="col-lg-12">
 			<h3 class="page-header" style="font-size:30px;">
-				<i class="fa fa-th-large"></i>상세보기 
+				<i class="fa fa-th-large"></i>수정하기
 			</h3>
 		</div>
 		<div class="col-lg-7">
 			<div class="panel panel-main" style="height:75%;">
 				<div class="panel-heading">
-					<strong> 공지 글 상세보기 </strong>
+					<strong> 공지 글 수정하기</strong>
 				</div>
 				<div class="board-notice">
 
@@ -129,7 +129,7 @@
 	<script type="text/javascript">
 		$(window).load(function() {
 			$('#summernote').summernote({ // summernote를 사용하기 위한 선언
-				width : 700,
+				width : 650,
 				height : 400,
 				callbacks : {
 					onImageUpload : function(files, editor, welEditable) {

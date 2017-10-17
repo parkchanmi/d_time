@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mem">
 
+<update id="change_stype" parameterType="map">
+update member set mem_type=#{mem_type} where s_no=#{s_no}
+</update>
+
 <!-- 회원가입 -->
 <insert id="insertMem" parameterType="model.Member_DTO">
 insert into member values (member_no.nextVal,#{s_no},#{mem_type},#{mem_id},#{mem_pwd},#{mem_name},#{mem_hp})

@@ -34,13 +34,13 @@
 					</div></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="sales"><a class="nav-link" href="/d_time/sell/sell_main.do"> <i
-						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">판매하기</span>
+						class="fa fa-fw fa-coffee"></i> <span class="nav-link-text">판매하기</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Components"><a href="/d_time/saleMem.do?s_no=${login.s_no }" 
 					class="nav-link " 
 					href="#collapseComponents04" data-parent="#exampleAccordion"> <i
-						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">
+						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">
 							매출현황</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents04">
@@ -50,7 +50,7 @@
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="sales"><a class="nav-link"  href="/d_time/stock_status.do"> <i
-						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">재고현황</span>
+						class="fa fa-fw fa-table"></i> <span class="nav-link-text">재고현황</span>
 				</a>
 				
 				

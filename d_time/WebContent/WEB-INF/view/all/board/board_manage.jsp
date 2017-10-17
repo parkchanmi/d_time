@@ -66,58 +66,62 @@ td.showDragHandle {
 	cursor: move;
 }
 </style>
-<h1>게시판 관리</h1>
-<br>
-<div class=" col-lg-6 table-responsive">
-	<form name="update_index" method="post"
-		action="/d_time/admin/board_type/updateIndex.do">
-		<div>
-			<table id="btype" class="table ">
-				<thead>
-					<tr class="nodrag nodrop">
-						<td>게시판 이름 :</td>
-						<td colspan="3"><input type="text"
-							class='form-control input-sm col-lg-3' name="new_type"
-							id="new_type"> &nbsp;&nbsp;&nbsp;&nbsp; <input
-							class="btn btn-info" type="button" onClick="addType()"
-							value="게시판 추가" /></td>
-					</tr>
-					<tr class="nodrag nodrop">
-						<th>게시판 분류</th>
-						<th>게시글 수</th>
-						<th>게시판 순서</th>
-						<th>게시판 삭제</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="type" items="${typelist}" varStatus="status">
-						<tr>
-							<td>${type.board_type}</td>
-							<td>${countlist[status.index]}</td>
-							<td id="row_index">${type.row_index}</td>
-							<td>
-								<div>
-									<input type="button" class="btn btn-sm"
-										onclick="removeTemp('${type.board_type}',${type.row_index})"
-										value="임시삭제" />
-									<!-- board_type에서만 제거 -->
-									<input type="button" class="btn btn-sm"
-										onclick="removeCor('${type.board_type}',${type.row_index})"
-										value="완전삭제" />
-									<!-- board에서 제거 -->
-
-								</div>
-							</td>
-							<input type="hidden" name="b_type" value="${type.board_type}" />
-						</tr>
-
-					</c:forEach>
-				</tbody>
-			</table>
-			<input class="btn btn-info" type="submit" value="순서저장" />
+<body>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header" style="font-size: 30px;">
+				<i class="fa fa-th-large"></i>게시판 관리
+			</h3>
 		</div>
-	</form>
-</div>
+		<div class="col-lg-6">
+			<i class="fa fa-bookmark size-25px-icon fl-left" aria-hidden="true"></i> 
+			<h3 class="fl-left board-manage text-left ">게시판 이름</h3>
+			<input type="text" class="form-control input-sm col-lg-6 margin-right-num" name="new_type" id="new_type"> 
+			<input class="btn btn-info board-add" type="button" onClick="addType()"value="추가" />
+				
+		</div>
+		<div class="col-lg-12  table-responsive marginT20 order_ing">
+			<form name="update_index" method="post"
+				action="/d_time/admin/board_type/updateIndex.do">
+				<table id="btype"
+					class="table table-striped table-hover table-bordered_tB"
+					style="display: inline-table; margin-top: 14px;  text-align: center;">
+					<thead>
+						<tr class="nodrag nodrop">
+							<th style="text-align: center;">게시판 분류</th>
+							<th style="text-align: center;">게시글 수</th>
+							<th style="text-align: center;">게시판 순서</th>
+							<th style="text-align: center;">게시판 삭제
+								<input class="padding-in btn btn-confirm-blue board-add-line" type="submit" value="순서저장" />
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="type" items="${typelist}" varStatus="status">
+							<tr>
+								<td>${type.board_type}</td>
+								<td>${countlist[status.index]}</td>
+								<td id="row_index">${type.row_index}</td>
+								<td>
+									<!-- board_type에서만 제거 -->
+									<button class="btn btn-board-delete-css" onclick="removeTemp('${type.board_type}',${type.row_index})">임시삭제</button>
+									<!-- board에서 제거 -->
+									<button class="btn btn-trash" onclick="removeCor('${type.board_type}',${type.row_index})" >완전삭제</button>
+									
+								</td>
+								<input type="hidden" name="b_type" value="${type.board_type}" />
+							</tr>
+
+						</c:forEach>
+					</tbody>
+				</table> 
+			
+			</form>
+		</div>
+	</div>
+
+</body>
+
 
 <!-- /.content-wrapper-->
 

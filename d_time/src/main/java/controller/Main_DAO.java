@@ -34,13 +34,17 @@ public class Main_DAO extends SqlSessionDaoSupport {
 	}
 	
 	public int getStore_1() { //직영
-		int count = getSqlSession().selectOne("main.store_1");
-		return count;
+		String count = getSqlSession().selectOne("main.store_1");
+		if(count==null) 
+			return 0;
+		return Integer.parseInt(count);
 		
 	}
 	public int getStore_2() { //가맹
-		int count = getSqlSession().selectOne("main.store_2");
-		return count;
+		String count = getSqlSession().selectOne("main.store_2");
+		if(count==null) 
+			return 0;
+		return Integer.parseInt(count);
 	}
 
 	public List<Sell_DTO> FT_list(String from, String to) {//베스트 지점 3위
@@ -56,7 +60,11 @@ public class Main_DAO extends SqlSessionDaoSupport {
 		List<Orders_DTO> olist = getSqlSession().selectList("main.ordersList");
 		return olist;
 	}
-
+	
+	public List<Sell_DTO> sale_list(int s_no){
+		List<Sell_DTO> slist = getSqlSession().selectList("main.saleList",s_no);
+		return slist;
+	}
 
    
 	 

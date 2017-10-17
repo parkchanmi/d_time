@@ -4,15 +4,17 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <meta charset="utf-8">
 
-
+<style>
+ul,li,or { list-style:none; padding-top:5px;}
+</style>
 
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-3 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong><span style="color: #5c7c97"><i
-									class="fa fa-desktop"></i></span>회원</strong>
+									class="fa fa-user"></i></span>회원</strong>
 						</div>
 						<div class="info_area">
 							<dl>
@@ -36,8 +38,26 @@
 						</div> -->
 					</div>
 				</div>
+<div class="col-lg-3 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong> <span style="color: #5c7c97"> <i
+									class="fa fa-area-chart"></i>
+							</span>Best 3
+							</strong>  <a class="plus" href="/d_time/saleMem.do?s_no=${login.s_no}"><i class="fa fa-plus"></i></a>
+						</div>
+						<div class="panel-body info_area">
+							<c:forEach var="store" items="${best_store}" varStatus="status">
+							<li><a href="#">${status.count}위 : &nbsp; ${store.s_name}</a> <span
+									class="date_visit">매출액 :&nbsp;${store.sel_cost}</span></li>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+				
 
-				<div class="col-lg-6 col-md-6">
+			
+				<div class="col-lg-6 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong> <span style="color: #5c7c97"> <i
@@ -87,32 +107,32 @@
 					</div>
 				</div>
 
-				<div class="col-lg-3 col-md-4">
-					<div class="panel panel-main">
-						<div class="panel-heading">
-							<strong><span style="color: #5c7c97"><i
-									class="fa fa-user"></i></span> 매장 </strong>
-						</div>
-						<div class="admin_area">
-							<dl>
-								<dt>
-									<i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i></i><br>직영점<br>
-									<span>${store1}지점</span>
-								</dt>
-								<dt>
-									<i class="fa fa-user-o fa-4x" aria-hidden="true"></i><br>가맹점<br>
-									<span>${store2}지점</span>
-								</dt>
-							</dl>
-						</div>
-					</div>
-				</div>
-
-			</div>
 		</div>
 		<div class="col-lg-12">
 			<div class="row margin-bottom">
-				<div class="col-lg-6 col-md-4">
+			<div class="col-lg-4 col-md-4">
+					<div class="panel panel-main">
+						<div class="panel-heading">
+							<strong> <span style="color: #5c7c97"> <i
+									class="fa fa-coffee"></i>
+							</span>최근 판매 내역
+							</strong> <a class="plus" href="/d_time/sell/sell_main.do"><i class="fa fa-plus"></i></a>
+						</div>
+						<div class="panel-body visit_area">
+							<ul class="main_order">
+							<c:forEach var="sale" items="${sale_list}">
+							<li><span class="date_visit"><fmt:formatDate value="${sale.sel_date}"
+									pattern="yyyy.MM.dd HH:mm"/></span>
+									<li>${sale.sel_history}</li>
+							</li>
+							</c:forEach>
+							
+							
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-4">
 					<div class="panel panel-main">
 						<div class="panel-heading">
 							<strong> <span style="color: #5c7c97"> <i
@@ -134,66 +154,59 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="board" items="${board_list}"  varStatus="status">
-								<tr>
+									<c:forEach var="board" items="${board_list}"  varStatus="status">
+								<tr onClick='javascript:location.href="board_detail.do?b_no=${board.b_no}&type=${board.b_type}&pageNum=1"'>
 											<td>${status.count}</td>
 											<td>${board.b_type }</td>
-											<td><a href="board_detail.do?b_no=${board.b_no}&type=1&pageNum=1">${board.b_title}</a></td>
-											<td>${board.mem_no}</td>
+											<td>${board.b_title}</td>
+											<td>${board.s_name}</td>
 											<td><fmt:formatDate value="${board.b_date}"
 									pattern="yyyy.MM.dd HH:mm" /></td>
 											<td>${board.b_count}</td>
 										</tr>
-										</c:forEach>
+									
+									
+							
+							</c:forEach>
+										
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4">
-					<a href="/d_time/sell/sell_main.do"
+			
+				
+				
+			
+				<!-- <div class="col-lg-3 col-md-4">
+					<a href="/d_time/store_list.do"
 						class="btn btn-default btn-lg btn-block margin-bottom02"> <i
 						class="fa fa-cogs fa-3x color-mainmenu"></i>
-						<div class="clearfix visible-xs-block"></div> 판매하기
-					</a> <a href="/d_time/stock_status.do"
-						class="btn btn-default btn-lg btn-block none_margin-right"> <i
-						class="fa fa-fw fa-wrench fa-3x color-mainmenu"></i>
-						<div class="clearfix visible-xs-block"></div> 재고관리
-					</a>
-				</div>
-				<!-- 
-			  	필요한 뷰포트에만 clearfix 를 추가하세요
-			  	<div class="clearfix visible-xs-block"></div> -->
-				<div class="col-lg-3 col-md-4">
-					<a href="/d_time/saleMem.do?s_no=${login.s_no }" 
+						<div class="clearfix visible-xs-block"></div> 지점관리
+					</a> <a href="/d_time/sale.do"
 						class="btn btn-default btn-lg btn-block none_margin-right"> <i
 						class="fa fa-fw fa-area-chart fa-3x color-mainmenu"></i>
 						<div class="clearfix visible-xs-block"></div> 매출현황
-					</a> 
-					<a href="/d_time/orders_list.do"
+					</a>
+				</div>
+				
+			  	필요한 뷰포트에만 clearfix 를 추가하세요
+			  	<div class="clearfix visible-xs-block"></div>
+				<div class="col-lg-3 col-md-4">
+					<a  href="/d_time/store_order.do"
 						class="btn btn-default btn-lg btn-block margin-bottom02"> <i
 						class="fa fa-fw fa-table fa-3x color-mainmenu"></i>
 						<div class="clearfix visible-xs-block"></div> 발주현황
+					</a> <br>
+					<a href="/d_time/admin/product/product_list.do"
+						class="btn btn-default btn-lg btn-block none_margin-right"> <i
+						class="fa fa-fw fa-wrench fa-3x color-mainmenu"></i>
+						<div class="clearfix visible-xs-block"></div> 물품관리
 					</a>
-					
-				</div>
+				</div> -->
 			</div>
 
-
-			<!-- 
-		<div class="col-lg-6 col-md-6">
-			<p class="bs-component">
-				<a href="#" class="btn btn-default btn-lg btn-block">Block level button</a>	
-			</p>	
-		</div> -->
 		</div>
-		<!-- /.container-fluid-->
-		<!-- /.content-wrapper-->
-	<%-- 	<jsp:include page="footer.jsp"></jsp:include> --%>
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fa fa-angle-up"></i>
-		</a>
-		<!-- Logout Modal-->
-		
+
+</html>

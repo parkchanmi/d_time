@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import controller.admin.menu.Admin_Menu_DAO;
 import model.Member_DTO;
 import model.Menu_DTO;
 import model.Sell_DTO;
@@ -20,7 +21,9 @@ public class Member_Sell_Controller {
 
 	@Autowired
 	private Member_Sell_DAO sdao;
-
+	@Autowired
+	private Admin_Menu_DAO mdao;
+	
 	public Member_Sell_DAO getSdao() {
 		return sdao;
 	}
@@ -28,7 +31,15 @@ public class Member_Sell_Controller {
 	public void setSdao(Member_Sell_DAO sdao) {
 		this.sdao = sdao;
 	}
-
+	
+	@RequestMapping("/sell/menu_recipe.do")
+	public String menu_recipe(Model model) {
+		List<Menu_DTO> mlist = mdao.getMenuList();
+		if (mlist != null)
+			model.addAttribute("mlist", mlist);
+		return "mem/menu_recipe";
+	}	
+		
 	@RequestMapping("/sell/sell_main.do")
 	public String sell_main(Model model,HttpSession session) {
 		List<Menu_DTO> mlist = sdao.getMenuList();

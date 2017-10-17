@@ -15,6 +15,18 @@ public class Store_DAO extends SqlSessionDaoSupport{
 		
 		return strlist;
 	}
+	public List<Store_DTO> storelist_J() {
+
+		List<Store_DTO> strlist = getSqlSession().selectList("store.selectStoreList_ver1");
+		
+		return strlist;
+	}
+	public List<Store_DTO> storelist_G() {
+
+		List<Store_DTO> strlist = getSqlSession().selectList("store.selectStoreList_ver2");
+		
+		return strlist;
+	}
 	
 	public Store_DTO storeone(int s_no) {
 

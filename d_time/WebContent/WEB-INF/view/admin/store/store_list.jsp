@@ -1,6 +1,38 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<script>
+var type = '${type}';
+
+$(function() {
+	if (type=='all') {
+		$('.nav li').removeClass('active');
+		$('#store_all').addClass('active');
+	}else if(type=='zik'){
+		$('.nav li').removeClass('active');
+		$('#store_zik').addClass('active');
+
+	}else if(type=='ga'){
+		$('.nav li').removeClass('active');
+		$('#store_ga').addClass('active');
+	}
+	$('.nav li').click(function() { // nav bar 메뉴 클릭 했을 때,
+		if (!$(this).hasClass('active')) { // 액티브를 가지고 있지 않을 때만 처리. 가지고 있을땐 필요없으니까.
+			$('.nav li').removeClass('active'); // 메뉴 전체 active 클래스 삭제.
+			$(this).addClass('active'); // 내가 누른 li 에만 active 클래스 추가.
+
+			var clicked_li_id = $(this).attr('id');
+			console.log(clicked_li_id);
+
+			$('.table-responsive').addClass('disN');
+
+			$('.' + clicked_li_id).removeClass('disN');
+
+		}
+	});
+
+});
+</script>
 <meta charset="utf-8">
 
 	<div class="row">
@@ -9,7 +41,23 @@
 				<i class="fa fa-th-large"></i>지점관리
 			</h3>
 		</div>
-
+		<div class="col-lg-12" style="margin-bottom: 25px;">
+				<div class="text-right active fl-left width100">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs-menu in">
+						<li id="store_all"><a
+							href="/d_time/store_list.do?type=all">전체<i
+								class="fa fa-angle-down"></i></a></li>
+						<li id="store_zik"><a
+							href="/d_time/store_list.do?type=zik">직영<i
+								class="fa fa-angle-down"></i>
+						</a></li>
+						<li id="store_ga"><a href="/d_time/store_list.do?type=ga">가맹
+								<i class="fa fa-angle-down"></i>
+						</a></li>
+					</ul>
+				</div>
+			</div>
 		<!-- /.col-lg-12 -->
 		<div class="col-lg-12">
 			<div class="panel panel-default">

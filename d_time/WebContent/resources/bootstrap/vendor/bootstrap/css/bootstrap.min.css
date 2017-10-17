@@ -193,13 +193,17 @@ a
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -214,7 +218,9 @@ href
 
 
 
+
  
+
 
 
 
@@ -227,7 +233,9 @@ href
 
 
 
+
  
+
 
 
 
@@ -242,7 +250,9 @@ tabindex
 
 
 
+
  
+
 
 
 
@@ -260,7 +270,10 @@ color
 
 
 
+
+
 :
+
 
 
 
@@ -272,7 +285,10 @@ color
 
 
 
+
 inherit
+
+
 
 
 
@@ -295,7 +311,10 @@ text-decoration
 
 
 
+
+
 :
+
 
 
 
@@ -307,7 +326,10 @@ text-decoration
 
 
 
+
 none
+
+
 
 
 
@@ -362,13 +384,17 @@ svg
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -381,7 +407,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -399,7 +427,10 @@ overflow
 
 
 
+
+
 :
+
 
 
 
@@ -411,7 +442,10 @@ overflow
 
 
 
+
 hidden
+
+
 
 
 
@@ -659,13 +693,17 @@ hr {
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -678,7 +716,9 @@ hr {
 
 
 
+
  
+
 
 
 
@@ -696,7 +736,10 @@ margin-right
 
 
 
+
+
 :
+
 
 
 
@@ -708,8 +751,11 @@ margin-right
 
 
 
+
 5
 px
+
+
 
 
 
@@ -879,51 +925,54 @@ pre code {
 
 h3.board-listtotal {
 	letter-spacing: -0.5px;
-	font-size:15px;
-	display:inline-block;
+	font-size: 15px;
+	display: inline-block;
+	position: absolute;
+    top: 22px;
 }
 
 .pagination-01 {
-    display: inline-block;
-    padding-left: 0;
-    margin: 20px 0;
-    border-radius: 4px;
+	display: inline-block;
+	padding-left: 0;
+	margin: 20px 0;
+	border-radius: 4px;
 }
 
-.pagination-01 >li {
-    display: inline-block;
-    margin-right:3px;
+.pagination-01>li {
+	display: inline-block;
+	margin-right: 3px;
 }
 
-.pagination-01 >li>a, .pagination-01 >li>span {
-    position: relative;
-    float: left;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    color: #337ab7;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
+.pagination-01>li>a, .pagination-01>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	color: #337ab7;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
 }
 
-.pagination-01 >li>a:hover, .pagination-01 >li>a:active {
-	 z-index: 3;
-    color: #fff;
-    cursor: default;
-    background-color: #337ab7;
-    border-color: #337ab7;
-    cursor:pointer;
-}
-.pagination-01 >.active>a, .pagination-01 >.active>a:focus, .pagination-01 >.active>a:hover, .pagination-01 >.active>span, .pagination-01 >.active>span:focus, .pagination-01 >.active>span:hover {
-    z-index: 3;
-    color: #fff;
-    cursor: default;
-    background-color: #337ab7;
-    border-color: #337ab7;
+.pagination-01>li>a:hover, .pagination-01>li>a:active {
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: #337ab7;
+	border-color: #337ab7;
+	cursor: pointer;
 }
 
-
+.pagination-01>.active>a, .pagination-01>.active>a:focus, .pagination-01>.active>a:hover,
+	.pagination-01>.active>span, .pagination-01>.active>span:focus,
+	.pagination-01>.active>span:hover {
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: #337ab7;
+	border-color: #337ab7;
+}
 
 .store_title {
 	display: inline-block;
@@ -1032,13 +1081,17 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	:
 	
 	
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -1061,13 +1114,17 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	:
 	
 	
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -1084,15 +1141,19 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	;
 }
 
 @media ( min-width : 992px) .col-md-6 {
 	width
 	
+	
 
 	
 
+	
 	50%;
 }
 
@@ -1160,6 +1221,10 @@ h3.board-listtotal {
 	color: #0056b3;
 	font-size: 14px;
 	letter-spacing: 1px
+}
+
+.display-inherit {
+	display : inherit !important;
 }
 
 .board-notice {
@@ -1392,6 +1457,58 @@ h4.board-text {
 	margin-top: 10px;
 }
 
+.width-8 {
+	width : 8% !important; 
+}
+.comment-box {
+	margin-top: 10px;
+	width: 83%;
+    position: relative;
+}
+
+.comment-tit-text {
+	font-size:13px !important; 
+}
+
+h4.comment-text {
+	color: #0056b3;
+	font-size: 13px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	width: 84%;
+    position: relative;
+}
+
+.comment-box-complete {
+	margin-top: 10px; 
+	width: 100%;
+    position: relative;
+    padding: 12px 0;
+    border-top: 1px dashed #ddd;
+}
+
+h4.comment-box-date {
+	color: #505050;
+	letter-spacing : -0.5px;
+	font-size: 16px;
+	font-weight: normal;
+	width: 17%;
+    float:right;
+}
+h4.comment-box-contents {
+	color: #505050;
+	letter-spacing : -0.5px;
+	font-size: 13px;
+	font-weight: normal;
+	width: 65%;
+    position: relative;
+    line-height: 19px;
+}
+
+.position-ab {
+	position:absolute !important;'
+}
+
 h3.menu-board-notice {
 	font-weight: bold;
 	margin: 0 13px 35px 0;
@@ -1402,11 +1519,33 @@ h3.menu-board-notice {
 	text-align: center;
 }
 
+h3.board-manage {
+	margin: 7px 13px 35px 0;
+	font-size: 15px;
+	letter-spacing: -0.5px;
+	display: inline-block;
+	color: #505050 !important;
+	text-align: center;
+}
+
+.board-add {
+	font-size:13px !important;
+	padding:6px 9px  !important
+}
+
+.board-add-line {
+	font-size:13px !important;
+	padding:6px 9px  !important;
+	position: absolute  !important;
+    right: 17px  !important;
+    top: 17px  !important;
+}
+
 .modify-btn-board {
 	padding: 9px 20px !important;
 	font-size: 15px !important;
-	position:absolute;
-	right:33px
+	position: absolute;
+	right: 33px
 }
 
 .btn-3-board {
@@ -1443,6 +1582,19 @@ h3.plus_icon {
 	font-size: 1.7rem;
 	color: #5b5b5b;
 	margin-top: 4px;
+}
+
+.position-input-search {
+	position: relative;
+	width: 57% !important;
+	border-radius : .25rem 0 0 .25rem !important;
+}
+
+.search-area {
+	width: 30%;
+	margin: 0 auto;
+	position:relative;
+	
 }
 
 h3.modify {
@@ -1491,6 +1643,47 @@ h3.plus_icon a:hover {
 	border-color: #3081d8;
 }
 
+.btn-search-board {
+	position: absolute !important;
+	bottom: 0px !important;
+	background-color: #fff !important;
+	right: 5px !important;
+	border-right: 1px solid rgba(0, 0, 0, .15) !important;
+	border-bottom: 1px solid rgba(0, 0, 0, .15) !important;
+	border-top: 1px solid rgba(0, 0, 0, .15) !important;
+	height: 38px !important;
+	border-radius: 0 4px 4px 0 !important;
+}
+
+.btn-search-board:hover {
+	background-color:#b2b2b2!important;
+	border: 1px solid #b2b2b2 !important;
+	height: 38px !important;
+	border-radius: 0 4px 4px 0 !important;
+	color:#fff;
+}
+
+.size-search {
+	font-size: 16px;
+}
+
+.size-17px-icon {
+	font-size: 20px;
+    margin-top: 3px;
+    color: #ffa700;
+}
+
+.size-25px-icon {
+	font-size: 20px;
+    color: #868686;
+    margin: 5px 6px 0 0;
+}
+
+.size-17px-icon:hover{
+	font-size: 20px;
+    margin-top: 3px;
+    color: #ff6f04;
+}
 .color-write {
 	color: #7fe6ff;
 }
@@ -2595,7 +2788,11 @@ select
 
 
 
+
+
 .form-control
+
+
 
 
 
@@ -2612,7 +2809,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -2627,7 +2826,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2640,7 +2841,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2655,7 +2858,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -2673,13 +2878,17 @@ height
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -2696,11 +2905,15 @@ calc
 
 
 
+
+
 (2
 .25rem
 +
 2
 px
+
+
 
 
 
@@ -2788,7 +3001,11 @@ select
 
 
 
+
+
 .btn
+
+
 
 
 
@@ -2805,7 +3022,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -2820,7 +3039,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2833,7 +3054,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2849,7 +3072,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -2859,6 +3084,8 @@ multiple
 .input-group-sm
 >
 select
+
+
 
 
 
@@ -2880,13 +3107,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -2901,7 +3132,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2914,7 +3147,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2929,7 +3164,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -2939,6 +3176,8 @@ multiple
 .input-group-sm
 >
 select
+
+
 
 
 
@@ -2960,13 +3199,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -2981,7 +3224,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2994,7 +3239,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3010,7 +3257,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3018,6 +3267,8 @@ multiple
 
 ),
 select
+
+
 
 
 
@@ -3039,13 +3290,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -3060,7 +3315,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3073,7 +3330,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3088,7 +3347,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3106,13 +3367,17 @@ height
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -3129,11 +3394,15 @@ calc
 
 
 
+
+
 (1
 .8125rem
 +
 2
 px
+
+
 
 
 
@@ -3169,7 +3438,11 @@ select
 
 
 
+
+
 .btn
+
+
 
 
 
@@ -3186,7 +3459,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3201,7 +3476,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3214,7 +3491,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3230,7 +3509,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3240,6 +3521,8 @@ multiple
 .input-group-lg
 >
 select
+
+
 
 
 
@@ -3261,13 +3544,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -3282,7 +3569,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3295,7 +3584,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3310,7 +3601,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3320,6 +3613,8 @@ multiple
 .input-group-lg
 >
 select
+
+
 
 
 
@@ -3341,13 +3636,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -3362,7 +3661,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3375,7 +3676,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3391,7 +3694,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3399,6 +3704,8 @@ multiple
 
 ),
 select
+
+
 
 
 
@@ -3420,13 +3727,17 @@ select
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -3441,7 +3752,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3454,7 +3767,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3469,7 +3784,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3487,13 +3804,17 @@ height
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -3510,11 +3831,15 @@ calc
 
 
 
+
+
 (2
 .3125rem
 +
 2
 px
+
+
 
 
 
@@ -3862,6 +4187,23 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	padding: 8px 7px !important;
 }
 
+.btn-trash {
+	color: #fff;
+	font-size: 12px;
+	background-color: #a2a2a2;
+	border-color: #a2a2a2;
+	padding: 6px 9px !important;
+}
+
+.btn-trash:hover {
+	color: #fff;
+	font-size: 12px;
+	background-color: #888888;
+	border-color: #a2a2a2;
+	padding: 6px 9px !important;
+}
+
+
 .btn-download:hover {
 	color: #fff;
 	font-size: 14px;
@@ -3875,6 +4217,22 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	background-color: #6c95c5;
 	border-color: #6c95c5;
 	padding: 9px 14px !important;
+}
+
+.btn-board-delete-css {
+	color: #fff;
+	font-size: 12px;
+	background-color: #6c95c5;
+	border-color: #6c95c5;
+	padding: 6px 9px !important;
+}
+
+.btn-board-delete-css:hover {
+	color: #fff;
+	font-size: 12px;
+	background-color: #5081b9;
+	border-color: #6c95c5;
+	padding: 6px 9px !important;
 }
 
 .btn-board:hover {
@@ -4618,13 +4976,17 @@ tbody.collapse.show {
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -4637,7 +4999,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -4650,7 +5014,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -4663,7 +5029,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -4676,7 +5044,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -4690,7 +5060,9 @@ tbody.collapse.show {
 
 
 
+
 	
+
 
 
 
@@ -4708,13 +5080,17 @@ border-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -4739,7 +5115,11 @@ border-radius
 
 
 
+
+
 :first-child
+
+
 
 
 
@@ -4756,7 +5136,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4769,7 +5151,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4782,7 +5166,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4795,7 +5181,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -4813,13 +5201,17 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -4837,13 +5229,17 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -4864,7 +5260,11 @@ border-bottom-right-radius
 
 
 
+
+
 :last-child
+
+
 
 
 
@@ -4881,7 +5281,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4894,7 +5296,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4914,7 +5318,10 @@ border-bottom-right-radius
 
 
 
+
+
 :not
+
 
 
 
@@ -4927,6 +5334,7 @@ border-bottom-right-radius
 
 
 
+
 (
 :first-child
 
@@ -4934,7 +5342,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -4952,13 +5362,17 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -4976,13 +5390,17 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5065,13 +5483,17 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5084,7 +5506,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5097,7 +5521,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5110,7 +5536,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5128,7 +5556,10 @@ border-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5140,11 +5571,14 @@ border-radius
 
 
 
+
 0
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -5166,13 +5600,17 @@ border-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5185,7 +5623,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5203,13 +5643,17 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5227,7 +5671,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5239,11 +5686,14 @@ border-bottom-left-radius
 
 
 
+
 0
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -5265,13 +5715,17 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5284,7 +5738,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5302,13 +5758,17 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5326,13 +5786,17 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5404,7 +5868,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5421,13 +5887,17 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5440,7 +5910,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5453,7 +5925,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5466,7 +5940,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5484,13 +5960,17 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5503,7 +5983,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5516,7 +5998,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5529,7 +6013,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5547,13 +6033,17 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5566,7 +6056,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5579,7 +6071,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5592,7 +6086,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5610,13 +6106,17 @@ border-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5683,13 +6183,17 @@ border-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5702,7 +6206,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5720,13 +6226,17 @@ border-right
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -5740,7 +6250,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -5757,13 +6269,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5776,7 +6292,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -5794,13 +6312,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5814,7 +6336,9 @@ border-right
 
 
 
+
 	
+
 
 
 
@@ -5832,13 +6356,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5851,7 +6379,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -5871,13 +6401,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5891,7 +6425,9 @@ border-right
 
 
 
+
 	
+
 
 
 
@@ -5913,13 +6449,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5932,7 +6472,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -5952,13 +6494,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -5971,7 +6517,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -5989,13 +6537,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -6008,7 +6560,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6028,13 +6582,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -6047,7 +6605,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6065,13 +6625,17 @@ border-right
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -6084,7 +6648,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6102,13 +6668,17 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -6126,13 +6696,17 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -6153,13 +6727,17 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -6172,7 +6750,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -6190,13 +6770,17 @@ border-left
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -7186,7 +7770,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -7203,13 +7789,17 @@ border-left
 	
 	
 	
+	
+	
 	:not
 	
 	
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -7222,7 +7812,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -7235,7 +7827,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -7248,7 +7842,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -7266,13 +7862,17 @@ border-left
 	
 	
 	
+	
+	
 	:
 	
 	
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8227,7 +8827,9 @@ button.close {
 
 
 
+
  
+
 
 
 
@@ -8240,7 +8842,9 @@ button.close {
 
 
 
+
  
+
 
 
 
@@ -8258,7 +8862,10 @@ margin-left
 
 
 
+
+
 :
+
 
 
 
@@ -8270,7 +8877,10 @@ margin-left
 
 
 
+
 .25rem
+
+
 
 
 
@@ -8292,7 +8902,9 @@ margin-left
 
 
 
+
  
+
 
 
 
@@ -8305,7 +8917,9 @@ margin-left
 
 
 
+
  
+
 
 
 
@@ -8323,7 +8937,10 @@ margin-right
 
 
 
+
+
 :
+
 
 
 
@@ -8335,7 +8952,10 @@ margin-right
 
 
 
+
 .25rem
+
+
 
 
 

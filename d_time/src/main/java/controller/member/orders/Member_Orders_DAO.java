@@ -51,6 +51,12 @@ public class Member_Orders_DAO extends SqlSessionDaoSupport {
 		return x;
 	
 	}
+
+	public int delete_order(int o_no) {
+		int x = getSqlSession().delete("orders.delete_order",o_no);
+		return x;
+		
+	}
 	
 
 }

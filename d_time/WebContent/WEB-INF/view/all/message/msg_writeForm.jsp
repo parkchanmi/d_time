@@ -26,12 +26,12 @@
 
 				<tr>
 					<td height="60">제목</td>
-					<td><input type="text" name="msg_title" size="100" style="height:30px;"></td>
+					<td><input type="text" class='form-control' name="msg_title" size="100" style="height:30px;"></td>
 				</tr>
 
 				<tr>
 					<td height="60">내용</td>
-					<td><input type="text" name="msg_content" size="100" style="height:100px;"></td>
+					<td><textarea class='form-control' name="msg_content" style="height:100px;"></textarea></td>
 				</tr>
 
 
@@ -39,7 +39,7 @@
 					<td height="60">받는 사람</td>
 					<td>
 					
-					<select id="msg_receiver" name="msg_receiver">
+					<select id="msg_receiver" name="msg_receiver" class="form-control col-lg-3">
 						<c:forEach var="msg" items="${list}">
 						<c:if test="${msg.mem_no!=0}">
 			    			<option value="${msg.s_no}">${msg.s_name}</option>

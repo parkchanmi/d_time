@@ -21,7 +21,7 @@
 		</div>
 		</div>	 
 		 <div class="col-md-6">
-           <div class="media2 media-services scrollpoint sp-effect2 active animated fadeInRight">
+           <div class="media media-services scrollpoint sp-effect2 active animated fadeInRight">
            <div class="media-body">
 		<table width="1000"  class="table" align="center"> 
 	  <tr height="30">
@@ -54,8 +54,14 @@
 					<td colspan="2" align="center">
 					
 					<div class="form-group">
+					<c:if test="${type=='receivebox'}">
 						<input type="button" value="목록보기" class="btn btn-primary btn-block m-t-md"
-								onClick="history.back()">
+								onClick="window.location='/d_time/msg_receive_list.do'">
+					</c:if>
+					<c:if test="${type=='sendbox'}">
+						<input type="button" value="목록보기" class="btn btn-primary btn-block m-t-md"
+								onClick="window.location='/d_time/msg_send_list.do'">
+					</c:if>
 					</div>
 								
 			<td colspan="2" align="center">

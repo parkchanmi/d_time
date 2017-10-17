@@ -46,6 +46,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateorder" parameterType="int">
 		update orders set o_state = '승인' where o_no=#{o_no}
 	</update> 
+	<update id="updateorderNot" parameterType="int">
+		update orders set o_state = '거절' where o_no=#{o_no}
+	</update> 
 	
 	<update id="updateStockOrdCf" parameterType="int">
 		update orders set o_state = '승인' where o_no=#{o_no}

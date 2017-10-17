@@ -106,9 +106,12 @@
 	</form>
 	<div style="clear: both;"></div>
 	<div class="col-lg-10" align="center" style="margin-bottom: 25px; width: 800px; ">
+	<c:if test="${orderdto.o_state=='대기'}">
+		<input type="button" class="btn btn-default" value="발주 취소"
+			onclick="window.location='/d_time/orders_delete.do?o_no=${orderdto.o_no}'">
+	</c:if>
 		<input type="button" class="btn btn-default" value="목록 보기"
 			onclick="window.location='/d_time/orders_list.do'">
-
 
 	</div>
 

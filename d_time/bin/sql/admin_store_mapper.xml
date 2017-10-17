@@ -13,6 +13,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from store order by s_no asc
 	</select>
 	
+	<select id="selectStoreList_ver1" resultType="model.Store_DTO">
+		select * from store where s_type='직영' order by s_no asc
+	</select>
+	
+	<select id="selectStoreList_ver2" resultType="model.Store_DTO">
+		select * from store where s_type='가맹' order by s_no asc
+	</select>
+	
 
 	
 	<select id="selectStoreOne" parameterType="int" resultType="model.Store_DTO">

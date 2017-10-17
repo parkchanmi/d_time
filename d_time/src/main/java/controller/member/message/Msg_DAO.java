@@ -51,6 +51,10 @@ public class Msg_DAO extends SqlSessionDaoSupport{
 		
 		return x;
 	}
+	public int updateState(int msg_no) {
+		int c=getSqlSession().update("message.updateState",msg_no);
+		return c;
+	}
 
 
 	/*��������*/

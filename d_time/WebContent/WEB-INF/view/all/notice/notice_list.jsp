@@ -92,19 +92,19 @@
 							</c:if>
 						</ul>
 					</div>
-					<div align="center">
-         <form action="/d_time/notice_search.do" method="post" >
-            <select id="searchOption" name="searchOption" style="width:70; height:40;">
-               <option value="n_title">제목</option>
-               <option value="n_content">내용</option>
-               <option value="all">제목+내용</option> 
-            </select>
-             <input type="text" id="keyword" name="keyword" required style="width:170; height:40;"/> 
-         
-             <input   type="submit" value="검색" style="width:70; height:40;"   >
-
-         </form>
-      </div>
+					<div class="search-area">
+				         <form action="/d_time/notice_search.do" method="post" >
+				            <select class="form-control select_box_style-menu"  id="searchOption" name="searchOption" style=" width: 29%; float: left;">
+				               <option value="n_title">제목</option>
+				               <option value="n_content">내용</option>
+				               <option value="all">제목+내용</option> 
+				            </select> 
+				         	 <input class="form-control input-sm position-input-search" type="text" id="keyword"  name="keyword" required/> 
+							<button class="btn-search-board btn"  type="submit">
+								<i class="fa fa-search size-search" aria-hidden="true"></i>
+							 </button>
+				         </form>
+     				 </div>
 				
 				
 				</div>

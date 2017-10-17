@@ -5,7 +5,34 @@
 <html lang="en">
 
 <meta charset="utf-8">
+<c:if test="${check==1}"> 
+<script>
+alert('수량을 입력하세요!');
+</script>
+</c:if>
 
+<script>
+function submit_ok(){
+		var input_check=false;
+		var check=new Array();
+		$("input[type=number]").each(function(idx){   
+        	var value = $(this).val();
+        	check.push(value);
+      	});
+
+	  for(var i=0;i<check.length-1;i++){ //입력한 값끼리 비교
+			if(check[i]!=0){
+				input_check=true;
+			}
+		}
+	  if(!input_check){
+		  alert('수량을 입력하세요!');
+		  return false;
+	  }
+	 
+}
+
+</script>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
@@ -14,7 +41,7 @@
 	<h3>발주 신청</h3>
 	<br>
 	<br>
-	<form method="POST">
+	<form method="POST" onsubmit="return submit_ok();">
 	<div class="col-lg-10" style="margin-bottom: 25px;">
 		<div class="text-right active fl-left">
 			<!-- Nav tabs -->

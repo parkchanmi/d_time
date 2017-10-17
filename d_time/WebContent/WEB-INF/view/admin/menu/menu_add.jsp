@@ -39,6 +39,46 @@
 		//alert(remove+oTbl.clickedRowIndex);
 		oTbl.deleteRow(oTbl.clickedRowIndex);
 	}
+	
+	function submit_ok(){
+		var list = new Array();
+		
+		<c:forEach var="menu" items="${mlist}">
+			var regText='${menu.m_name}';
+			regText=regText.replace( /(\s*)/g, "");
+			list.push(regText);
+		</c:forEach> 
+			//list OK
+			var mname=$("input[name=m_name]").val();
+			mname=mname.replace( /(\s*)/g, "");
+	
+			for(var i=0;i<list.length;i++){ //입력한 값과 기존 메뉴 비교
+				if(mname==list[i]){
+					alert("이미 존재하는 메뉴입니다.");
+					return false;
+				}
+			}
+			
+			
+			var check=new Array();
+			$("select[name=m_recipes]").each(function(idx){   
+	         
+	        var value = $(this).val();
+	        check.push(value);
+	      	});
+
+		  for(var i=0;i<check.length-1;i++){ //입력한 값끼리 비교
+				for(var j=i+1;j<check.length;j++){
+					if(check[i]==check[j]){
+						alert("동일한 재료가 입력되었습니다.")
+						return false;
+					}
+				}
+			} 
+		 
+	}
+	
+	
 </script>
 
 
@@ -75,7 +115,7 @@ ul,li,ol { list-style:none; padding:0px;}
 				</div>
 			</div>
 			<div class="col-lg-12">
-				<form name="menu_form" method="post" action="/d_time/admin/menu/menu_add.do">
+				<form name="menu_form" method="post" action="/d_time/admin/menu/menu_add.do" onSubmit="return submit_ok();">
 				<ul>
 					<li class="padding-left-10 clear-both margin-bottom20">
 						<h3 class="fl-left menu-plus">구분</h3>
@@ -143,6 +183,7 @@ ul,li,ol { list-style:none; padding:0px;}
 					</table>
 					<div class="menu-plus-btn">
 						<input class="btn btn-info" type="submit" value="확인" />
+						<!-- <input class="btn btn-info" type="button" value="test" onclick="submit_ok()"/> -->
 					</div>
 				</form>
 

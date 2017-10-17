@@ -19,8 +19,13 @@
 						<form action="sale.do" method="POST">
 							<input type="date" name="from" value="${from}" />
 							<input type="date" name="to" value="${to}" />
-							<input type="submit">
-							<input type="button" value="파일 내보내기" onclick="location.href='download.do?from=${from}&to=${to }'">
+							<input type="submit" class="graph-submit" value="확인" />
+ 							<input type="button" value="파일 내보내기" class="graph-file-export" onclick="location.href='download.do?from=${from}&to=${to }'">
+                  		<%-- <input type="button"
+ +                        value="파일 내보내기" class="graph-file-export"
+ +                        onclick="location.href='download.do?from=${from}&to=${to }"> --%>
+							<%-- <input type="submit">
+							<input type="button" value="파일 내보내기" onclick="location.href='download.do?from=${from}&to=${to }'"> --%>
 							<c:if test="${from!=null}">
 								<br>
 										${from}~${to}

@@ -1,0 +1,63 @@
+insert into store values(0,'본사','서울 중구 남대문로1가 18','본사','본사',37.568146, 126.983090,'02-1111-1111');
+insert into store values(1,'종각점','서울 종로구 종로2가 84-10','직영','A0101',37.570399, 126.98454,'02-354-1123');
+insert into store values(2,'홍대점','서울 마포구 동교동 159-1','직영','A0201',37.557372, 126.923582,'02-987-7789');
+insert into store values(3,'건대점','서울 광진구 화양동 5-47','가맹','235-22-12575',37.540907, 127.070722,'02-222-2222');
+
+
+select *from member;  
+insert into member values(0,0,'관리자','test0','test0','최재호','01011111111');
+insert into member values(1,1,'직영','test1','test1','박지영','01012345678');
+insert into member values(2,2,'가맹','test2','test2','박찬미','01022223333');
+insert into member values(3,3,'가맹','test3','test3','변세영','01056780123');
+
+
+select * from message;
+insert into message values(1,'위생경고','위생 신경써 주세요!',sysdate,1,0,1);
+insert into message values(2,'확인해주세요','원두 여유분 있으시면 보내주세요.',sysdate,1,3,2);
+insert into message values(3,'안녕하세요','안녕하세요',sysdate,1,2,1);
+
+
+insert into stock values(1,1,'음료','원두',1000);
+insert into stock values(2,1,'식품','치즈케익',8);
+insert into stock values(3,1,'소모품','컵',100);
+
+
+insert into sell values(1,1,sysdate,4000,'아메리카노,1','음료',1);
+insert into sell values(2,1,sysdate,5000,'치즈케익,1','식품',1);
+insert into sell values(3,1,sysdate,10000,'머그컵s,1','상품',1);
+
+
+insert into orders values(1,1,sysdate,'원두,3','초코케익,10','텀블러1L,4','빨대,3,컵,4','대기');
+insert into orders values(2,2,sysdate,'원두,3,우유,5','치즈케익,3','텀블러1L,10','빨대,5,컵,5','대기');
+insert into orders values(3,3,sysdate,'원두,7,우유,7','초코케익,10,생크림케익,3','텀블러1L,4,머그컵S,5','빨대,3,컵,4','대기');
+
+
+insert into product values(1,'음료','원두',1000);
+insert into product values(2,'식품','초코케익',6);
+insert into product values(3,'음료','우유',1000);
+
+
+insert into menu values(1,'음료','아메리카노','원두,20,컵(hot),1',4000);
+insert into menu values(2,'음료','아이스아메리카노','원두,20,컵(ice),1',4000);
+insert into menu values(3,'식품','치즈케익','치즈케익,1',5000);
+
+
+
+insert into notice values(1,'가맹점주분들께 공지드립니다.','계약해주셔서 감사용>_<',sysdate,1,null);
+insert into notice values(2,'직영3호점 오픈 예정','일시 : 2020.2.22 담당 : 이은정 매니저',sysdate,2,null);
+insert into notice values(3,'할로윈데이 이벤트 공지','10월 1일까지 추천 받습니다.ㅎ',sysdate,3,null);
+
+
+select *from board;
+insert into board values(1,1,'건의사항','건의합니다.','음료 메뉴 하나더 추가해 주세요~!',sysdate,2); 
+insert into board values(2,2,'건의사항','건의사항있어요.','발주신청한거 배송 빨리해주세요',sysdate,1);
+insert into board values(3,3,'물물교환','원두필요해요','원두 여분 있으신분 !',sysdate,3);
+
+
+insert into review values(1,1,1,'저랑 교환 하실래요??',sysdate);
+insert into review values(2,2,2,'알바생 지원 좀...',sysdate);
+insert into review values(3,3,3,'이번거 괜찮은거 같네요 ㅎㅎ',sysdate);
+
+insert into board_type values('건의사항',1);
+insert into board_type values('물품교환',2);
+

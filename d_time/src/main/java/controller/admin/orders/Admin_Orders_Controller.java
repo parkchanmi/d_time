@@ -188,8 +188,17 @@ public class Admin_Orders_Controller {
 	}
 
 	@RequestMapping(value = "/store_confirm.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView orderconfirm(ModelAndView mav, int o_no) {
+	public ModelAndView orderconfirm(ModelAndView mav, int o_no, String not) {
 
+		if(not!=null) {//거절
+			ordao.orderstateupdate_not(o_no);
+			List<Store_DTO> stlist = stdao.storelist();
+			mav.addObject("storelist", stlist);
+
+			mav.setViewName("redirect:/store_order.do");
+			return mav;
+		}
+		
 		ordao.orderstateupdate(o_no);
 
 		Orders_DTO order = ordao.orderdtoone(o_no);

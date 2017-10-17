@@ -31,6 +31,14 @@ public class Member_Orders_Controller {
 		this.orders = orders;
 	}
 
+	
+	@RequestMapping("/orders_delete.do")
+	public String orders_cancel(int o_no) {
+		orders.delete_order(o_no);
+		return "redirect:/orders_list.do";
+	}
+	
+	
 	@RequestMapping(value = "orders_addForm.do", method = RequestMethod.GET)
 	public ModelAndView orders_addForm(ModelAndView mav, Product_DTO Product_DTO, HttpSession session) {
 
@@ -73,7 +81,7 @@ public class Member_Orders_Controller {
 				umryo_add += "," + umryo[i] + "," + umryo_num[i] * std;
 
 		}
-		System.out.println(umryo_add);
+	//	System.out.println(umryo_add);
 
 		for (int i = 0; i < sikpoom.length; i++) // ��ǰ ���ڿ� �����
 		{
@@ -88,7 +96,7 @@ public class Member_Orders_Controller {
 				sikpoom_add += "," + sikpoom[i] + "," + sikpoom_num[i] * std;
 		}
 		
-		System.out.println(sikpoom_add);
+		//System.out.println(sikpoom_add);
 	
 	
 		for (int i = 0; i < sangpoom.length; i++) // ��ǰ ���ڿ� �����
@@ -103,7 +111,7 @@ public class Member_Orders_Controller {
 			else
 				sangpoom_add += "," + sangpoom[i] + "," + sangpoom_num[i] * std;
 		}
-		System.out.println(sangpoom_add);
+		//System.out.println(sangpoom_add);
 		for (int i = 0; i < somopoom.length; i++) // �Ҹ�ǰ ���ڿ� �����
 		{
 			if (somopoom_num[i] == 0)
@@ -116,7 +124,9 @@ public class Member_Orders_Controller {
 			else
 				somopoom_add += "," + somopoom[i] + "," + somopoom_num[i] * std;
 		}
-		System.out.println(somopoom_add);
+		//System.out.println(somopoom_add);
+				
+			
 		Orders_DTO o_dto = new Orders_DTO(umryo_add, sikpoom_add, sangpoom_add, somopoom_add);
 
 		Timestamp time = new Timestamp(System.currentTimeMillis());

@@ -22,7 +22,7 @@ public class DownloadView extends AbstractXlsView {
 	@SuppressWarnings("unchecked") // unchecked : 검증되지 않은 연산자 관련 경고 억제
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		response.setHeader("Content-Disposition", "attachment; filename=\"test.xls\";");
+		response.setHeader("Content-Disposition", "attachment; filename=\"total_sale.xls\";");
 		
 		Font font = workbook.createFont();
 		CellStyle style = workbook.createCellStyle();

@@ -59,4 +59,10 @@ public class Order_DAO extends SqlSessionDaoSupport {
 		return x;
 	}
 
+	public int orderstateupdate_not(int o_no) {
+		int x = getSqlSession().update("store.updateorderNot", o_no);
+		return x;
+		
+	}
+
 }

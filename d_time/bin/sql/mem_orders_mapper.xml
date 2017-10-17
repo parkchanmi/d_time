@@ -3,6 +3,11 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orders">
+
+	<delete id="delete_order" parameterType="int">
+	delete from orders where o_no=#{o_no}
+	</delete>
+
 	<select id="orders_addForm" parameterType="int" resultType="model.Product_DTO">
 		select
 		p_type, p_name, p_std from product

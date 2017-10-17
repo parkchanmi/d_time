@@ -7,16 +7,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 받은메시지 -->
 <select id="selectMsgRcv" resultType="model.Message_DTO" parameterType="int">
-select * from message where msg_receiver=#{mem}
+select * from message where msg_receiver=#{mem} order by msg_date desc
 </select>
 
 <select id="selectRcvname" resultType="String" parameterType="int">
 select s_name from store,member where store.s_no=member.s_no and mem_no=#{r_mno} 
 </select>
+<select id="getM_no" parameterType="int" resultType="int">
+select mem_no from member where s_no=#{s_no}
+</select>
+<!-- 쪽지 읽음확인부분 -->
+<update id="updateState" parameterType="int">
+update message set msg_state=1 where msg_no=#{msg_no}
+</update>
 
 <!-- 보낸쪽지함 -->
 <select id="selectMsgSen" resultType="model.Message_DTO" parameterType="int">
-select * from message where msg_sender=#{mem}
+select * from message where msg_sender=#{mem} order by msg_date desc
 </select>
 
 <select id="selectSendname" resultType="String" parameterType="int">
@@ -49,9 +56,5 @@ select s_name from store,member where store.s_no=member.s_no and mem_no=#{s_mno}
  <delete id="deleteMsg" parameterType="int"> 
  	delete from message where msg_no=#{msg_no} 
  </delete>
- 
- <select id="getM_no" parameterType="int" resultType="int">
- 	select mem_no from member where s_no=#{s_no}
- </select>
  
 </mapper>

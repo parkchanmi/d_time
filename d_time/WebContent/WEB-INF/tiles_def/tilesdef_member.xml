@@ -20,7 +20,11 @@
 		<put-attribute name="body" value="/WEB-INF/view/main_member.jsp" />
 	</definition>
 	
-	
+	<definition name="mem/menu_recipe" extends="stock_layout">
+		<put-attribute name="title" value="메뉴 레시피" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/member/sell/menu_recipe.jsp" />
+	</definition>
 	
 	
 	

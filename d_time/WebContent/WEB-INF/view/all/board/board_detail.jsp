@@ -98,26 +98,14 @@
 					<button class="btn btn-board"
 						OnClick="window.location='board_list.do?type=${type}&pageNum=${pageNum}'">목록</button>
 				
-					<c:if test="${login.mem_no==board.mem_no}">
-						<button class="btn btn-board"
-							OnClick="window.location='/d_time/board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">수정</button>
-						<button class="btn btn-download"
-							OnClick="window.location='/d_time/board_delete.do?b_no=${board.b_no}&type=${type}'"style="padding:9px 14px !important;">삭제</button>
-						
-					</c:if>
-					<c:if test="${login.mem_type=='관리자'}">
+					<c:if test="${login.mem_no==board.mem_no || login.mem_type=='관리자'}">
 						<button class="btn btn-board"
 							OnClick="window.location='/d_time/board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">수정</button>
 						<button class="btn btn-download"
 							OnClick="window.location='/d_time/board_delete.do?b_no=${board.b_no}&type=${type}'" style="padding:9px 14px !important;">삭제</button>
 						
-						<%-- <input type="button" value="수정"
-							OnClick="window.location='/d_time/board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">
-						<input type="button" value="삭제"
-							OnClick="window.location='/d_time/board_delete.do?b_no=${board.b_no}&type=${type}'"> --%>
-
-
 					</c:if>
+					
 
 
 				</div>

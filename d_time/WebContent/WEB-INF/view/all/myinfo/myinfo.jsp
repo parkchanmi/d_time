@@ -14,102 +14,78 @@
 </head>
 <body>
 
-
-	<form method="post" action="myinfo.do">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<i class="fa fa-user"></i></span> <strong> My page</strong>
-			</div>
-			<div class="member_info">
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>구분 :
-						${login.mem_type}
-					</dt>
-
-				</dl>
-
-
-
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>아이디 :
-						${login.mem_id}
-					</dt>
-
-				</dl>
-
-
-
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>인증코드 :
-						${login.s_code}
-					</dt>
-
-				</dl>
-
-
-
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>이름 :
-						${login.mem_name}
-					</dt>
-
-				</dl>
-
-
-
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>연락처 :
-						${login.mem_hp}
-					</dt>
-
-				</dl>
-
-
-				<dl>
-					<dt>
-						<i aria-hidden="true" style="margin-right: 15px"></i>지점명 :
-						${login.s_name}
-					</dt>
-
-				</dl>
-
-			</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header">
+				<i class="fa fa-th-large"></i> My page
+			</h3>
 		</div>
-		<table>
-			<tr>
-				<td colspan="2" align="center">
-					<div class="form-group">
-						<input type="submit" class="btn btn-primary btn-block m-t-md"
-							value="수정하기">
+		<div class="col-lg-6">
+			<form method="post" action="myinfo.do">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<i class="fa fa-user"></i><strong> My page</strong>
 					</div>
-				<td colspan="1" align="center">
-					<div class="form-group">
+					<div class="board-notice height-fix">
+						<ul>
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">구분 :</h3>
+								<h4 class="board-text display-inherit">${login.mem_type}</h4></li>
 
-						<a type="button" class="btn btn-default btn-block m-t-md" href="#"
-							onClick="history.back()">취소</a>
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">아이디 :</h3>
+								<h4 class="board-text display-inherit">${login.mem_id}</h4></li>
 
-						<!-- <input type="button" value="취소" class="btn btn-default btn-block m-t-md" 
-						onclick="window.location='main_member.do'"> -->
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">인증코드 :</h3>
+								<h4 class="board-text display-inherit">${login.s_code}</h4></li>
+
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">이름 :</h3>
+								<h4 class="board-text display-inherit">${login.mem_name}</h4></li>
+
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">연락처 :</h3>
+								<h4 class="board-text display-inherit">${login.mem_hp}</h4></li>
+
+							<li class="padding-left-10 clear-both margin-bottom20"><i
+								class="fa fa-check-square-o color_mypage-icon margin_right fl-left"
+								aria-hidden="true"></i>
+								<h3 class="fl-left menu-board-notice text-left ">지점명 :</h3>
+								<h4 class="board-text display-inherit">${login.s_name}</h4></li>
+						</ul>
 					</div>
-			</tr>
-		</table>
+				</div>
+				<div class="btn-3-board">
+					<input type="submit" class="btn btn-board" value="수정">
+					<a class="btn btn-download" href="#" onClick="history.back()" style="padding: 9px 14px !important;">취소</a>
+				</div>
+				
 
 
 
+				<!-- Bootstrap core JavaScript -->
+				<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
+				<!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->
+				<script
+					src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Bootstrap core JavaScript -->
-		<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
-		<!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->
-		<script src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 
+			</form>
+		</div>
+	</div>
 
-	</form>
 
 </body>
 </html>

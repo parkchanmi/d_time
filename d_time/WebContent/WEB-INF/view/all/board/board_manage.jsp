@@ -21,12 +21,14 @@ function addType() {
 }
 
 function removeTemp(type,index){
-	if(confirm("["+type+"] 게시판을 임시 삭제 하시겠습니까??") == true){
+	if(confirm("["+type+"] 게시판을 임시 삭제 하시겠습니까??")){
 		location.href="/d_time/admin/board/temp_delete.do?type="+type+"&index="+index;
+		//location.href="/d_time/index.jsp";
+	//	location.replace("/d_time/index.jsp");
 	}
 }
 function removeCor(type,index){
-	if(confirm("["+type+"] 게시판과 게시글을 삭제 하시겠습니까??") == true){
+	if(confirm("["+type+"] 게시판과 게시글을 삭제 하시겠습니까??")){
 		location.href="/d_time/admin/board/cor_delete.do?type="+type+"&index="+index;
 	}
 }
@@ -104,9 +106,9 @@ td.showDragHandle {
 								<td id="row_index">${type.row_index}</td>
 								<td>
 									<!-- board_type에서만 제거 -->
-									<button class="btn btn-board-delete-css" onclick="removeTemp('${type.board_type}',${type.row_index})">임시삭제</button>
+									<input type="button" class="btn btn-board-delete-css" onclick="removeTemp('${type.board_type}',${type.row_index});" value="임시삭제"/>
 									<!-- board에서 제거 -->
-									<button class="btn btn-trash" onclick="removeCor('${type.board_type}',${type.row_index})" >완전삭제</button>
+									<input type="button" class="btn btn-trash" onclick="removeCor('${type.board_type}',${type.row_index});" value="완전삭제"/>
 									
 								</td>
 								<input type="hidden" name="b_type" value="${type.board_type}" />

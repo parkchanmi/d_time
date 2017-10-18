@@ -66,6 +66,20 @@ ul,li,or { list-style:none; padding-top:5px;}
 							</strong> <a class="plus" href="/d_time/sale.do"><i class="fa fa-plus"></i></a>
 						</div>
 						<div class="panel-body info_area">
+							<%-- <div class="first-box col-lg-5">
+								<div>1등:${best_store[0].s_name}</div>
+							</div>
+							<div class="other-box col-lg-10">
+								<div class="second-box col-lg-5">2등${best_store[1].s_name}</span>
+								<div class="third-box col-lg-5">3등${best_store[2].s_name}</span>
+							</div>
+							<style>
+							.first-box{background:ivory; margin:auto;}
+							.first-box div{height:100px;}
+							.other-box{display: flex;}
+							.other-box div{height:100px;}
+							</style> --%>
+						
 							<c:forEach var="store" items="${best_store}" varStatus="status">
 							<li><a href="#">${status.count}위 : &nbsp; ${store.s_name}</a> <span
 									class="date_visit">매출액 :&nbsp;${store.sel_cost}</span></li>

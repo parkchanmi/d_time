@@ -174,6 +174,7 @@
 									<label class="col-lg-2 control-label" style="float: left;">지점
 										타입</label>
 									<div class="col-lg-10" style="display: inline-flex">
+									<c:if test="${storedto.s_type!='본사'}">
 										<div class="radio">
 											<label> <input type="radio" name="s_type"
 												id="optionsRadios1" value="직영" checked="">직영
@@ -184,11 +185,15 @@
 												id="optionsRadios2" value="가맹">가맹
 											</label>
 										</div>
+									</c:if>
+									<c:if test="${storedto.s_type=='본사'}">
 										<div class="radio">
 											<label> <input type="radio" name="s_type"
-												id="optionsRadios2" value="본사">본사
+												id="optionsRadios1" value="본사" checked="">본사
 											</label>
 										</div>
+									
+									</c:if>
 									</div>
 								</div>
 								<div class="form-group">
@@ -204,7 +209,7 @@
 									<div class="col-lg-6 col-lg-offset-2">
 										<button type="submit"
 											href="store_modify.do?s_no=${storedto.s_no}"
-											" class="btn btn-primary">수정</button>
+											" class="btn btn-board">수정</button>
 									</div>
 								</div>
 							</form>

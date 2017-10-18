@@ -156,7 +156,7 @@
 				<input type="radio" name="mem_typeR" value="직영" id="j_type" disabled>직영
 				<input type="radio" name="mem_typeR" value="가맹" id="g_type" disabled>가맹
 				<input type="hidden" name="mem_type"/>
-				<input type="text" id="s_name" disabled/>
+				<input class='col-lg-12 form-control input-sm' type="text" id="s_name" disabled/>
 				</td>
 			</tr>
 			

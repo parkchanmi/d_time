@@ -1,5 +1,31 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+//storelist
+function submit_ok(){
+	
+	var list = new Array();
+	
+	<c:forEach var="store" items="${storelist}">
+		var regText='${store.s_name}';
+		regText=regText.replace( /(\s*)/g, "");
+		list.push(regText);
+	</c:forEach> 
+		//list OK
+		var sname=$("input[name=s_name]").val();
+
+		sname=sname.replace( /(\s*)/g, "");
+
+		for(var i=0;i<list.length;i++){ //입력한 값과 기존 메뉴 비교
+			if(sname==list[i]){
+				alert("이미 존재하는 지점입니다.");
+				return false;
+			}
+		}
+}
+</script>
+
+
 
 <meta charset="utf-8">
 
@@ -21,7 +47,7 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<fieldset>
-							<form class="form-horizontal" method="POST">
+							<form class="form-horizontal" method="POST" onsubmit="return submit_ok();">
 								<input type="hidden" name="s_lat" id="s_lat" /> <input
 									type="hidden" name="s_lon" id="s_lon" />
 								<div class="form-group">
@@ -196,8 +222,8 @@
 
 								<div class="form-group">
 									<div class="col-lg-8 col-lg-offset-2">
-										<button type="reset" class="btn btn-default">다시작성</button>
-										<button type="submit" class="btn btn-primary">등록</button>
+										<button type="reset" class="btn btn-download">다시작성</button>
+										<button type="submit" class="btn btn-board">등록</button>
 									</div>
 								</div>
 							</form>

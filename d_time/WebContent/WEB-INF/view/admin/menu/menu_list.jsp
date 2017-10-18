@@ -32,13 +32,13 @@ function modify(type){
 			modify_p=false;
 			
 			
-			$('button#btn-modify-f-con').addClass('disN');
+			$('input#btn-modify-f-con').addClass('disN');
 			$('input#input-modify-f').addClass('input-disabled');
 			$('input#input-modify-f-num').addClass('input-disabled');
 			$('#modify_btn_f_x').addClass('disN');
 			$('#modify_btn_f').removeClass('disN');
 			
-			$('button#btn-modify-p-con').addClass('disN');
+			$('input#btn-modify-p-con').addClass('disN');
 			$('input#input-modify-p').addClass('input-disabled');
 			$('input#input-modify-p-num').addClass('input-disabled');
 			$('#modify_btn_p_x').addClass('disN');
@@ -47,7 +47,7 @@ function modify(type){
 			
 			
 			
-			$("input[type=submit]").remove();
+			//$("input[type=submit]").remove();
 			
 			//해당 폼 입력받기
 			
@@ -57,7 +57,7 @@ function modify(type){
 			
 			$("#modify_btn_d").addClass('disN');
 			$('#modify_btn_d_x').removeClass('disN');
-			$('button#btn-modify-d-con').removeClass('disN');
+			$('input#btn-modify-d-con').removeClass('disN');
 			$('input#input-modify-d').removeClass('input-disabled');
 			$('input#input-modify-d-num').removeClass('input-disabled');
 			modify_d=true; 
@@ -73,11 +73,11 @@ function modify(type){
 			$(Tbl).find("input[type=hidden]").attr("disabled",true);
 			$("#modify_btn_d").removeClass('disN');
 			$('#modify_btn_d_x').addClass('disN');
-			$('input#input-modify').addClass('input-disabled');
-			$('input#input-modify-num').addClass('input-disabled');
-			
-			$('button#btn-modify-con').addClass('disN'); 
-			$("input[type=submit]").remove();
+			$('input#btn-modify-d-con').addClass('disN');
+			$('input#input-modify-d').addClass('input-disabled');
+			$('input#input-modify-d-num').addClass('input-disabled');
+		
+			//$("input[type=submit]").remove();
 			modify_d=false;
 		}
 		
@@ -96,13 +96,13 @@ function modify(type){
 			$("#modify_btn_d").val('수정');
 			$("#modify_btn_p").val('수정');
 			
-			$('button#btn-modify-d-con').addClass('disN');
+			$('input#btn-modify-d-con').addClass('disN');
 			$('input#input-modify-d').addClass('input-disabled');
 			$('input#input-modify-d-num').addClass('input-disabled');
 			$('#modify_btn_d_x').addClass('disN');
 			$('#modify_btn_d').removeClass('disN');
 			
-			$('button#btn-modify-p-con').addClass('disN');
+			$('input#btn-modify-p-con').addClass('disN');
 			$('input#input-modify-p').addClass('input-disabled');
 			$('input#input-modify-p-num').addClass('input-disabled');
 			$('#modify_btn_p_x').addClass('disN');
@@ -111,7 +111,7 @@ function modify(type){
 			
 			
 			
-			$("input[type=submit]").remove();
+			//$("input[type=submit]").remove();
 			
 			//해당 폼 입력받기
 			modify_f=true;
@@ -124,7 +124,7 @@ function modify(type){
 			
 			$('input#input-modify-f').removeClass('input-disabled');
 			$('input#input-modify-f-num').removeClass('input-disabled');
-			$('button#btn-modify-f-con').removeClass('disN');
+			$('input#btn-modify-f-con').removeClass('disN');
 			
 			
 		}else{//true:입력가능상태
@@ -136,13 +136,12 @@ function modify(type){
 		
 			$("#modify_btn_f").removeClass('disN');
 			$('#modify_btn_f_x').addClass('disN');
+			
+			$('input#btn-modify-f-con').addClass('disN');
 			$('input#input-modify-f').addClass('input-disabled');
 			$('input#input-modify-f-num').addClass('input-disabled');
-			
-			
-			
-			$('button#btn-modify-f-con').addClass('disN'); 
-			$("input[type=submit]").remove();
+		
+		//	$("input[type=submit]").remove();
 			
 			
 			
@@ -159,13 +158,13 @@ function modify(type){
 			$("input[type=number]").attr("disabled",true);
 			$("input[type=hidden]").attr("disabled",true);
 			
-			$('button#btn-modify-d-con').addClass('disN');
+			$('input#btn-modify-d-con').addClass('disN');
 			$('input#input-modify-d').addClass('input-disabled');
 			$('input#input-modify-d-num').addClass('input-disabled');
 			$('#modify_btn_d_x').addClass('disN');
 			$('#modify_btn_d').removeClass('disN');
 			
-			$('button#btn-modify-f-con').addClass('disN');
+			$('input#btn-modify-f-con').addClass('disN');
 			$('input#input-modify-f').addClass('input-disabled');
 			$('input#input-modify-f-num').addClass('input-disabled');
 			$('#modify_btn_f_x').addClass('disN');
@@ -178,32 +177,36 @@ function modify(type){
 			$("#modify_btn_d").val('수정');
 			$("#modify_btn_f").val('수정');
 			
-			$("input[type=submit]").remove();
+		//	$("input[type=submit]").remove();
 			
 			//해당 폼 입력받기
 			modify_p=true;
 			$(Tbl).find("input[type=text]").attr("disabled",false);
 			$(Tbl).find("input[type=number]").attr("disabled",false);
 			$(Tbl).find("input[type=hidden]").attr("disabled",false);
+			
 			$("#modify_btn_p").addClass('disN');
 			$('#modify_btn_p_x').removeClass('disN');
-			$('button#btn-modify-p-con').removeClass('disN');
+			
+			$('input#btn-modify-p-con').removeClass('disN');
 			$('input#input-modify-p').removeClass('input-disabled');
-			$('input#input-modify-num-p').removeClass('input-disabled');
+			$('input#input-modify-p-num').removeClass('input-disabled');
 			
 		}else{//true:입력가능상태
 			modify_p=false;
 		
+			$('input#btn-modify-p-con').addClass('disN');
+			$('input#input-modify-p').addClass('input-disabled');
+			$('input#input-modify-p-num').addClass('input-disabled');
+		
 			$("#modify_btn_p").removeClass('disN');
 			$('#modify_btn_p_x').addClass('disN');
-			$('input#input-modify-p').addClass('input-disabled');
-			$('input#input-modify-num-p').addClass('input-disabled');
 			
 			$(Tbl).find("input[type=text]").attr("disabled",true);
 			$(Tbl).find("input[type=number]").attr("disabled",true);
 			$(Tbl).find("input[type=hidden]").attr("disabled",true);
-			$('button#btn-modify-p-con').addClass('disN'); 
-			$("input[type=submit]").remove();
+		//	$('input#btn-modify-p-con').addClass('disN'); 
+		//	$("input[type=submit]").remove();
 		}
 	}
 	
@@ -322,9 +325,9 @@ $(function(){
 									</table>
 
 								</div>
-								<button
+								<input
 									class='btn btn-info btn-sm float-right margin-right-10 margin-top-13 disN'
-									id="btn-modify-d-con" type="submit">수정완료</button>
+									id="btn-modify-d-con" type="submit" value="수정완료"/>
 								<!-- <input class="btn btn-info btn-sm disN"  id="btn-modify-con" type="submit'" value="수정완료"/> -->
 							</div>
 						</div>
@@ -376,7 +379,7 @@ $(function(){
 
 													<td><input class="btn btn-default btn-sm"
 														type="button" value="메뉴삭제"
-														onclick="delete_menu(${menu.m_no})" /></td>
+														onclick="delete_menu(${menu.m_no},'${menu.m_name}')" /></td>
 												</tr>
 												<tr id="menu-recipe" class="hide">
 													<td colspan=3><i
@@ -393,9 +396,9 @@ $(function(){
 										</c:forEach>
 									</table>
 								</div>
-								<button
+								<input
 									class='btn btn-info btn-sm float-right margin-right-10 margin-top-13 disN'
-									id="btn-modify-f-con" type="submit">수정완료</button>
+									id="btn-modify-f-con" type="submit"  value="수정완료"/>
 							</div>
 						</div>
 					</div>
@@ -440,11 +443,11 @@ $(function(){
 														value="${menu.m_name}" disabled required /></td>
 													<td><input
 														class="input-disabled form-control input-sm font-size-15"
-														type="number" id="input-modify-num-p" name="m_cost"
+														type="number" id="input-modify-p-num" name="m_cost"
 														value="${menu.m_cost}" min=0 disabled required /></td>
 													<td><input class="btn btn-default btn-sm"
 														type="button" value="메뉴삭제"
-														onclick="delete_menu(${menu.m_no})" /></td>
+														onclick="delete_menu(${menu.m_no},'${menu.m_name}')" /></td>
 												</tr>
 
 												<tr id="menu-recipe" class="hide">
@@ -460,9 +463,9 @@ $(function(){
 											</c:if>
 										</c:forEach>
 									</table>
-									<!-- <button
+									<input
 										class='btn btn-info btn-sm float-right margin-right-10 margin-top-13 disN'
-										id="btn-modify-p-con" type="submit'">수정완료</button> -->
+										id="btn-modify-p-con" type="submit" value="수정완료"/>
 								</div>
 							</div>
 						</div>

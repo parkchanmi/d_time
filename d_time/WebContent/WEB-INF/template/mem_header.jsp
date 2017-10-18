@@ -72,7 +72,7 @@
 					title="Components"><a
 					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
 					href="#collapseComponents06" data-parent="#exampleAccordion"> <i
-						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">게시판</span>
+						class="fa fa-fw fa-thumb-tack"></i> <span class="nav-link-text">게시판</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents06">
 						<li><a href="/d_time/all/notice/notice_list.do">공지사항</a></li>
@@ -98,69 +98,45 @@
             </span> -->
 				</a>
 					<div class="dropdown-menu" aria-labelledby="messagesDropdown">
-						<h6 class="dropdown-header">New Messages:</h6>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"> <strong>David
-								Miller</strong> <span class="small float-right text-muted">11:21
-								AM</span>
-							<div class="dropdown-message small">Hey there! This new
-								version of SB Admin is pretty awesome! These messages clip off
-								when they reach the end of the box so they don't overflow over
-								to the sides!</div>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"> <strong>Jane Smith</strong>
-							<span class="small float-right text-muted">11:21 AM</span>
-							<div class="dropdown-message small">I was wondering if you
-								could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-						</a>
+						<h6 class="dropdown-header">Message</h6>
+					
 						
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="msg_writeForm.do">쪽지 쓰기</a>
+						<a class="dropdown-item small" href="/d_time/msg_writeForm.do">쪽지 쓰기</a>
 						
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="msg_receive_list.do">받은 쪽지함</a>
+						<a class="dropdown-item small" href="/d_time/msg_receive_list.do">받은 쪽지함</a>
 						
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="msg_send_list.do">보낸 쪽지함</a>
+						<a class="dropdown-item small" href="/d_time/msg_send_list.do">보낸 쪽지함</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown"
 					href="#" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <i class="fa fa-user fa-fw"></i> <span
+					aria-expanded="false"> <i class="fa fa-cog fa-fw"></i> <span
 						class="d-lg-none">Alerts <span
 							class="badge badge-pill badge-warning">6 New</span>
 					</span> <span class="indicator text-warning d-none d-lg-block"> </span>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="alertsDropdown">
-						<h6 class="dropdown-header">My page</h6>
-						<div class="dropdown-divider"></div>
 						
+						<a class="dropdown-item small" href="/d_time/myinfo.do">현재시간:<%
+ java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("HH:mm a");
+ String today = formatter.format(new java.util.Date());
+ out.println(today);
+%></a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item small" href="/d_time/myinfo.do">My page</a>
 				
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="/d_time/logout.do"> 
 								<strong> Logout
 							</strong>
-					<span class="small float-right text-muted"><%
- java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("HH:mm a");
- String today = formatter.format(new java.util.Date());
- out.println(today);
-%></span>
+					
 							
 						</a>
 						
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#"> <span class="text-success">
-								<strong> Status
-									Update
-							</strong>
-						</span> <span class="small float-right text-muted">11:21 AM</span>
-							<div class="dropdown-message small">This is an automated
-								server response message. All systems are online.</div>
-						</a>
 						
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item small" href="/d_time/myinfo.do">My page</a>
 					</div></li>
 				<!--  <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">

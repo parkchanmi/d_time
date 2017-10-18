@@ -4,101 +4,152 @@
 <meta charset="utf-8">
 
 
-<body id="page-top">
+<body>
 
-
-	
-	<div class="col-lg-12">
+	<div class="row">
+		<div class="col-lg-12">
 			<h3 class="page-header">
-				<i class="fa fa-th-large"></i>${storeName} 재고현황
+				<i class="fa fa-th-large"></i>${storeName }재고현황
 			</h3>
-	</div>
-
+		</div>
 		
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-3" style="padding: 0;">
+					<div id='box-menu'
+						class="background-none sell-box media media-services-menu right scrollpoint sp-effect2">
+						<div class="media-body">
+							<div class="menu_head margin-bottom">
+								<i class="fa fa-coffee fa-2x color-icon-sell" aria-hidden="true"></i>
+								<h4>음료</h4>
+								<!-- <h3 class="plus_icon">
+										<a href="#" onClick="insRow(this)" id="drink_add"
+											class="fl_right margin-right-num ">+</a>
+									</h3> -->
+							</div>
+							<div class="table-responsive order_ing">
+								<table class="table table-striped table-hover table-bordered_tB font-size-15">
+									<thead class="background-color-tablestock">
+										<tr>
+											<th width=45% class="border-top-bot text-center border-stock-th ">재료</th>
+											<th class="border-top-bot text-center border-stock-th ">보유재고</th>
+										</tr>
+									</thead>
 
-		<table class="table" width="500">
-			<thead>
-				<tr>
-					<td width="100" align="center">분 &nbsp; &nbsp; &nbsp; 류</td>
-					<td width="100" align="center">품 &nbsp; &nbsp; &nbsp;목</td>
-					<td width="100" align="center">보유 재고</td>
-				</tr>
-			</thead>
+									<c:forEach var="stock_list" items="${list}">
+										<c:if test="${stock_list.st_type == '음료'}">
+											<tr style="background-color: transparent;" class="cursor-no">
+												<td width="100" align="center">${stock_list.st_name}</td>
+												<td width="100" align="center"><fmt:formatNumber
+														value="${stock_list.st_count}" pattern="#,###" /> g/ml</td>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3" style="padding: 0;">
+					<div id='box-menu'
+						class="background-none sell-box media media-services-menu right scrollpoint sp-effect2">
+						<div class="media-body">
+							<div class="menu_head margin-bottom">
+								<i class="fa fa-cutlery fa-2x color-icon-sell"
+									aria-hidden="true"></i>
+								<h4>식품</h4>
+								<!-- <h3 class="plus_icon">
+										<a href="#" onClick="insRow(this)" id="drink_add"
+											class="fl_right margin-right-num ">+</a>
+									</h3> -->
+							</div>
+							<div class="table-responsive order_ing">
+								<table class="table table-striped table-hover table-bordered_tB font-size-15">
+									<thead class="background-color-tablestock">
+										<tr>
+											<th width=45% class="border-top-bot text-center border-stock-th">재료</th>
+											<th class="border-top-bot text-center  border-stock-th">보유재고</th>
+										</tr>
+									</thead>
+									<c:forEach var="stock_list" items="${list}">
+										<c:if test="${stock_list.st_type == '식품'}">
+											<tr style="background-color: transparent;" class="cursor-no">
+												<td width="100" align="center">${stock_list.st_name}</td>
+												<td width="100" align="center"><fmt:formatNumber
+														value="${stock_list.st_count}" pattern="#,###" /> EA</td>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3" style="padding: 0;">
+					<div id='box-menu'
+						class="background-none sell-box media media-services-menu right scrollpoint sp-effect2">
+						<div class="media-body">
+							<div class="menu_head margin-bottom">
+								<i class="fa fa-beer fa-2x color-icon-sell" aria-hidden="true"></i>
+								<h4>상품</h4>
+							</div>
+							<div class="table-responsive order_ing">
+								<table class="table table-striped table-hover table-bordered_tB font-size-15">
+									<thead class="background-color-tablestock">
+										<tr>
+											<th width=45% class="border-top-bot text-center border-stock-th ">재료</th>
+											<th class="border-top-bot text-center border-stock-th ">보유재고</th>
+										</tr>
+									</thead>
+									<c:forEach var="stock_list" items="${list}">
+										<c:if test="${stock_list.st_type == '상품'}">
+											<tr style="background-color: transparent;" class="cursor-no">
+												<td width="100" align="center">${stock_list.st_name}</td>
+												<td width="100" align="center"><fmt:formatNumber
+														value="${stock_list.st_count}" pattern="#,###" /> EA</td>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3" style="padding: 0;">
+					<div id='box-menu'
+						class="background-none sell-box border-right-0 media media-services-menu right scrollpoint sp-effect2">
+						<div class="media-body">
+							<div class="menu_head margin-bottom">
+								<i class="fa fa-shopping-bag fa-2x color-icon-sell"
+									aria-hidden="true"></i>
+								<h4>소모품</h4>
+							</div>
+							<div class="table-responsive order_ing">
+								<table class="table table-striped table-hover table-bordered_tB font-size-15"> 
+									<thead class="background-color-tablestock">
+										<tr>
+											<th width=45% class="border-top-bot text-center border-stock-th">재료</th>
+											<th class="border-top-bot text-center border-stock-th">보유재고</th>
+										</tr>
+									</thead>
+									<c:forEach var="stock_list" items="${list}">
+										<c:if test="${stock_list.st_type == '소모품'}">
+											<tr style="background-color: transparent;" class="cursor-no">
+												<td width="100" align="center">${stock_list.st_name}</td>
+												<td width="100" align="center"><fmt:formatNumber
+														value="${stock_list.st_count}" pattern="#,###" /> EA</td>
+											</tr>
+										</c:if>
 
-			<tr>
-				<td width=100 align="center">재 &nbsp; &nbsp; &nbsp; 료</td>
-				<td></td>
-				<td></td>
-			</tr>
-			<c:forEach var="stock_list" items="${list}">
-				<c:if test="${stock_list.st_type == '음료'}">
-					<tr>
-						<td width="100"></td>
-						<td width="100" align="center">${stock_list.st_name}</td>
-						<td width="100" align="center"><fmt:formatNumber
-								value="${stock_list.st_count}" pattern="#,###" /> g</td>
-					</tr>
-				</c:if>
-			</c:forEach>
-
-		</table>
-		<table class="table">
-			<tr>
-				<td width=100 align="center">식 &nbsp; &nbsp; &nbsp; 품</td>
-				<td></td>
-				<td></td>
-			</tr>
-			<c:forEach var="stock_list" items="${list}">
-				<c:if test="${stock_list.st_type == '식품'}">
-					<tr>
-						<td width="100"></td>
-						<td width="100" align="center">${stock_list.st_name}</td>
-						<td width="100" align="center"><fmt:formatNumber
-								value="${stock_list.st_count}" pattern="#,###" /> EA</td>
-					</tr>
-				</c:if>
-			</c:forEach>
-		</table>
-
-		<table class="table">
-			<tr>
-				<td width="100" align="center">상 &nbsp; &nbsp; &nbsp; 품</td>
-				<td></td>
-				<td></td>
-			</tr>
-			<c:forEach var="stock_list" items="${list}">
-				<c:if test="${stock_list.st_type == '상품'}">
-					<tr>
-						<td width="100"></td>
-						<td width="100" align="center">${stock_list.st_name}</td>
-						<td width="100" align="center"><fmt:formatNumber
-								value="${stock_list.st_count}" pattern="#,###" /> EA</td>
-					</tr>
-				</c:if>
-			</c:forEach>
-
-		</table>
-
-		<table class="table">
-			<tr>
-				<td width="100" align="center">소 모 품</td>
-				<td></td>
-				<td></td>
-
-			</tr>
-			<c:forEach var="stock_list" items="${list}">
-				<c:if test="${stock_list.st_type == '소모품'}">
-					<tr>
-						<td width="100"></td>
-						<td width="100" align="center">${stock_list.st_name}</td>
-						<td width="100" align="center"><fmt:formatNumber
-								value="${stock_list.st_count}" pattern="#,###" /> EA</td>
-					</tr>
-				</c:if>
-
-			</c:forEach>
-		</table>
-
+									</c:forEach>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

@@ -123,17 +123,16 @@
 				</dl>
 			</div>
 		</div>
-		<div class="form-group">
-					<div class="col-lg-6 col-lg-offset-2">
-						<a href="store_modify.do?s_no=${storedto.s_no}"
-							class="btn btn-primary">수정</a> 
-							<a href="#alertDel"
-							class="btn btn-secondary" data-toggle="modal">삭제</a>
-							<a href="/d_time/store_list.do"
-							class="btn btn-secondary">목록보기</a>
-					</div>
+		<!-- <div class="form-group"> -->
+		<div class="btn-3-board">
+				<a href="/d_time/store_list.do" class="btn btn-board">목록</a>
+				
+				<a href="store_modify.do?s_no=${storedto.s_no}" class="btn btn-board">수정</a>
+				<a href="#alertDel" class="btn btn-download" data-toggle="modal" style="padding: 9px 14px !important;">삭제</a>
+				
+					
 				</div>
-				</form>
+		</form>
 	</div>
 	<!-- /.panel-body -->
 

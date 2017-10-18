@@ -8,7 +8,7 @@ function now_stock(s_no){
     url = "/d_time/now_stock.do?s_no="+s_no;
    
     // 새로운 윈도우를 엽니다.
-    open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=800,height=800"); 
+    open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=1400,height=600"); 
 }
 </script>
 
@@ -27,12 +27,13 @@ function now_stock(s_no){
 				<li style="padding-bottom: 10px;"><i
 					class="fa fa-angle-right color_arrow margin_right"
 					aria-hidden="true"></i>지점명 : ${storename}</li>
-				<li><i class="fa fa-angle-right color_arrow margin_right"
+				<li style="padding-bottom: 10px;"><i class="fa fa-angle-right color_arrow margin_right"
 					aria-hidden="true"></i>${orderdto.o_date}</li>
-				<li><i class="fa fa-angle-right color_arrow margin_right"
+				<li style="padding-bottom: 10px;"><i class="fa fa-angle-right color_arrow margin_right"
 					aria-hidden="true"></i>상태 : ${orderdto.o_state}</li>
-					<li><i class="fa fa-angle-right color_arrow margin_right"
-					aria-hidden="true"></i><button class="btn btn-secondary" onclick="now_stock(${orderdto.s_no})">재고 현황</button></li>
+					<li style="padding-bottom: 10px;"><i class="fa fa-angle-right color_arrow margin_right"
+					aria-hidden="true"></i> 
+					<button class="btn btn-board" onclick="now_stock(${orderdto.s_no})" style="padding: 7px 8px !important;"><i class="fa fa-stack-overflow" aria-hidden="true"></i>재고 현황</button></li>
 			</ul>
 			<div class="table-responsive order_ing">
 				<form method="POST">
@@ -156,21 +157,21 @@ function now_stock(s_no){
 								</c:if>
 							</c:forEach>
 					
-						</c:if>
-					</table>
+						</c:if> 
+					</table> 
 
 					<div class="form-group">
-						<div class="col-lg-6 col-lg-offset-2">
+						<div class="col-lg-6 col-lg-offset-2 margin-top02">
 						<c:if test="${orderdto.o_state=='대기'}">
 							<a
 								href="store_confirm.do?o_no=${orderdto.o_no}&s_no=${orderdto.s_no}"
-								class="btn btn-secondary">승인</a>
+								class="btn btn-board">승인</a>
 							<a
 								href="store_confirm.do?not=1&o_no=${orderdto.o_no}&s_no=${orderdto.s_no}"
-								class="btn btn-secondary">거절</a>
+								class="btn btn-download" style="padding: 9px 14px !important;">거절</a>
 						</c:if>
 						<c:if test="${orderdto.o_state=='승인'}">
-							<a class="btn btn-secondary">승인완료</a>
+							<a class="btn btn-board">승인완료</a>
 						</c:if>
 						</div>
 					</div>

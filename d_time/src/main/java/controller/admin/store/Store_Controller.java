@@ -122,7 +122,8 @@ public class Store_Controller {
 		// stdao.storeinsert(storedto);
 
 		stdao.storeupdate(storedto); //정보수정
-		memdao.memupdate(s_no,storedto.getS_type());
+		if(!storedto.getS_type().equals("본사"))
+			memdao.memupdate(s_no,storedto.getS_type());
 		
 		
 		Store_DTO store = stdao.storeone(s_no);

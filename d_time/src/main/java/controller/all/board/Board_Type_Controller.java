@@ -46,7 +46,7 @@ public class Board_Type_Controller {
 	}
 	
 	
-	@RequestMapping("/admin/btype_add.do")
+	@RequestMapping("admin/btype_add.do")
 	public String btype_add(String new_type,Model model) {
 		int x = bdao.add_type(new_type);
 		if(x==3) //이미존재
@@ -59,7 +59,7 @@ public class Board_Type_Controller {
 		return "redirect:/admin/board_manage.do";
 	}
 	
-	@RequestMapping("/admin/board_type/updateIndex.do")
+	@RequestMapping("admin/board_type/updateIndex.do")
 	public String update_index(String[] b_type) {
 		for(int i=0;i<b_type.length;i++) {
 			System.out.println("순서"+i+b_type[i]);
@@ -69,15 +69,15 @@ public class Board_Type_Controller {
 	}
 	
 	
-	@RequestMapping("/admin/board/temp_delete.do")
+	@RequestMapping("admin/board/temp_delete.do")
 	public String type_temp_delete(String type,int index) {
-
 		int result=bdao.delete_temp(type,index);
 		System.out.println(type+"삭제결과:"+result);
+	
 		return "redirect:/admin/board_manage.do";
 	}
 		
-	@RequestMapping("/admin/board/cor_delete.do")
+	@RequestMapping("admin/board/cor_delete.do")
 	public String type_cor_delete(String type,int index) {
 		bdao.delete_temp(type,index);
 		

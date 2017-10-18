@@ -43,7 +43,7 @@
     <p></p>
       <p>입력하신<b>${storeinfo.s_name}</b>(은)는</p>
       <p>지점이 존재합니다. </p>
-      <input type="button" class="btn btn-default" style="width:100;" value="확인" onclick="sets_code('${storeinfo.s_code}',${storeinfo.s_no})">
+      <input type="button" class="btn btn-default" style="width:100;" value="확인" onclick="sets_code('${storeinfo.s_code}',${storeinfo.s_no},'${storeinfo.s_type}','${storeinfo.s_name}')">
     </td>
   </tr>
 </table>

@@ -11,18 +11,20 @@
 		<div class="col-lg-12">
 			<div class="panel-body"> 
 				<div class="table-responsive marginT20 order_ing">
-					<h3 class="board-listtotal">
-						<i class="fa fa-list-ul" aria-hidden="true"></i> 전체글 : ${count}
-					</h3>
-
-					<c:if test="${login.mem_type=='관리자'}">
-						<button class="write-btn-css btn btn-confirm-blue"
-							style="float: right;"
-							onclick="javascript:location.href='/d_time/admin/notice/notice_write.do'">
-							글쓰기<i class="fa fa-pencil-square-o color-write"
-								aria-hidden="true"></i>
-						</button>
-					</c:if>
+					<div class="col-lg-12">
+						<h3 class="board-listtotal" style="position:relative; top:7px;">
+						<i class="fa fa-list-ul" aria-hidden="true"></i> 전체글 : ${count}</h3>
+						<c:if test="${login.mem_type=='관리자'}">
+							<button class="write-btn-css btn btn-confirm-blue"
+								style="float: right;"
+								onclick="javascript:location.href='/d_time/admin/notice/notice_write.do'">
+								글쓰기<i class="fa fa-pencil-square-o color-write"
+									aria-hidden="true"></i>
+							</button>
+						</c:if>
+					
+					</div>
+					
 
 					<c:if test="${count == 0}">
 						<table class="table table-striped table-hover table-bordered_tB">
@@ -47,7 +49,8 @@
 							<tbody>
 								<c:forEach var="notice" items="${nlist}" varStatus="status">
 									<tr>
-										<td>${status.count}</td>
+										 <td><c:out value="${number}" /> <c:set var="number"
+                        value="${number - 1}" /></td>
 										<td><a
 											href="/d_time/all/notice/notice_detail.do?n_no=${notice.n_no}">${notice.n_title}</a></td>
 										<td><fmt:formatDate value="${notice.n_date}"

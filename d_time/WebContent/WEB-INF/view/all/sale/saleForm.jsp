@@ -1,7 +1,23 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<script type="text/javascript" src="/d_time/jqplot/js/jquery.jqplot.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.enhancedPieLegendRenderer.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/d_time/jqplot/css/jquery.jqplot.css" />
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.enhancedPieLegendRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.barRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pointLabels.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.categoryAxisRenderer.js"></script>
 <meta charset="utf-8">
 
 
@@ -161,25 +177,30 @@
                                     } 
                                     
                                     var chart_opt_jy = {
-                                       seriesDefaults : {
-                                          renderer : $.jqplot.PieRenderer,
-                                          rendererOptions : {
-                                             startAngle : 180,
-                                             sliceMargin : 4,
-                                             showDataLabels : true,
-                                             padding : 10,
-                                             shadow:false
-                                          }
-                                       },
-                                     
-                                       
-                                       legend:{
-                                    	   show:true,
-                                    	    escapeHtml:true,
-                                    	    location: 'e'
-                                    	   }
-                                    	   
-                                    }; 
+                                            seriesDefaults : {
+                                               renderer : $.jqplot.PieRenderer,
+                                               rendererOptions : {
+                                                  startAngle : 180,
+                                                  sliceMargin : 4,
+                                                  showDataLabels : true,
+                                                  padding : 10,
+                                                  shadow:true
+                                               }
+                                            },
+                                            grid : {
+                                         	   drawBorder: false, 
+                                                drawGridlines: false,
+                                                shadow:false,
+                                         	   background : '#ffffff'
+                                         	},
+                                            seriesColors : [ "#3165ce",	"#de390f", "#ff9a00" ],
+                                            legend:{
+                                         	   show:true,
+                                         	    escapeHtml:true,
+                                         	   // location: 'e'
+                                         	   }
+                                         	   
+                                         }; 
                                        $.jqplot('piechartJY',
                                     		   chart_data_jy,
                                           chart_opt_jy);
@@ -245,25 +266,30 @@
                                     } 
                                     
                                     var chart_opt = {
-                                       seriesDefaults : {
-                                          renderer : $.jqplot.PieRenderer,
-                                          rendererOptions : {
-                                             startAngle : 180,
-                                             sliceMargin : 4,
-                                             showDataLabels : true,
-                                             padding : 10,
-                                             shadow:false
-                                          }
-                                       },
-                                    
-                                       
-                                       legend:{
-                                    	   show:true,
-                                    	    escapeHtml:true,
-                                    	    location: 'e'
-                                    	   }
-                                    	   
-                                    }; 
+                                            seriesDefaults : {
+                                               renderer : $.jqplot.PieRenderer,
+                                               rendererOptions : {
+                                                  startAngle : 180,
+                                                  sliceMargin : 4,
+                                                  showDataLabels : true,
+                                                  padding : 10,
+                                                  shadow:true
+                                               }
+                                            },
+                                            grid : {
+                                         	   drawBorder: false, 
+                                                drawGridlines: false,
+                                                shadow:false,
+                                         	   background : '#ffffff'
+                                         	   },
+                                            seriesColors : [ "#3165ce",	"#de390f", "#ff9a00" ],
+                                            legend:{
+                                         	   show:true,
+                                         	   escapeHtml:true,
+                                         	  // location: 'e'
+                                         	   }
+                                         	   
+                                         }; 
                                        $.jqplot('piechartGM',
                                              chart_data,
                                           chart_opt);
@@ -324,15 +350,20 @@
 																[ test ],
 																{
 																	/* title : "직영점 연매출", */
-																	seriesColors : [ '#FAAC58' ] // 두개 이상의 색을 적어도 최상의 2개의 색만 반영됨
+																	seriesColors : [ '#ffa699' ] // 두개 이상의 색을 적어도 최상의 2개의 색만 반영됨
 																	,
 																	stackSeries : false,
-																	seriesDefaults : {
-																		renderer : jQuery.jqplot.BarRenderer
-																	},
+																	grid : {background : '#ffffff'},
+																	series : [ {
+																		renderer : jQuery.jqplot.BarRenderer,
+																		rendererOptions : {
+																			shadow : false
+																		}
+																	} ],
 																	axes : {
 																		xaxis : {
 																			renderer : jQuery.jqplot.CategoryAxisRenderer,
+																			tickOptions: {textColor: '#000000'},
 																			ticks : [
 																					'1월',
 																					'2월 ',
@@ -348,8 +379,9 @@
 																					'12월 ' ]
 																		},
 																		yaxis : {
+																			tickOptions: {textColor: '#000000'},
 																			min : 0,
-																			max : 750000,
+																			max : 1200000,
 																			numberTicks : 6
 																		}
 																	}
@@ -412,12 +444,17 @@
 																	seriesColors : [ '#81BEF7' ] // 두개 이상의 색을 적어도 최상의 2개의 색만 반영됨
 																	,
 																	stackSeries : false,
-																	seriesDefaults : {
-																		renderer : jQuery.jqplot.BarRenderer
-																	},
+																	grid : {background : '#ffffff'},
+																	series : [ {
+																		renderer : jQuery.jqplot.BarRenderer,
+																		rendererOptions : {
+																			shadow : false
+																		}
+																	} ],
 																	axes : {
 																		xaxis : {
 																			renderer : jQuery.jqplot.CategoryAxisRenderer,
+																			tickOptions: {textColor: '#000000'},
 																			ticks : [
 																					'1월',
 																					'2월 ',
@@ -433,8 +470,9 @@
 																					'12월 ' ]
 																		},
 																		yaxis : {
+																			tickOptions: {textColor: '#000000'},
 																			min : 0,
-																			max : 750000,
+																			max : 1200000,
 																			numberTicks : 6
 																		}
 																	}

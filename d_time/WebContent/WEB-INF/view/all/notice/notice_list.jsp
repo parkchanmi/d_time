@@ -69,18 +69,18 @@
 							<c:if test="${count > 0}">
 								<c:set var="pageCount"
 									value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
-								<c:set var="pageBlock" value="${10}" />
-								<fmt:parseNumber var="result" value="${currentPage / 10}"
+								<c:set var="pageBlock" value="${5}" />
+								<fmt:parseNumber var="result" value="${currentPage / pageBlock}"
 									integerOnly="true" />
-								<c:set var="startPage" value="${result * 10 + 1}" />
+								<c:set var="startPage" value="${result * pageBlock+ 1}" />
 								<c:set var="endPage" value="${startPage + pageBlock-1}" />
 								<c:if test="${endPage > pageCount}">
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 
-								<c:if test="${startPage > 10}">
+								<c:if test="${startPage > pageBlock}">
 									<li><i class="fa fa-angle-left"></i><a
-										href="notice_list.do?pageNum=${startPage-10}"></a></li>
+										href="notice_list.do?pageNum=${startPage-pageBlock}"></a></li>
 								</c:if>
 
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
@@ -90,7 +90,7 @@
 
 								<c:if test="${endPage < pageCount}">
 									<li><i class="fa fa-angle-right"></i><a
-										href="notice_list.do?pageNum=${startPage + 10}"></a></li>
+										href="notice_list.do?pageNum=${startPage + pageBlock}"></a></li>
 								</c:if>
 							</c:if>
 						</ul>

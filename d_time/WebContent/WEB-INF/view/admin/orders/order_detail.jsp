@@ -26,6 +26,9 @@ function now_stock(s_no){
 			<ul style="list-style: none; padding: 0px; font-size: 15px;">
 				<li style="padding-bottom: 10px;"><i
 					class="fa fa-angle-right color_arrow margin_right"
+					aria-hidden="true"></i>발주번호 : ${orderdto.o_no}</li>
+				<li style="padding-bottom: 10px;"><i
+					class="fa fa-angle-right color_arrow margin_right"
 					aria-hidden="true"></i>지점명 : ${storename}</li>
 				<li style="padding-bottom: 10px;"><i class="fa fa-angle-right color_arrow margin_right"
 					aria-hidden="true"></i>${orderdto.o_date}</li>

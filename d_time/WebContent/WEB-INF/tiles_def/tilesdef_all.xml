@@ -6,72 +6,74 @@
 
 <tiles-definitions>
 
-	 <definition name="pop_up" template="/WEB-INF/template/pop_up.jsp">	
+	<definition name="pop_up" template="/WEB-INF/template/pop_up.jsp">
 	</definition>
-	
+
 	<definition name="index" extends="pop_up">
-	<put-attribute name="title" value="ci.cha" />
-	<put-attribute name="body" value="/index.jsp" />
+		<put-attribute name="title" value="ci.cha" />
+		<put-attribute name="body" value="/index.jsp" />
 	</definition>
-	
+
 	<definition name="pwchange" extends="pop_up">
 		<put-attribute name="title" value="코드확인" />
 		<put-attribute name="body" value="/pwchange.jsp" />
 	</definition>
-	
+
 	<definition name="confirmid" extends="pop_up">
 		<put-attribute name="title" value="중복확인" />
 		<put-attribute name="body" value="/WEB-INF/confirmid.jsp" />
 	</definition>
-	
+
 	<definition name="confirm_code" extends="pop_up">
 		<put-attribute name="title" value="코드확인" />
 		<put-attribute name="body" value="/WEB-INF/confirm_code.jsp" />
-	</definition> 
-
-
-<definition name="summer_layout" template="/WEB-INF/template/summer_layout.jsp">
-		<put-attribute name="header"
-			value="/WEB-INF/template/admin_header.jsp" />
-		
-		<put-attribute name="footer"
-			value="/WEB-INF/template/footer.jsp" />
 	</definition>
-	
+
+
+	<definition name="summer_layout" template="/WEB-INF/template/summer_layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/template/admin_header.jsp" />
+
+		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
+	</definition>
+
 	<definition name="summer_mem_layout" template="/WEB-INF/template/summer_layout.jsp">
-		<put-attribute name="header"
-			value="/WEB-INF/template/mem_header.jsp" />
-		
-		<put-attribute name="footer"
-			value="/WEB-INF/template/footer.jsp" />
+		<put-attribute name="header" value="/WEB-INF/template/mem_header.jsp" />
+
+		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
 	</definition>
-	
+
 	<definition name="admin/notice/notice_list" extends="admin_layout">
 		<put-attribute name="title" value="공지사항글목록" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_list.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_list.jsp" />
 	</definition>
 	<definition name="admin/notice/notice_detail" extends="admin_layout">
 		<put-attribute name="title" value="공지글보기" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_detail.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_detail.jsp" />
 	</definition>
-	
+
 	<definition name="mem/notice/notice_list" extends="mem_layout">
 		<put-attribute name="title" value="공지사항글목록" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_list.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_list.jsp" />
 	</definition>
 	<definition name="mem/notice/notice_detail" extends="mem_layout">
 		<put-attribute name="title" value="공지글보기" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_detail.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_detail.jsp" />
 	</definition>
-	
+
 	<definition name="admin/notice/notice_writeForm" extends="summer_layout">
 		<put-attribute name="title" value="공지글쓰기" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_writeForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_writeForm.jsp" />
 	</definition>
-	
+
 	<definition name="admin/notice/notice_modifyForm" extends="summer_layout">
 		<put-attribute name="title" value="공지글수정" />
-		<put-attribute name="body" value="/WEB-INF/view/all/notice/notice_modifyForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/notice/notice_modifyForm.jsp" />
 	</definition>
 
 
@@ -84,7 +86,8 @@
 
 	<definition name="board/board_list" extends="mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/all/board/board_list.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/board/board_list.jsp" />
 	</definition>
 	<definition name="board/board_detail" extends="mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
@@ -101,11 +104,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/view/all/board/board_modifyForm.jsp" />
 	</definition>
-	
-	
+
+
 	<definition name="admin/board/board_list" extends="admin_layout">
 		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="body" value="/WEB-INF/view/all/board/board_list.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/board/board_list.jsp" />
 	</definition>
 	<definition name="admin/board/board_detail" extends="admin_layout">
 		<put-attribute name="title" value="Ci.CHA" />
@@ -122,48 +126,52 @@
 		<put-attribute name="body"
 			value="/WEB-INF/view/all/board/board_modifyForm.jsp" />
 	</definition>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 
-<definition name="jqplot_layout" template="/WEB-INF/template/jqplot_layout.jsp">
-	
-		<put-attribute name="footer"
-			value="/WEB-INF/template/footer.jsp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<definition name="jqplot_layout" template="/WEB-INF/template/jqplot_layout.jsp">
+
+		<put-attribute name="footer" value="/WEB-INF/template/footer.jsp" />
 	</definition>
 
-<definition name="sale/saleForm" extends="jqplot_layout">
+	<definition name="sale/saleForm" extends="admin_layout">
 		<put-attribute name="title" value="Ci.CHA" />
-		<put-attribute name="header"
-			value="/WEB-INF/template/admin_header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/view/all/sale/saleForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/sale/saleForm.jsp" />
 	</definition>
-	<definition name="sale/saleForm_mem" extends="jqplot_layout">
+	<definition name="sale/saleForm_mem" extends="mem_layout">
 		<put-attribute name="title" value="Ci.CHA" />
-<put-attribute name="header"
-			value="/WEB-INF/template/mem_header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/view/all/sale/saleForm_mem.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/view/all/sale/saleForm_mem.jsp" />
 	</definition>
+	<!-- <definition name="sale/saleForm" extends="jqplot_layout"> <put-attribute 
+		name="title" value="Ci.CHA" /> <put-attribute name="header" value="/WEB-INF/template/admin_header.jsp" 
+		/> <put-attribute name="body" value="/WEB-INF/view/all/sale/saleForm.jsp" 
+		/> </definition> <definition name="sale/saleForm_mem" extends="jqplot_layout"> 
+		<put-attribute name="title" value="Ci.CHA" /> <put-attribute name="header" 
+		value="/WEB-INF/template/mem_header.jsp" /> <put-attribute name="body" value="/WEB-INF/view/all/sale/saleForm_mem.jsp" 
+		/> </definition> -->
 
 
 
 
 
-	
+
 </tiles-definitions>

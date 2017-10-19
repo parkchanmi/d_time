@@ -223,6 +223,8 @@ public class Member_Orders_Controller {
 				}
 
 				mav.addObject("um_list", um_list);
+				if (um_list != null)
+					mav.addObject("dsize", um_list.size());
 			}
 		}
 
@@ -243,6 +245,8 @@ public class Member_Orders_Controller {
 				}
 
 				mav.addObject("sik_list", sik_list);
+				if (sik_list != null)
+					mav.addObject("fsize", sik_list.size());
 
 			}
 		}
@@ -262,6 +266,9 @@ public class Member_Orders_Controller {
 					sang_list.add(sangpoom_div);
 				}
 				mav.addObject("sang_list", sang_list);
+				if (sang_list != null)
+					mav.addObject("psize", sang_list.size());
+
 			}
 		}
 
@@ -279,6 +286,8 @@ public class Member_Orders_Controller {
 					somo_list.add(somopoom_div);
 				}
 				mav.addObject("somo_list", somo_list);
+				if (somo_list != null)
+					mav.addObject("tsize", somo_list.size());
 			}
 		}
 

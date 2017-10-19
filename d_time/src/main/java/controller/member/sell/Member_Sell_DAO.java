@@ -29,17 +29,15 @@ public class Member_Sell_DAO extends SqlSessionDaoSupport {
 		return x;
 	}
 
-	public boolean stock_confirm(int[] m_no,int[] m_count, int s_no) {
-		ArrayList need_stock = new ArrayList();
+	public boolean stock_confirm(int[] m_no,int[] m_count, int s_no) {//메뉴,수량,지점번호
+		ArrayList need_stock = new ArrayList(); //실제 필요한 양
 		for(int i=0;i<m_no.length;i++) { //레시피 구해옴
 			String m_recipe = getSqlSession().selectOne("member_sell.recipe_confirm",m_no[i]);
-			String[] split_receipe = m_recipe.split(",");
+			String[] split_receipe = m_recipe.split(",");//[원두 | 20 | 우유 | 200]
 			
 			HashMap<String,Integer> map = new HashMap<String,Integer>();
 			for(int j=0;j<split_receipe.length;j=j+2) {
-				//map.put(split_receipe[j], Integer.parseInt(split_receipe[j+1])*m_count[i]);
-				
-				int need_sell = Integer.parseInt(split_receipe[j+1])*m_count[i]; //판매에 필요한 재고 갯수
+				int need_sell = Integer.parseInt(split_receipe[j+1])*m_count[i]; //레시피*주문수량 => 판매에 필요한 재고 갯수
 				
 				HashMap sno_stname = new HashMap();
 				sno_stname.put("s_no", s_no);
@@ -59,26 +57,14 @@ public class Member_Sell_DAO extends SqlSessionDaoSupport {
 			System.out.println(m_recipe+"수량:"+m_count[i]);
 		}
 		
-		//문제가 없으면 판매가능 -> 재고메서 물품 빼기
-		//재고에서 빼자
+		//문제가 없으면 판매가능 -> 재고에서 물품 빼기
 		for(int i=0;i<need_stock.size();i++) { //필요한 정보들
 			int x =getSqlSession().update("member_sell.use_stock",need_stock.get(i));
 			if(x!=1) {
-				return false; //롤백처리?
+				return false;
 			}
 		}
-		
 		return true;
-		
-		/* 레시피분리
-		String[] split_receipe = receipe.split(",");
-		HashMap<String,Integer> map = new HashMap<String,Integer>();
-		for(int i=0;i<split_receipe.length;i=i+2) {
-			map.put(split_receipe[i], Integer.parseInt(split_receipe[i+1]));
-		}
-		System.out.println(map);	
-		*/
-		
 	}
 	public boolean stock_confirm(int m_no,int m_count, int s_no) {
 		

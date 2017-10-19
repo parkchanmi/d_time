@@ -33,7 +33,7 @@
 	</definition>
 	
 	
-	<definition name="admin/board_manage" extends="summer_layout">
+	<definition name="admin/board_manage" extends="admin_layout">
 		<put-attribute name="title" value="게시판관리" />
 		<put-attribute name="body" value="/WEB-INF/view/all/board/board_manage.jsp" />
 	</definition>

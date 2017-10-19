@@ -197,6 +197,8 @@ a
 
 
 
+
+
 :not
 
 
@@ -205,7 +207,9 @@ a
 
 
 
+
  
+
 
 
 
@@ -224,7 +228,9 @@ href
 
 
 
+
  
+
 
 
 
@@ -241,7 +247,9 @@ href
 
 
 
+
  
+
 
 
 
@@ -260,7 +268,9 @@ tabindex
 
 
 
+
  
+
 
 
 
@@ -284,7 +294,10 @@ color
 
 
 
+
+
 :
+
 
 
 
@@ -300,7 +313,10 @@ color
 
 
 
+
 inherit
+
+
 
 
 
@@ -331,7 +347,10 @@ text-decoration
 
 
 
+
+
 :
+
 
 
 
@@ -347,7 +366,10 @@ text-decoration
 
 
 
+
 none
+
+
 
 
 
@@ -410,6 +432,8 @@ svg
 
 
 
+
+
 :not
 
 
@@ -418,7 +442,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -435,7 +461,9 @@ svg
 
 
 
+
  
+
 
 
 
@@ -459,7 +487,10 @@ overflow
 
 
 
+
+
 :
+
 
 
 
@@ -475,7 +506,10 @@ overflow
 
 
 
+
 hidden
+
+
 
 
 
@@ -731,6 +765,8 @@ hr {
 
 
 
+
+
 :not
 
 
@@ -739,7 +775,9 @@ hr {
 
 
 
+
  
+
 
 
 
@@ -756,7 +794,9 @@ hr {
 
 
 
+
  
+
 
 
 
@@ -780,7 +820,10 @@ margin-right
 
 
 
+
+
 :
+
 
 
 
@@ -796,8 +839,11 @@ margin-right
 
 
 
+
 5
 px
+
+
 
 
 
@@ -1135,6 +1181,8 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	:
 	
 	
@@ -1143,7 +1191,9 @@ h3.board-listtotal {
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -1172,6 +1222,8 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	:
 	
 	
@@ -1180,7 +1232,9 @@ h3.board-listtotal {
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -1203,6 +1257,8 @@ h3.board-listtotal {
 	
 	
 	
+	
+	
 	;
 }
 
@@ -1211,9 +1267,11 @@ h3.board-listtotal {
 	
 	
 	
+	
 
 	
 
+	
 	
 	
 	50%;
@@ -1226,9 +1284,9 @@ h3.board-listtotal {
 
 .table-sell {
 	overflow: auto !important;
-    height: 320px !important;
-    /* height: 30%; */
-    display: inline-block !important;
+	height: 320px !important;
+	/* height: 30%; */
+	display: inline-block !important;
 }
 
 .panel-main {
@@ -1495,9 +1553,22 @@ h4.board-text {
 	letter-spacing: -0.5px;
 }
 
-.cursor-no {
-	cursor:initial !important;
+.msg-table {
+	border-top: none !important;
+	border-bottom: 1px solid #d2d25f !important;
 }
+
+.msg-write-sentbtn {
+	margin-right: 20px;
+	position: absolute;
+	left: 33%;
+	bottom: 23px;
+}
+
+.cursor-no {
+	cursor: initial !important;
+}
+
 .padding-126 {
 	padding: 126px !important;
 }
@@ -1515,7 +1586,7 @@ h4.board-text {
 }
 
 .margin-left-10 {
-	margin-left:10px !important;
+	margin-left: 10px !important;
 }
 
 .clear-both {
@@ -1597,7 +1668,14 @@ h4.comment-box-contents {
 
 .position-ab {
 	position: absolute !important;
-	'
+}
+
+.top-orderlist-mem {
+	top: 6px !important;
+}
+
+.position-rel {
+	position: relative !important;
 }
 
 h3.menu-board-notice {
@@ -1775,16 +1853,16 @@ h3.plus_icon a:hover {
 	color: #ff6f04;
 }
 
-
 .color-icon-sell {
-	color:#f198a3;
+	color: #e03d51;
 }
+
 .color-write {
 	color: #7fe6ff;
 }
 
 .background-color-tablestock {
-	background-color:#f3f3f3;
+	background-color: #f3f3f3;
 }
 
 .write-btn-css {
@@ -2908,7 +2986,11 @@ select
 
 
 
+
+
 .form-control
+
+
 
 
 
@@ -2931,7 +3013,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -2950,7 +3034,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2967,7 +3053,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -2986,7 +3074,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3010,6 +3100,8 @@ height
 
 
 
+
+
 :
 
 
@@ -3018,7 +3110,9 @@ height
 
 
 
+
  
+
 
 
 
@@ -3041,11 +3135,15 @@ calc
 
 
 
+
+
 (2
 .25rem
 +
 2
 px
+
+
 
 
 
@@ -3141,7 +3239,11 @@ select
 
 
 
+
+
 .btn
+
+
 
 
 
@@ -3164,7 +3266,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3183,7 +3287,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3200,7 +3306,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3220,7 +3328,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3232,6 +3342,8 @@ multiple
 .input-group-sm
 >
 select
+
+
 
 
 
@@ -3261,6 +3373,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3269,7 +3383,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3288,7 +3404,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3305,7 +3423,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3324,7 +3444,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3336,6 +3458,8 @@ multiple
 .input-group-sm
 >
 select
+
+
 
 
 
@@ -3365,6 +3489,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3373,7 +3499,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3392,7 +3520,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3409,7 +3539,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3429,7 +3561,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3439,6 +3573,8 @@ multiple
 
 ),
 select
+
+
 
 
 
@@ -3468,6 +3604,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3476,7 +3614,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3495,7 +3635,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3512,7 +3654,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3531,7 +3675,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3555,6 +3701,8 @@ height
 
 
 
+
+
 :
 
 
@@ -3563,7 +3711,9 @@ height
 
 
 
+
  
+
 
 
 
@@ -3586,11 +3736,15 @@ calc
 
 
 
+
+
 (1
 .8125rem
 +
 2
 px
+
+
 
 
 
@@ -3634,7 +3788,11 @@ select
 
 
 
+
+
 .btn
+
+
 
 
 
@@ -3657,7 +3815,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3676,7 +3836,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3693,7 +3855,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3713,7 +3877,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3725,6 +3891,8 @@ multiple
 .input-group-lg
 >
 select
+
+
 
 
 
@@ -3754,6 +3922,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3762,7 +3932,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3781,7 +3953,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3798,7 +3972,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3817,7 +3993,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -3829,6 +4007,8 @@ multiple
 .input-group-lg
 >
 select
+
+
 
 
 
@@ -3858,6 +4038,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3866,7 +4048,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3885,7 +4069,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3902,7 +4088,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -3922,7 +4110,9 @@ multiple
 
 
 
+
 	
+
 
 
 
@@ -3932,6 +4122,8 @@ multiple
 
 ),
 select
+
+
 
 
 
@@ -3961,6 +4153,8 @@ select
 
 
 
+
+
 :not
 
 
@@ -3969,7 +4163,9 @@ select
 
 
 
+
  
+
 
 
 
@@ -3988,7 +4184,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -4005,7 +4203,9 @@ size
 
 
 
+
  
+
 
 
 
@@ -4024,7 +4224,9 @@ multiple
 
 
 
+
  
+
 
 
 
@@ -4048,6 +4250,8 @@ height
 
 
 
+
+
 :
 
 
@@ -4056,7 +4260,9 @@ height
 
 
 
+
  
+
 
 
 
@@ -4079,11 +4285,15 @@ calc
 
 
 
+
+
 (2
 .3125rem
 +
 2
 px
+
+
 
 
 
@@ -5275,6 +5485,8 @@ tbody.collapse.show {
 
 
 
+
+
 :not
 
 
@@ -5283,7 +5495,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -5300,7 +5514,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -5317,7 +5533,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -5334,7 +5552,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -5351,7 +5571,9 @@ tbody.collapse.show {
 
 
 
+
  
+
 
 
 
@@ -5369,7 +5591,9 @@ tbody.collapse.show {
 
 
 
+
 	
+
 
 
 
@@ -5393,6 +5617,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -5401,7 +5627,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5432,7 +5660,11 @@ border-radius
 
 
 
+
+
 :first-child
+
+
 
 
 
@@ -5455,7 +5687,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5472,7 +5706,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5489,7 +5725,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5506,7 +5744,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -5530,6 +5770,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -5538,7 +5780,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -5562,6 +5806,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -5570,7 +5816,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5597,7 +5845,11 @@ border-bottom-right-radius
 
 
 
+
+
 :last-child
+
+
 
 
 
@@ -5620,7 +5872,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5637,7 +5891,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5663,7 +5919,10 @@ border-bottom-right-radius
 
 
 
+
+
 :not
+
 
 
 
@@ -5680,6 +5939,7 @@ border-bottom-right-radius
 
 
 
+
 (
 :first-child
 
@@ -5689,7 +5949,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -5713,6 +5975,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -5721,7 +5985,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -5745,6 +6011,8 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
@@ -5753,7 +6021,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5842,6 +6112,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -5850,7 +6122,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5867,7 +6141,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5884,7 +6160,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5901,7 +6179,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -5925,7 +6205,10 @@ border-radius
 
 
 
+
+
 :
+
 
 
 
@@ -5941,11 +6224,14 @@ border-radius
 
 
 
+
 0
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -5975,6 +6261,8 @@ border-radius
 
 
 
+
+
 :not
 
 
@@ -5983,7 +6271,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -6000,7 +6290,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -6024,6 +6316,8 @@ border-bottom-right-radius
 
 
 
+
+
 :
 
 
@@ -6032,7 +6326,9 @@ border-bottom-right-radius
 
 
 
+
  
+
 
 
 
@@ -6056,7 +6352,10 @@ border-bottom-left-radius
 
 
 
+
+
 :
+
 
 
 
@@ -6072,11 +6371,14 @@ border-bottom-left-radius
 
 
 
+
 0
 }
 .btn-group-vertical
 >
 .btn
+
+
 
 
 
@@ -6106,6 +6408,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -6114,7 +6418,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -6131,7 +6437,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -6155,6 +6463,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -6163,7 +6473,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -6187,6 +6499,8 @@ border-top-right-radius
 
 
 
+
+
 :
 
 
@@ -6195,7 +6509,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6271,7 +6587,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6294,6 +6612,8 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
@@ -6302,7 +6622,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6319,7 +6641,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6336,7 +6660,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6353,7 +6679,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6377,6 +6705,8 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
@@ -6385,7 +6715,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6402,7 +6734,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6419,7 +6753,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6436,7 +6772,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6460,6 +6798,8 @@ border-top-right-radius
 
 
 
+
+
 :not
 
 
@@ -6468,7 +6808,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6485,7 +6827,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6502,7 +6846,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6519,7 +6865,9 @@ border-top-right-radius
 
 
 
+
  
+
 
 
 
@@ -6543,6 +6891,8 @@ border-radius
 
 
 
+
+
 :
 
 
@@ -6551,7 +6901,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -6624,6 +6976,8 @@ border-radius
 
 
 
+
+
 :not
 
 
@@ -6632,7 +6986,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -6649,7 +7005,9 @@ border-radius
 
 
 
+
  
+
 
 
 
@@ -6673,6 +7031,8 @@ border-right
 
 
 
+
+
 :
 
 
@@ -6681,7 +7041,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6699,7 +7061,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6722,6 +7086,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6730,7 +7096,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6747,7 +7115,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6771,6 +7141,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6779,7 +7151,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6797,7 +7171,9 @@ border-right
 
 
 
+
 	
+
 
 
 
@@ -6821,6 +7197,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6829,7 +7207,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6846,7 +7226,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6872,6 +7254,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6880,7 +7264,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6898,7 +7284,9 @@ border-right
 
 
 
+
 	
+
 
 
 
@@ -6926,6 +7314,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6934,7 +7324,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6951,7 +7343,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -6977,6 +7371,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -6985,7 +7381,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7002,7 +7400,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7026,6 +7426,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -7034,7 +7436,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7051,7 +7455,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7077,6 +7483,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -7085,7 +7493,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7102,7 +7512,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7126,6 +7538,8 @@ border-right
 
 
 
+
+
 :not
 
 
@@ -7134,7 +7548,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7151,7 +7567,9 @@ border-right
 
 
 
+
  
+
 
 
 
@@ -7175,6 +7593,8 @@ border-top-left-radius
 
 
 
+
+
 :
 
 
@@ -7183,7 +7603,9 @@ border-top-left-radius
 
 
 
+
  
+
 
 
 
@@ -7207,6 +7629,8 @@ border-bottom-left-radius
 
 
 
+
+
 :
 
 
@@ -7215,7 +7639,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -7242,6 +7668,8 @@ border-bottom-left-radius
 
 
 
+
+
 :not
 
 
@@ -7250,7 +7678,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -7267,7 +7697,9 @@ border-bottom-left-radius
 
 
 
+
  
+
 
 
 
@@ -7291,6 +7723,8 @@ border-left
 
 
 
+
+
 :
 
 
@@ -7299,7 +7733,9 @@ border-left
 
 
 
+
  
+
 
 
 
@@ -8297,7 +8733,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8320,6 +8758,8 @@ border-left
 	
 	
 	
+	
+	
 	:not
 	
 	
@@ -8328,7 +8768,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8345,7 +8787,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8362,7 +8806,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8379,7 +8825,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -8403,6 +8851,8 @@ border-left
 	
 	
 	
+	
+	
 	:
 	
 	
@@ -8411,7 +8861,9 @@ border-left
 	
 	
 	
+	
 	 
+	
 	
 	
 	
@@ -9370,7 +9822,9 @@ button.close {
 
 
 
+
  
+
 
 
 
@@ -9387,7 +9841,9 @@ button.close {
 
 
 
+
  
+
 
 
 
@@ -9411,7 +9867,10 @@ margin-left
 
 
 
+
+
 :
+
 
 
 
@@ -9427,7 +9886,10 @@ margin-left
 
 
 
+
 .25rem
+
+
 
 
 
@@ -9455,7 +9917,9 @@ margin-left
 
 
 
+
  
+
 
 
 
@@ -9472,7 +9936,9 @@ margin-left
 
 
 
+
  
+
 
 
 
@@ -9496,7 +9962,10 @@ margin-right
 
 
 
+
+
 :
+
 
 
 
@@ -9512,7 +9981,10 @@ margin-right
 
 
 
+
 .25rem
+
+
 
 
 
@@ -10170,8 +10642,17 @@ a.bg-dark:focus, a.bg-dark:hover {
 .border-0 {
 	border: 0 !important
 }
+
+.color-msg-heading {
+	background-color: #5da7c1 !important;
+}
+
+.box-shadow-none {
+	box-shadow: none;
+}
+
 .border-stock-th {
-	border-bottom:none !important;
+	border-bottom: none !important;
 }
 
 .border-top-0 {

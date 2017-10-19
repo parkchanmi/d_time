@@ -77,12 +77,12 @@
 								style="display: inline-table; margin-top: 14px;">
 								<thead>
 									<tr>
-										<th>No.</th>
-										<th>말머리</th>
-										<th>제목</th>
-										<th>지점명</th>
-										<th>날짜</th>
-										<th>조회수</th>
+										<th width="10%">No.</th>
+										<th width="15%">말머리</th>
+										<th width="30%">제목</th>
+										<th width="15%">지점명</th>
+										<th width="15%">날짜</th>
+										<th width="15%">조회수</th>
 									</tr>
 								</thead>
 								<c:forEach var="boardlist" items="${list}">
@@ -96,7 +96,7 @@
 											href="board_detail.do?b_no=${boardlist.b_no}&type=${type}&pageNum=${pageNum}">${boardlist.b_title}</a></td>
 										<td>${boardlist.s_name}</td>
 										<td><fmt:formatDate value="${boardlist.b_date}"
-												type="date" pattern="yyyy-MM-dd" /></td>
+												type="date" pattern="yyyy-MM-dd HH:mm" /></td>
 										<td>${boardlist.b_count}</td>
 										<%--  
                      <c:forEach var="storelist" items="${storelist}">
@@ -115,18 +115,18 @@
 								<c:if test="${count > 0}">
 									<c:set var="pageCount"
 										value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}" />
-									<c:set var="pageBlock" value="${10}" />
-									<fmt:parseNumber var="result" value="${currentPage / 10}"
+									<c:set var="pageBlock" value="${5}" />
+									<fmt:parseNumber var="result" value="${currentPage / pageBlock}"
 										integerOnly="true" />
-									<c:set var="startPage" value="${result * 10 + 1}" />
+									<c:set var="startPage" value="${result * pageBlock + 1}" />
 									<c:set var="endPage" value="${startPage + pageBlock-1}" />
 									<c:if test="${endPage > pageCount}">
 										<c:set var="endPage" value="${pageCount}" />
 									</c:if>
 
-									<c:if test="${startPage > 10}">
-										<li><i class="fa fa-angle-left"></i><a
-											href="board_list.do?type=${type}&pageNum=${startPage-10}"></a></li>
+									<c:if test="${startPage > pageBlock}">
+										<li><a
+											href="board_list.do?type=${type}&pageNum=${startPage-pageBlock}"><i class="fa fa-angle-left"></i></a></li>
 									</c:if>
 
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
@@ -135,8 +135,8 @@
 									</c:forEach>
 
 									<c:if test="${endPage < pageCount}">
-										<li><i class="fa fa-angle-right"></i><a
-											href="board_list.do?type=${type}&pageNum=${startPage + 10}"></a></li>
+										<li><a
+											href="board_list.do?type=${type}&pageNum=${startPage + pageBlock}"><i class="fa fa-angle-right"></i></a></li>
 									</c:if>
 								</c:if>
 

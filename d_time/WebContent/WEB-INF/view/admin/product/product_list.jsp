@@ -121,7 +121,7 @@ function submit_ok(){
 				<li id="order_list"><a href="/d_time/admin/menu/menu_list.do">주문메뉴
 						<i class="fa fa-angle-down"></i>
 				</a></li>
-				<li id="order_list"><a href="/d_time/admin/menu/menu_add.do">메뉴추가
+				<li id="order_list"><a href="/d_time/admin/menu/menu_add.do">메뉴등록
 						<i class="fa fa-angle-down"></i>
 				</a></li>
 			</ul>

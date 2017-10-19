@@ -1,14 +1,30 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<script type="text/javascript" src="/d_time/jqplot/js/jquery.jqplot.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.enhancedPieLegendRenderer.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/d_time/jqplot/css/jquery.jqplot.css" />
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pieRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.enhancedPieLegendRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.barRenderer.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.pointLabels.js"></script>
+<script type="text/javascript"
+	src="/d_time/jqplot/js/plugins/jqplot.categoryAxisRenderer.js"></script>
 <meta charset="utf-8">
 
 <div class="row">
 	<div class="col-lg-12">
-		<h3 class="page-header">
-			<i class="fa fa-th-large"></i>지점관리
-		</h3>
+		<h3 class="page-header" style="font-size: 28px;">
+					<i class="fa fa-th-large"></i>매출현황
+				</h3>
 	</div>
 
 	<!-- /.col-lg-12 -->
@@ -18,8 +34,8 @@
 				<form action="saleMem.do" method="POST">
 					<input type="hidden" name="s_no" value="${login.s_no}"> <input
 						type="date" name="from" value="${from}" /> <input type="date"
-						name="to" value="${to}" /> <input type="submit"> <input
-						type="button" value="파일 내보내기"
+						name="to" value="${to}" /> <input type="submit" class="graph-submit"> <input
+						type="button" class="graph-file-export" value="파일 내보내기"
 						onclick="location.href='downloadMem.do?s_no=${login.s_no}&from=${from}&to=${to}'" />
 
 					<c:if test="${from!=null}">
@@ -154,6 +170,10 @@
 		//alert(test);
 	</script>
 	<div class="w3-panel" style="float: left; width: 50%">
+	<i class="fa fa-check-circle-o fa-2x" style="color: #424242"
+						aria-hidden="true"></i>
+					<h3 class="store_title" style="font-size: 20px; font-weight: 600">
+						품목별 판매통계</h3>
 		<div class="w3-third" style="float: none; width: 100%">
 			<div id="piechart2" style="width: 660px; height: 370px;">
 				<script type="text/javascript">
@@ -194,27 +214,30 @@
 										}
 
 										var chart_opt = {
-											title : '판매 통계',
-											seriesDefaults : {
-												renderer : $.jqplot.PieRenderer,
-												rendererOptions : {
-													startAngle : 180,
-													sliceMargin : 4,
-													showDataLabels : true,
-													padding : 10,
-													shadow : false
+												title : '판매 통계',
+												seriesDefaults : {
+													renderer : $.jqplot.PieRenderer,
+													rendererOptions : {
+														startAngle : 180,
+														sliceMargin : 4,
+														showDataLabels : true,
+														padding : 10,
+														shadow : true
+													}
+												},
+			                                   grid : {
+			                                    	   drawBorder: false, 
+			                                           drawGridlines: false,
+			                                           shadow:false,
+			                                    	   background : '#ffffff'
+			                                    },
+												seriesColors : [ "#3165ce",	"#de390f", "#ff9a00" ],
+												legend : {
+													show : true,
+													escapeHtml : true,
+													//location : 'e'
 												}
-											},
-											seriesColors : [ "#4bb2c5",
-													"#c5b47f", "#EAA228" ],
-
-											legend : {
-												show : true,
-												escapeHtml : true,
-												location : 'e'
-											}
-
-										};
+											};
 										$.jqplot('piechart2', chart_data,
 												chart_opt);
 									});
@@ -222,7 +245,12 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="w3-panel" style="float: left; width: 50%"">
+	<i class="fa fa-check-circle-o fa-2x" style="color: #424242"
+						aria-hidden="true"></i>
+					<h3 class="store_title" style="font-size: 20px; font-weight: 600">
+						연매출</h3>
 		<div class="w3-third" style="float: none; width: 100%">
 			<div id="barchart" style="width: 660px; height: 370px;">
 				<script type="text/javascript">
@@ -232,15 +260,17 @@
 										jQuery("#barchart")
 												.jqplot(
 														[ test ],
-														{
+														{	
 															animate : true,
 															title : "지점 연매출",
-															seriesColors : [ '#00CC99' ] // 두개 이상의 색을 적어도 최상의 2개의 색만 반영됨
+															seriesColors : [ '#a593ff' ]
 															,
 															stackSeries : false,
+															grid : {background : '#ffffff'},
 															series : [ {
 																renderer : jQuery.jqplot.BarRenderer,
 																rendererOptions : {
+																	shadow : false,
 																	animation : {
 																		speed : 2000
 																	}
@@ -249,6 +279,7 @@
 															axes : {
 																xaxis : {
 																	renderer : jQuery.jqplot.CategoryAxisRenderer,
+																	tickOptions: {textColor: '#000000'},
 																	ticks : [
 																			'1월',
 																			'2월 ',
@@ -264,8 +295,9 @@
 																			'12월 ' ]
 																},
 																yaxis : {
+																	tickOptions: {textColor: '#000000'},
 																	min : 0,
-																	max : 750000,
+																	max : 1200000,
 																	numberTicks : 6
 																}
 															}

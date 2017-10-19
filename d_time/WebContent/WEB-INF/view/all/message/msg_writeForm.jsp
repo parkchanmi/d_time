@@ -1,83 +1,91 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+<style>
+ul, li, ol {
+	list-style: none;
+	padding: 0;
+}
+</style>
 <body>
+<form method="post" action="msg_send_list.do">
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header">
+				<i class="fa fa-th-large"></i>쪽지 쓰기
+			</h3>
+		</div>
 
-<center>
-
-		<h1>쪽지 쓰기</h1>
-</center>
-<center>
-		<form method="post" action="msg_send_list.do">
-
-			
-			
+		<div class="col-lg-4">
+			<div class="panel panel-main border-0 box-shadow-none">
 				
-	<table border=0 width=1000 cellspacing=0 cellpadding=0>
+				<div class="col-lg-10" style="padding: 20px 0">
+					<div
+						class="media media-services scrollpoint sp-effect2 active animated fadeInRight"
+						style="height: 42%">
+						<div class="media-body">
+							
+								<ul>
+									<li class="padding-left-10 clear-both margin-bottom20"><i
+										class="fa fa-angle-right color_arrow margin_right fl-left"
+										aria-hidden="true"></i>
+										<h3 class="fl-left menu-board-notice text-left ">제목 :</h3>
+										<h4 class="board-text" style="width: 40%;">
+											<input type="text" class='form-control' name="msg_title"
+												size="100" style="height: 30px;" required>
+										</h4></li>
+									<li class="padding-left-10 clear-both margin-bottom20"><i
+										class="fa fa-angle-right color_arrow margin_right fl-left"
+										aria-hidden="true"></i>
+										<h3 class="fl-left menu-board-notice text-left h3-box">내용
+											:</h3>
+										<div class="board-text" style="width: 81%;">
+											<textarea class='form-control' name="msg_content"
+												style="height: 40%"></textarea>
+										</div></li>
 
-		<col width=100></col>
-		<col width=></col>
+									<li class="padding-left-10 clear-both margin-bottom20"><i
+										class="fa fa-angle-right color_arrow margin_right fl-left"
+										aria-hidden="true"></i>
+										<h3 class="fl-left menu-board-notice text-left ">받는사람 :</h3> <select
+										id="msg_receiver" class="form-control select_box_style-menu"
+										name="msg_receiver" style="width: 35%; float: left;">
+											<c:forEach var="msg" items="${list}">
+												<c:if test="${msg.mem_no!=0}">
+													<option value="${msg.s_no}">${msg.s_name}</option>
+												</c:if>
+											</c:forEach>
+									</select></li>
+								</ul>
+								<!-- Bootstrap core JavaScript -->
+								<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
+								<!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->
+								<script
+									src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+						
+							
+						</div>
+						<div class="msg-write-sentbtn " >
 
-				<tr>
-					<td height="60">제목</td>
-					<td><input type="text" class='form-control' name="msg_title" size="100" style="height:30px;"></td>
-				</tr>
+							<input type="submit" class="btn btn-board " value="전송"> <a
+								class="btn btn-download" onClick="history.back()">취소</a>
 
-				<tr>
-					<td height="60">내용</td>
-					<td><textarea class='form-control' name="msg_content" style="height:100px;"></textarea></td>
-				</tr>
-
-
-				<tr>
-					<td height="60">받는 사람</td>
-					<td>
-					
-					<select id="msg_receiver" name="msg_receiver" class="form-control col-lg-3">
-						<c:forEach var="msg" items="${list}">
-						<c:if test="${msg.mem_no!=0}">
-			    			<option value="${msg.s_no}">${msg.s_name}</option>
-			    		</c:if>
-			    		</c:forEach>
-			    		
-			    	</select>
-			    	</td>
-				</tr>
-
-</table>
-<table>
-				<tr>
-					<td colspan="2" align="center">
-					
-					<div class="form-group">
-						<input type="submit"  class="btn btn-primary btn-block m-t-md" value="전송">	
+						</div>
+							
 					</div>
-					
-					<td colspan="2" align="center">
-
-					<div class="form-group">
-						<a  type="button" class="btn btn-default btn-block m-t-md"  href="#" onClick="history.back()">취소</a>
-					</div>
-					</td>
-				</tr>
-
-			</table>
+				</div>
 
 
-
-<!-- Bootstrap core JavaScript -->
-	<script src="resources/bootstrap/vendor/jquery/jquery.min.js"></script>
-<!-- 	<script src="resources/bootstrap/vendor/popper/popper.min.js"></script> -->
-	<script src="resources/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
-	
-		</form>
-	</center>
+			</div>
+		</div>
+	</div>
+	</form>
 </body>
 </html>

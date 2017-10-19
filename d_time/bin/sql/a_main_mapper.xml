@@ -19,13 +19,13 @@ select b_no, s_name, b_type, b_title, b_content, b_date, b_count, r from
 (select a.b_no, c.s_name, a.b_type, a.b_title, a.b_content, a.b_date, a.b_count 
 from board a , member b , store c where a.mem_no = b.mem_no and b.s_no = c.s_no order by b_no desc
 )order by b_no desc)
-where r &lt;=10
+where r &lt;=11
 </select>
 
-<select id="store_1" resultType="string">
+<select id="store_1" resultType="String">
 select count(*) from store group by s_type having s_type='직영'
 </select>
-<select id="store_2" resultType="string">
+<select id="store_2" resultType="String">
 select count(*) from store group by s_type having s_type='가맹'
 </select>
 
@@ -33,17 +33,17 @@ select count(*) from store group by s_type having s_type='가맹'
 <select id="selectList" resultType="model.Sell_DTO"	parameterType="map">
 select * from (select sell.s_no, store.s_name, store.s_type, sum(sel_cost) as sel_cost from sell, store 
 where sell.s_no=store.s_no	and sel_date between to_date(#{from}, 'YYYY-MM-DD') and to_date(#{to}, 'YYYY-MM-DD') 
-group by sell.s_no, store.s_name, store.s_type order by sel_cost desc) where rownum  &lt;=3
+group by sell.s_no, store.s_name, store.s_type order by sel_cost desc) where rownum  &lt;=5
 </select>
 <!-- 최근발주내역 -->
 <select id="ordersList" resultType="model.Orders_DTO">
  select o_no, o_date, s_name, o_state, r from (select o_no, o_date, s_name, o_state , rownum r from
       (select a.o_no, a.o_date, c.s_name , a.o_state from orders a, store c where a.s_no = c.s_no and a.o_state='대기' ORDER
-      by a.o_no desc)  order by o_no desc) where r &lt;= 10
+      by a.o_no desc)  order by o_no desc) where r &lt;=7
 </select>
 
 <!-- 최근판매내역 -->
 <select id="saleList" resultType="model.Sell_DTO" parameterType="int">
-select sel_date, sel_type, sel_history, sel_cost from (select * from sell order by sel_date desc) where  s_no=#{s_no} and rownum &lt;=6
+select sel_date, sel_type, sel_history, sel_cost from (select * from sell order by sel_date desc) where  s_no=#{s_no} and rownum &lt;=4
 </select>
 </mapper>

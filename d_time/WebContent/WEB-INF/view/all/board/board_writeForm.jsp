@@ -69,7 +69,7 @@ ul {
 				</div>
 				<div class="board-notice">
 					<form method="POST" onsubmit="return summer();">
-
+						<input type=hidden name="mem_no" value="${login.mem_no}">
 						<div class="btn-3-board margin-right-num">
 							<input class="btn btn-board" type="submit" value="글쓰기"
 								style="padding: 9px 24px; font-size: 15px;" /> <input

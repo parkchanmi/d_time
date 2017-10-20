@@ -2,14 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <body>
-	<script>
-		function delete_check(n_no) {
-			if (confirm("공지를 삭제하시겠습니까??") == true) {
-				location.href = '/d_time/admin/notice/notice_delete.do?n_no='
-						+ n_no;
+	<!-- <script>
+		function delete_check(b_no,type) {
+			if (confirm("게시글을 삭제하시겠습니까??") == true) {
+				window.location='/d_time/board_delete.do?b_no='+b_no+'&type='+type';
 			}
 		}
-	</script>
+	</script> -->
 	<div class="row">
 		<div class="col-lg-12">
 			<h3 class="page-header">
@@ -43,7 +42,7 @@
 						</ul>
 					</div>
 					
-					<div class="file-box">
+					<div class="file-box" style="position:absolute; bottom:0px">
 					
 						<form method="POST">
 							<div class="comment-box fl-left">
@@ -65,7 +64,7 @@
 								<i class="fa fa-comments-o color_arrow margin_right fl-left" aria-hidden="true"></i>
 								<h3 class="fl-left menu-board-notice text-left margin-bottom0 width-8 comment-tit-text">${reviewlist.s_name}</h3>
 								<h4 class="comment-box-contents fl-left margin-right-num">${reviewlist.r_content}</h4>
-								<c:if test="${login.mem_no==reviewlist.mem_no}">
+								<c:if test="${login.mem_no==reviewlist.mem_no|| login.mem_type=='관리자'}">
 									<a href="#" class="position-ab" OnClick="window.location='/d_time/board_deletereview.do?r_no=${reviewlist.r_no}&b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">
 										<i class="fa fa-times-circle size-17px-icon delete-circle" aria-hidden="true"></i>
 									</a>
@@ -103,6 +102,8 @@
 							OnClick="window.location='/d_time/board_modifyForm.do?b_no=${board.b_no}&type=${type}&pageNum=${pageNum}'">수정</button>
 						<button class="btn btn-download"
 							OnClick="window.location='/d_time/board_delete.do?b_no=${board.b_no}&type=${type}'" style="padding:9px 14px !important;">삭제</button>
+						
+						
 						
 					</c:if>
 					

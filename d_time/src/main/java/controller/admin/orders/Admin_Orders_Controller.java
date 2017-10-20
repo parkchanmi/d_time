@@ -190,7 +190,7 @@ public class Admin_Orders_Controller {
 	@RequestMapping(value = "/store_confirm.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView orderconfirm(ModelAndView mav, int o_no, String not) {
 
-		if(not!=null) {//거절
+		if(not!=null) {//반려
 			ordao.orderstateupdate_not(o_no);
 			List<Store_DTO> stlist = stdao.storelist();
 			mav.addObject("storelist", stlist);

@@ -83,7 +83,7 @@ var list_sel = new Array();
 					<strong><span style="color: #5c7c97"><i
 							class="fa fa-desktop"></i></span> 매장 </strong>
 				</div>
-				<div class="admin_area">
+				<div class="admin_area" style="height:21% !important; padding:65px 20px !important">
 					<dl>
 						<dt>
 							<a href="/d_time/store_list.do?type=zik"><i
@@ -164,7 +164,8 @@ var list_sel = new Array();
 			<div class="panel-heading">
 					<strong> <span style="color: #5c7c97"> <i
 							class="fa fa-area-chart"></i>
-					</span> 월매출 순위</strong></div>
+					</span> 월매출 순위</strong><a class="plus" href="/d_time/sale.do"><i
+						class="fa fa-plus"></i></a></div>
 				<!-- <i class="fa fa-check-circle-o fa-2x" style="color: #424242"
 					aria-hidden="true"></i>
 				<h3 class="store_title" style="font-size: 20px; font-weight: 600">

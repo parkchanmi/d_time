@@ -29,7 +29,7 @@
 			</div>
 
 			<!-- /.col-lg-12 -->
-			<div class="col-lg-12">
+			<div class="col-lg-11">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<form action="sale.do" method="POST">
@@ -78,28 +78,30 @@
 }
 
 .scrolltbody th:nth-of-type(1), .scrolltbody td:nth-of-type(1) {
-	width: 300px;
+	width: 350px;
 }
 
 .scrolltbody th:nth-of-type(2), .scrolltbody td:nth-of-type(2) {
-	width: 300px;
+	width: 350px;
 }
 
 .scrolltbody th:last-child {
-	width: 300px;
+	width: 350px;
 }
 
 .scrolltbody td:last-child {
-	width: 300px;
+	width: 350px;
 }
 </style>
 
-					<table class="table table-striped table-hover table-bordered_tB scrolltbody">
+					<table class="table table-striped table-hover table-bordered_tB scrolltbody" width="100%">
 						<thead>
 							<tr>
 								<th>지점명</th>
 								<th>구분</th>
 								<th>기간 매출</th>
+								<td></td>
+								<td></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -108,6 +110,8 @@
 										<td>${list.s_name}</td>
 										<td>${list.s_type}</td>
 										<td><fmt:formatNumber value="${list.sel_cost}" pattern="#,###"/>원</td>
+										<td></td>
+										<td></td>
 									</tr>
 								</c:forEach>
 						</tbody>

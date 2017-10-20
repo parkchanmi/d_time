@@ -157,7 +157,7 @@ function menu_recipe(){
 										class="fl_right margin-right-num ">+</a>
 								</h3> -->
 						</div>
-							<table class="table-sell table table-striped table-hover table-bordered_tB font-size-15" id="cal_table">
+							<table class="table-sell table table-striped table-hover table-bordered_tB font-size-15" id="cal_table" style="height:67% !important">
 								<thead>
 									<tr>
 										<th width=10% class="border-top-bot">No</th>

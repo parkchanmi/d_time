@@ -171,10 +171,13 @@ function now_stock(s_no){
 								class="btn btn-board">승인</a>
 							<a
 								href="store_confirm.do?not=1&o_no=${orderdto.o_no}&s_no=${orderdto.s_no}"
-								class="btn btn-download" style="padding: 9px 14px !important;">거절</a>
+								class="btn btn-download" style="padding: 9px 14px !important;">반려</a>
 						</c:if>
 						<c:if test="${orderdto.o_state=='승인'}">
-							<a class="btn btn-board">승인완료</a>
+							<a class="btn btn-board" onClick="history.back()">목록으로</a>
+						</c:if>
+						<c:if test="${orderdto.o_state=='반려'}">
+							<a class="btn btn-board" onClick="history.back()">목록으로</a>
 						</c:if>
 						</div>
 					</div>

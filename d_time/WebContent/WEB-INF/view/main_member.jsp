@@ -88,15 +88,15 @@ color:#000 !important;
 					<strong><span style="color: #5c7c97"><i
 							class="fa fa-user"></i></span>회원</strong>
 				</div>
-				<div class="info_area">
+				<div class="info_area" style="padding:100px 40px !important">
 					<dl>
 						<dt>
 							<i class="fa fa-user-circle-o fa-4x" aria-hidden="true"></i>
 						</dt>
 						<dd>
-							<span style="margin-right: 10px;">[Cafe. CiCHA]</span>ID:${mem_id}<a
+							<span style="margin-right: 10px;">[Cafe. CiCHA]</span><br><h5>ID:${mem_id}</h5><!-- <a
 								href=""><i class="fa fa-pencil-square-o vertical-bottom"></i></a>
-						</dd>
+						</dd> -->
 					</dl>
 				</div>
 				<!-- <div class="panel-info-footer text-center"
@@ -193,7 +193,9 @@ color:#000 !important;
 			<div class="panel-heading">
 					<strong> <span style="color: #5c7c97"> <i
 							class="fa fa-area-chart"></i>
-					</span> 월매출 순위</strong></div>
+					</span> 월매출 순위</strong><a class="plus" href="/d_time/saleMem.do?s_no=${login.s_no }"><i
+						class="fa fa-plus"></i></a>
+					</div>
 				<!-- <i class="fa fa-check-circle-o fa-2x" style="color: #424242"
 					aria-hidden="true"></i>
 				<h3 class="store_title" style="font-size: 20px; font-weight: 600">

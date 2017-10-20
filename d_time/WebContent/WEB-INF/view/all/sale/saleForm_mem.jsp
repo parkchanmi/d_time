@@ -28,7 +28,7 @@
 	</div>
 
 	<!-- /.col-lg-12 -->
-	<div class="col-lg-7.5">
+	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<form action="saleMem.do" method="POST">

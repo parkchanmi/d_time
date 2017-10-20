@@ -35,7 +35,7 @@ function delete_check(n_no){
 							</li>
 						</ul>
 						<c:if test="${ndto.f_no!=0}">
-							<div class="file-box">
+							<div class="file-box" style="position:absolute; bottom:0px">
 								<div class="file-box-title fl-left">
 									<i class="fa fa-angle-right color_arrow margin_right fl-left" aria-hidden="true"></i>
 									<h3 class="fl-left menu-board-notice text-left margin-bottom0">첨부파일 : </h3>

@@ -19,6 +19,13 @@
 				<i class="fa fa-th-large"></i>보낸 쪽지함
 			</h3>
 		</div>
+	<div class="col-lg-12 margin-bottom20">
+		<a class="write-btn-css btn btn-confirm-blue" style="float: right;"
+			href="/d_time/msg_writeForm.do">쪽지쓰기<i
+			class="fa fa-pencil-square-o color-write" aria-hidden="true"></i></a>
+	</div>
+
+
 
 		<div class="col-lg-12">
 			<div class="panel-body">
